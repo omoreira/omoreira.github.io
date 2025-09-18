@@ -1,0 +1,383 @@
+/* Base + Landing Header (merged) */
+
+/* Base */
+*, *:after, *:before { -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+/* Theme tokens */
+:root {
+    --midnight: #0b132b;
+    --midnight-soft: #1a2340;
+    --sand: #f5ede1;
+    --crimson: #dc143c;
+    --red: #d32f2f;
+    --silver: #dfe3e6;
+    --ink: #23272a;
+    --textLight: #eef2f6;
+    --offwhite: #f6f8fb;
+    --pale-blue: #eaf2ff;
+    --heading-color: var(--red);
+    /* Nav UI tokens */
+    --nav-color: #ffffff;
+    --nav-bg: rgba(15, 18, 27, 0.5);
+    --nav-border: rgba(255, 255, 255, 0.2);
+}
+
+body {
+    background: #fff;
+    color: #383a3c;
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 1.25;
+    font-family: 'Raleway', Calibri, Arial, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+a, button {
+	outline: none;
+}
+
+a {
+	color: #566473;
+	text-decoration: none;
+}
+
+a:hover, a:focus {
+	color: #34495e;
+}
+
+section {
+    padding: 1em;
+    text-align: center;
+}
+
+/* Content sections: shared layout */
+.section-block {
+    padding: clamp(2.5rem, 4vw, 4rem) 1rem;
+}
+
+.section-block .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(1.25rem, 3vw, 2.5rem);
+    align-items: center;
+    text-align: left;
+}
+
+.section-block .section-media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0;
+}
+
+.section-block .section-media > * { margin: 0; }
+
+.section-block .section-media img {
+    display: block;
+    max-width: clamp(120px, 30vw, 260px);
+    max-height: clamp(60px, 12vw, 120px);
+    width: auto;
+    height: auto;
+    margin: 0.25rem 0 0.5rem;
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.25));
+    object-fit: contain;
+}
+
+.section-block .logo-placeholder {
+    width: clamp(120px, 30vw, 260px);
+    aspect-ratio: 1 / 1;
+    border: 2px solid currentColor;
+    opacity: 0.25;
+    border-radius: 12px;
+    margin: 0.25rem 0 0.5rem;
+}
+
+.section-block h2 {
+    margin: 0 0 0.6rem;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    color: var(--heading-color);
+}
+
+.section-block .tagline {
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    margin: 0.1rem 0 0.1rem;
+}
+
+.section-block .lead {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    opacity: 0.95;
+    margin-top: 0.1rem;
+}
+
+.section-block .section-content {
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* Alternate media/content sides every other section */
+section.section-block:nth-of-type(even) .section-media { order: 2; }
+section.section-block:nth-of-type(even) .section-content { order: 1; }
+
+/* Simple badge styling */
+.badge {
+    display: inline-block;
+    padding: 0.15em 0.5em;
+    border: 2px solid currentColor;
+    border-radius: 999px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+}
+
+/* Optional grid helper for R&D cards */
+.grid { display: grid; gap: 1rem; }
+.grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+
+@media (max-width: 900px) {
+    .section-block .section-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .section-block .section-media { align-items: center; }
+    .section-block .section-content { text-align: left; }
+}
+
+/* Section themes */
+.section-about {
+    background: var(--sand);
+    color: #2a2f33;
+}
+.section-about .badge { border-color: var(--heading-color); }
+
+.section-rnd {
+    background: #ffffff;
+    color: var(--ink);
+}
+.section-rnd .badge { border-color: var(--heading-color); }
+
+.section-openskies {
+    /* Lighter left-to-right gradient for OpenSkies (cooler tone) */
+    background: linear-gradient(90deg, var(--offwhite) 0%, var(--pale-blue) 100%);
+    color: var(--ink);
+}
+.section-openskies a { color: #566473; }
+
+.section-sam {
+    background: #ffffff;
+    color: var(--ink);
+}
+
+.section-writing {
+    background: linear-gradient(180deg, var(--sand) 0%, var(--silver) 100%);
+    color: #222;
+}
+
+/* Header */
+.large-header {
+	position: relative;
+	width: 100%;
+	background: #333;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center center;
+	z-index: 1;
+}
+
+.demo-1 .large-header {
+	background-image: url('../img/demo-1-bg.jpg');
+}
+
+.main-title {
+    position: absolute;
+    margin: 0;
+    padding: 0 1rem;
+    color: #f9f1e9;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate3d(-50%,-50%,0);
+    transform: translate3d(-50%,-50%,0);
+    font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: 0.01em;
+    font-size: clamp(2rem, 5.2vw, 3.8rem);
+    text-shadow: 0 4px 16px rgba(0,0,0,0.45);
+    max-width: min(90vw, 28ch);
+    white-space: nowrap;
+    overflow-wrap: normal;
+}
+
+.demo-1 .main-title {
+    font-size: clamp(2rem, 5.2vw, 3.8rem);
+    letter-spacing: 0.01em;
+}
+
+.main-title .thin {
+    display: block;
+    margin-top: 0.75rem;
+    font-weight: 400;
+    font-size: clamp(1.05rem, 2.4vw, 1.35rem);
+    line-height: 1.55;
+    letter-spacing: 0;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.45);
+    white-space: normal;
+}
+
+@media only screen and (max-width : 768px) {
+	.demo-1 .main-title {
+		font-size: clamp(1.75rem, 8vw, 3rem);
+	}
+}
+
+/* Nav (Codrops demo styles used in page) */
+.codrops-header {
+	margin: 0 auto;
+	padding: 2em;
+	text-align: center;
+	max-width: 900px;
+}
+
+.codrops-demos {
+	padding-top: 1em;
+	font-size: 0.8em;
+}
+
+.codrops-demos a {
+	display: inline-block;
+	margin: 0.35em 0.1em;
+	padding: 0.5em 1.2em;
+	outline: none;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 700;
+	border-radius: 2px;
+	font-size: 110%;
+	border: 2px solid transparent;
+}
+
+.codrops-demos a:hover,
+.codrops-demos a.current-demo {
+    color: inherit;
+    border-color: #383a3c;
+}
+
+/* Scroll indicator (arrow) */
+.scroll-indicator {
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #f9f1e9;
+    opacity: 0.9;
+    text-decoration: none;
+    z-index: 2;
+}
+
+.scroll-indicator svg {
+    width: 28px;
+    height: 28px;
+    stroke: currentColor;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2.5;
+    animation: floatY 2.4s ease-in-out infinite;
+}
+
+.scroll-indicator:hover,
+.scroll-indicator:focus {
+    opacity: 1;
+    transform: translateX(-50%) translateY(1px);
+}
+
+@keyframes floatY {
+    0%, 100% { transform: translateY(-2px); }
+    50% { transform: translateY(2px); }
+}
+
+/* Mobile nav (hamburger) */
+.nav-toggle {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    color: var(--nav-color);
+    background-color: var(--nav-bg);
+    border: 1px solid var(--nav-border);
+    cursor: pointer;
+    z-index: 3;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.28);
+    backdrop-filter: saturate(120%) blur(6px);
+    -webkit-backdrop-filter: saturate(120%) blur(6px);
+    transition: background-color .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.nav-toggle:focus-visible {
+    outline: 2px solid rgba(249,241,233,0.85);
+    outline-offset: 2px;
+}
+
+.nav-toggle .bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: currentColor;
+    border-radius: 1px;
+    transition: transform .25s ease, opacity .2s ease;
+}
+
+/* spacing handled by gap above */
+
+html.nav-open .nav-toggle .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+html.nav-open .nav-toggle .bar:nth-child(2) { opacity: 0; }
+html.nav-open .nav-toggle .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.site-menu[hidden] { display: none !important; }
+
+.site-menu {
+    position: fixed;
+    top: 3.25rem;
+    left: 0.75rem;
+    min-width: 220px;
+    padding: 0.5rem;
+    background: rgba(0,0,0,0.45);
+    color: #f9f1e9;
+    border-radius: 12px;
+    backdrop-filter: saturate(120%) blur(6px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    z-index: 3;
+}
+
+/* Nav color scheme when over light backgrounds */
+html.nav-scheme-light {
+    --nav-color: #1f2a44;
+    --nav-bg: rgba(255, 255, 255, 0.84);
+    --nav-border: rgba(0,0,0,0.12);
+}
+
+.site-menu ul { list-style: none; margin: 0; padding: 0; }
+.site-menu li { margin: 0; }
+.site-menu a {
+    display: block;
+    padding: 0.6rem 0.75rem;
+    color: #f9f1e9;
+    text-decoration: none;
+    border-radius: 8px;
+}
+.site-menu a:hover, .site-menu a:focus {
+    background-color: rgba(255,255,255,0.08);
+}
