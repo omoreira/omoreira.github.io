@@ -68,4 +68,37 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
+
+  // Active link highlighting based on sections in view
+  var links = Array.prototype.slice.call(menu.querySelectorAll('a[href^="#"]'));
+  var sections = links
+    .map(function(a){
+      try { return document.querySelector(a.getAttribute('href')); } catch(e) { return null; }
+    })
+    .filter(function(el){ return !!el; });
+
+  function setActive(id) {
+    links.forEach(function(a){
+      var isActive = a.getAttribute('href') === '#' + id;
+      a.classList.toggle('is-active', isActive);
+      if (isActive) { a.setAttribute('aria-current', 'location'); }
+      else { a.removeAttribute('aria-current'); }
+    });
+  }
+
+  if ('IntersectionObserver' in window && sections.length) {
+    var activeId = null;
+    var sectionObserver = new IntersectionObserver(function(entries){
+      // Pick the most visible section
+      var visible = entries
+        .filter(function(e){ return e.isIntersecting; })
+        .sort(function(a,b){ return b.intersectionRatio - a.intersectionRatio; });
+      if (visible[0]) {
+        var id = visible[0].target.id;
+        if (id !== activeId) { activeId = id; setActive(id); }
+      }
+    }, { rootMargin: '-20% 0px -60% 0px', threshold: [0, 0.2, 0.4, 0.6, 0.8, 1] });
+
+    sections.forEach(function(sec){ sectionObserver.observe(sec); });
+  }
 });

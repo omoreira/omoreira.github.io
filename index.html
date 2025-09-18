@@ -17,7 +17,8 @@
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 	</head>
-	<body>
+    <body>
+        <a class="skip-link" href="#closing-band">Skip to closing call-to-action</a>
 		<div class="container demo-1">
 			<div class="content">
 				<div id="large-header" class="large-header">
@@ -27,16 +28,17 @@
 						<span class="bar"></span>
 						<span class="bar"></span>
 					</button>
-					<nav id="site-menu" class="site-menu" aria-label="Site" hidden>
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="index3.html">Research &amp; Development</a></li>
-							<li><a href="index4.html">Science Outreach</a></li>
-							<li><a href="index4.html">Projects</a></li>
-							<li><a href="index4.html">Publications</a></li>
-							<li><a href="#about">About</a></li>
-						</ul>
-					</nav>
+                    <nav id="site-menu" class="site-menu" aria-label="Site" hidden>
+                        <ul>
+                            <li><a href="#large-header">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#projects">Research &amp; Development</a></li>
+                            <li><a href="#openskies">OM OpenSkies</a></li>
+                            <li><a href="#sam">Sam AI</a></li>
+                            <li><a href="#writing">Creative Writing</a></li>
+                            <li><a href="#connect">Connect</a></li>
+                        </ul>
+                    </nav>
 					<h1 class="main-title">Hello Stranger!<span class="thin"> <br> Welcome to my corner of the Universe.<br>
 					 A place where starlight meets code, and where silence meets signal.</span></h1>
 					<a href="#about" class="scroll-indicator" aria-label="Scroll down to About section">
@@ -45,8 +47,9 @@
 							<path d="M6 12l6 6 6-6" />
 						</svg>
 					</a>
-				</div>
-					<section id="about" class="section-about section-block">
+					</div>
+						<main id="main">
+                  <section id="about" class="section-about section-block">
 		    			<div class="section-inner">
 		      				<div class="section-media">
 		      					<div class="logo-placeholder" aria-hidden="true"></div>
@@ -61,9 +64,9 @@
 								<p>Clear and Open Skies.</p>
 		      				</div>
 		   				</div>
-	  				</section>
+					  </section>
 
-	  			<section class="section-rnd section-block">
+                  <section id="projects" class="section-rnd section-block">
 	    			<div class="section-inner">
 	      				<div class="section-media">
 		      					<div class="logo-placeholder" aria-hidden="true"></div>
@@ -79,7 +82,7 @@
 	    			</div>
 				  </section>
 
-		  <section class="section-openskies section-block">
+          <section id="openskies" class="section-openskies section-block">
 	    <div class="section-inner">
 	      <div class="section-media">
 	        <img src="img/omopenskiesw.svg" alt="OM OpenSkies" />
@@ -96,7 +99,7 @@
 	    </div>
 	  </section>
 
-	  <section class="section-sam section-block">
+          <section id="sam" class="section-sam section-block">
 	    <div class="section-inner">
 	      <div class="section-media">
 	        <img src="img/sam-ai-logo.svg" alt="Sam AI" />
@@ -111,7 +114,7 @@
 	    </div>
 	  </section>
 
-	  <section class="section-writing section-block">
+          <section id="writing" class="section-writing section-block">
 	    <div class="section-inner">
 		      <div class="section-media">
 	        <div class="logo-placeholder" aria-hidden="true"></div>
@@ -125,14 +128,61 @@
 			<p>These pieces are not therapy notes. They're craft. Raw, lyrical, and logically grounded. Meant to share a life experience and maybe, in the process, to help others feel less alone while keeping the scientific method in view.</p>
 	      </div>
 	    </div>
-	  </section>
-<section class="section-acknowledgements">		
-		Acknowledgements · AI Assistance Disclosure 
-</section>
-  <section class="section-footer" aria-label="Footer">
-	© 2024 O.M. ·
+					  </section>
 
-</section>
+  <section id="closing-band" class="closing-band" aria-labelledby="closing-title">
+    <h2 id="closing-title">Clear and open skies—together</h2>
+    <p>I build humane systems at the edge of science and AI. If you’re curious, let’s talk.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:olga.moreira@omopenskies.org">Start a conversation →</a>
+      <a class="btn" href="#projects">Explore my projects →</a>
+    </div>
+  </section>
+
+	</main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="cols">
+      <section aria-labelledby="f-about">
+        <h3 id="f-about">About</h3>
+        <p>Astrophysicist &amp; AI knowledge architect designing modular, trauma-informed tools in the Niagara region, Canada.</p>
+      </section>
+
+      <section aria-labelledby="f-projects">
+        <h3 id="f-projects">Projects</h3>
+        <ul>
+          <li><a href="#projects">GM-RKB Modular Assistant</a></li>
+          <li><a href="#projects">OM OpenSkies Initiative</a></li>
+          <li><a href="#projects">Sam AI</a></li>
+          <li><a href="#projects">Solar Physics Review</a></li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="f-standards">
+        <h3 id="f-standards">Standards</h3>
+        <ul>
+          <li><a href="/ai-assistance">AI Assistance Disclosure</a></li>
+          <li><a href="/accessibility">Accessibility</a></li>
+          <li><a href="/privacy">Privacy &amp; Terms</a></li>
+          <li><a href="/legal">Copyright &amp; Fair Dealing (Canada)</a></li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="f-connect" id="connect">
+        <h3 id="f-connect">Connect</h3>
+        <ul>
+          <li><a href="mailto:olga.moreira@omopenskies.org">olga.moreira"at"omopenskies.org</a></li>
+          <li><a href="https://www.linkedin.com/in/..." rel="me">LinkedIn</a></li>
+          <li><a href="https://github.com/..." rel="me">GitHub</a></li>
+          <li><a href="/newsletter">Newsletter</a></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="fineprint">
+      <p>© 2025 Olga Moreira • “Clear and open skies.”</p>
+    </div>
+  </footer>
   
  
 		<script src="js/TweenLite.min.js"></script>
