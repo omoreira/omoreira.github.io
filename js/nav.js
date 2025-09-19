@@ -3,6 +3,27 @@ document.addEventListener('DOMContentLoaded', function () {
   var menu = document.getElementById('site-menu');
   var root = document.documentElement;
   var header = document.getElementById('large-header');
+  var backTop = document.querySelector('.back-to-top');
+  var nextBtn = document.querySelector('.next-section');
+  var orderedSections = [
+    document.getElementById('large-header'),
+    document.getElementById('about'),
+    document.getElementById('projects'),
+    document.getElementById('openskies'),
+    document.getElementById('sam'),
+    document.getElementById('writing'),
+    document.getElementById('closing-band')
+  ].filter(Boolean);
+  // Next scroll excludes footer only; allows navigating into closing-band but not from it
+  var orderedNext = [
+    document.getElementById('large-header'),
+    document.getElementById('about'),
+    document.getElementById('projects'),
+    document.getElementById('openskies'),
+    document.getElementById('sam'),
+    document.getElementById('writing'),
+    document.getElementById('closing-band')
+  ].filter(Boolean);
 
   if (!toggle || !menu) return;
 
@@ -65,6 +86,100 @@ document.addEventListener('DOMContentLoaded', function () {
         root.classList.add('nav-scheme-light');
       } else {
         root.classList.remove('nav-scheme-light');
+      }
+    });
+  }
+
+  // Back to top visibility
+  function updateBackTop() {
+    if (!backTop) return;
+    var y = window.scrollY || window.pageYOffset;
+    if (y > (window.innerHeight * 0.75)) {
+      backTop.classList.add('visible');
+    } else {
+      backTop.classList.remove('visible');
+    }
+  }
+  updateBackTop();
+  window.addEventListener('scroll', updateBackTop, { passive: true });
+
+  function updateNextBtn() {
+    if (!nextBtn || !orderedNext.length) return;
+    var y = window.scrollY || window.pageYOffset || 0;
+    // Compute tops
+    var tops = orderedNext.map(function (el) {
+      var r = el.getBoundingClientRect();
+      return r.top + (window.scrollY || window.pageYOffset || 0);
+    });
+    // Find current index (last whose top <= y + tolerance)
+    var tolerance = 4;
+    var currentIdx = 0;
+    for (var i = 0; i < tops.length; i++) {
+      if (tops[i] <= y + tolerance) currentIdx = i;
+    }
+    var atFirst = currentIdx === 0;            // first is hero
+    var atLast = currentIdx >= tops.length - 1; // last is closing-band
+    if (atLast || atFirst) {
+      nextBtn.classList.remove('visible');
+    } else {
+      nextBtn.classList.add('visible');
+    }
+  }
+  updateNextBtn();
+  window.addEventListener('scroll', updateNextBtn, { passive: true });
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function (e) {
+      if (!orderedNext.length) return;
+      e.preventDefault();
+      var y = window.scrollY || window.pageYOffset || 0;
+      var tops = orderedNext.map(function (el) {
+        var r = el.getBoundingClientRect();
+        return r.top + (window.scrollY || window.pageYOffset || 0);
+      });
+      var tolerance = 4;
+      var currentIdx = 0;
+      for (var i = 0; i < tops.length; i++) {
+        if (tops[i] <= y + tolerance) currentIdx = i;
+      }
+      var targetIdx = Math.min(orderedNext.length - 1, currentIdx + 1);
+      var targetEl = orderedNext[targetIdx];
+      if (targetEl && typeof targetEl.scrollIntoView === 'function') {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else if (tops[targetIdx] !== undefined) {
+        window.scrollTo({ top: tops[targetIdx], behavior: 'smooth' });
+      }
+    });
+  }
+
+  // Back-to-top: scroll to previous section instead of absolute top
+  if (backTop) {
+    backTop.addEventListener('click', function (e) {
+      // If no sections, fallback to default behavior
+      if (!orderedSections.length) return;
+      e.preventDefault();
+
+      var currentY = window.scrollY || window.pageYOffset || 0;
+      // Compute absolute tops for each section
+      var tops = orderedSections.map(function (el) {
+        var rect = el.getBoundingClientRect();
+        return rect.top + (window.scrollY || window.pageYOffset || 0);
+      });
+
+      // Find current section index as the last whose top <= currentY + tolerance
+      var tolerance = 4;
+      var currentIdx = 0;
+      for (var i = 0; i < tops.length; i++) {
+        if (tops[i] <= currentY + tolerance) currentIdx = i;
+      }
+      var targetIdx = Math.max(0, currentIdx - 1);
+
+      // Smooth scroll to target section
+      var targetEl = orderedSections[targetIdx];
+      if (targetEl && typeof targetEl.scrollIntoView === 'function') {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else if (tops[targetIdx] !== undefined) {
+        window.scrollTo({ top: tops[targetIdx], behavior: 'smooth' });
       }
     });
   }

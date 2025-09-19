@@ -11,6 +11,7 @@
 		<link rel="shortcut icon" href="../favicon.ico">
 		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="css/om-landing.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
 		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;800&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
 		<!--[if IE]>
@@ -30,7 +31,6 @@
 					</button>
                     <nav id="site-menu" class="site-menu" aria-label="Site" hidden>
                         <ul>
-                            <li><a href="#large-header">Home</a></li>
                             <li><a href="#about">About</a></li>
                             <li><a href="#projects">Research &amp; Development</a></li>
                             <li><a href="#openskies">OM OpenSkies</a></li>
@@ -50,12 +50,29 @@
 					</div>
 						<main id="main">
                   <section id="about" class="section-about section-block">
-		    			<div class="section-inner">
+                    <div class="section-inner">
 		      				<div class="section-media">
 		      					<img src="img/omoreira.png" alt="OM OpenSkies" />
 		      					<p class="tagline">Astrophysicist & AI Knowledge Architect</p>
-		      					<p class="lead">Scalable Insights from Complex Data <br> Open Science Advocate</p>
-		      				</div>
+                    <p class="lead">Scalable Insights from Complex Data <br> Open Science Advocate</p>
+                    <div class="social-row" aria-label="Profiles">
+                      <a class="social-btn" href="https://github.com/omoreira" target="_blank" rel="me noopener noreferrer" aria-label="GitHub">
+                        <i class="fa-brands fa-github" aria-hidden="true"></i>
+                      </a>
+                      <a class="social-btn" href="https://www.linkedin.com/in/omsome/" target="_blank" rel="me noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+                      </a>
+                      <a class="social-btn" href="https://orcid.org/0000-0001-6287-2953" target="_blank" rel="me noopener noreferrer" aria-label="ORCID">
+                        <i class="fa-brands fa-orcid" aria-hidden="true"></i>
+                      </a>
+                      <a class="social-btn" href="https://independent.academia.edu/OMoreira" target="_blank" rel="me noopener noreferrer" aria-label="Academia.edu">
+                        <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+                      </a>
+                      <a class="social-btn" href="https://www.credly.com/users/olga-moreira/" target="_blank" rel="me noopener noreferrer" aria-label="Credly">
+                        <i class="fa-solid fa-award" aria-hidden="true"></i>
+                      </a>
+                    </div>
+                  </div>
 		      				<div class="section-content">
 		      					<h2>About Me</h2>
 		      					<p>Hi! I'm Olga Moreira, an astrophysicist and AI knowledge architect. I build humane, modular systems where starlight meets code and compassion steers the method. My work ranges from asteroseismology and solar physics to semantic systems for machine-learning knowledge bases. I hold a PhD from the University of Liege and a BSc in Physics & Applied Mathematics (Astronomy) from the University of Porto, and I’ve worked with ESA and ESO. Based in the Niagara region, I design instruction-driven, auditable AI workflows and science-communication projects.</p>
@@ -64,14 +81,26 @@
 								<p>Clear and Open Skies.</p>
 		      				</div>
 		   				</div>
-					  </section>
+                    </div>
+                  </section>
 
                   <section id="projects" class="section-rnd section-block">
-	    			<div class="section-inner">
+                    <div class="section-inner">
 	      				<div class="section-media">
 		      					<div class="logo-placeholder" aria-hidden="true"></div>
 	      					<p class="tagline">Independent Portfolio</p>
 								<p class="lead">Building modular, trauma-informed AI systems.<br> Research at the intersection of starlight and code.</p>
+	                        <div class="social-row" aria-label="Work platforms">
+	                          <a class="social-btn" href="#" aria-label="Upwork">
+	                            <i class="fa-brands fa-upwork" aria-hidden="true"></i>
+	                          </a>
+	                          <a class="social-btn" href="#" aria-label="Catalant">
+	                            <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
+	                          </a>
+	                          <a class="social-btn" href="#" aria-label="Mercor">
+	                            <i class="fa-solid fa-code" aria-hidden="true"></i>
+	                          </a>
+	                        </div>
 	      				</div>
 	      				<div class="section-content">
 	      					<h2>Research &amp; Development</h2>
@@ -80,10 +109,11 @@
 								<li><strong>Solar physics</strong> — I'm drafting a pedagogical review, <em>From SOHO to Solar Orbiter: 25 Years of Solar MHD</em>, connecting missions, simulations, and the next wave of data-driven models.</li>
 	      				</div>
 	    			</div>
-				  </section>
+                    </div>
+                  </section>
 
           <section id="openskies" class="section-openskies section-block">
-	    <div class="section-inner">
+            <div class="section-inner">
 	      <div class="section-media">
 	        <img src="img/omopenskiesw.svg" alt="OM OpenSkies" />
 			<p class="tagline"><strong>Making science accessible, compassionate, and inclusive.</strong></p>
@@ -97,10 +127,11 @@
 			<p>We're seeking seed support, fiscal hosting, and collaborator-advisors to bring the pilot to life. <!-- text -->
 	      </div>
 	    </div>
-	  </section>
+            </div>
+          </section>
 
           <section id="sam" class="section-sam section-block">
-	    <div class="section-inner">
+            <div class="section-inner">
 	      <div class="section-media">
 	        <img src="img/sam-ai-logo.svg" alt="Sam AI" />
 	        <p class="tagline"><strong>Smart. Soft. Structured.</strong></p>
@@ -112,7 +143,8 @@
 			<p>Current milestones: core architecture and portable memory are working; an open-core release and mobile UI are on the roadmap.</p>
 	      </div>
 	    </div>
-	  </section>
+            </div>
+          </section>
 
           <section id="writing" class="section-writing section-block">
 	    <div class="section-inner">
@@ -183,6 +215,20 @@
       <p>© 2025 Olga Moreira • “Clear and open skies.”</p>
     </div>
   </footer>
+
+  <a href="#large-header" class="back-to-top" aria-label="Previous section">
+    <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+      <path d="M6 15l6-6 6 6" />
+      <path d="M6 11l6-6 6 6" />
+    </svg>
+  </a>
+
+  <a href="#about" class="next-section" aria-label="Next section">
+    <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+      <path d="M6 7l6 6 6-6" />
+      <path d="M6 12l6 6 6-6" />
+    </svg>
+  </a>
   
  
 		<script src="js/TweenLite.min.js"></script>
