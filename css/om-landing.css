@@ -90,6 +90,15 @@ section {
     object-fit: contain;
 }
 
+/* Larger portrait in About section; keep proportions */
+.section-about .section-media img {
+    max-width: clamp(180px, 32vw, 340px);
+    max-height: clamp(140px, 24vw, 260px);
+}
+
+/* Hide placeholder when About section has a real photo */
+.section-about .logo-placeholder { display: none; }
+
 .section-block .logo-placeholder {
     width: clamp(120px, 30vw, 260px);
     aspect-ratio: 1 / 1;

@@ -52,7 +52,7 @@
                   <section id="about" class="section-about section-block">
 		    			<div class="section-inner">
 		      				<div class="section-media">
-		      					<img src="img/omoreira.png" alt="OM OpenSkies" />
+		      					<div class="logo-placeholder" aria-hidden="true"></div>
 		      					<p class="tagline">Astrophysicist & AI Knowledge Architect</p>
 		      					<p class="lead">Scalable Insights from Complex Data <br> Open Science Advocate</p>
 		      				</div>
@@ -171,7 +171,7 @@
       <section aria-labelledby="f-connect" id="connect">
         <h3 id="f-connect">Connect</h3>
         <ul>
-          <li><a href="mailto:olga.moreira@omopenskies.org">Email</a></li>
+          <li><a href="mailto:olga.moreira@omopenskies.org">olga.moreira"at"omopenskies.org</a></li>
           <li><a href="https://www.linkedin.com/in/..." rel="me">LinkedIn</a></li>
           <li><a href="https://github.com/..." rel="me">GitHub</a></li>
           <li><a href="/newsletter">Newsletter</a></li>
