@@ -94,14 +94,37 @@ document.addEventListener('DOMContentLoaded', function () {
   function updateBackTop() {
     if (!backTop) return;
     var y = window.scrollY || window.pageYOffset;
+    // Visibility
     if (y > (window.innerHeight * 0.75)) {
       backTop.classList.add('visible');
     } else {
       backTop.classList.remove('visible');
     }
+
+    // Mode: when in or past the closing band (or near page bottom), make it jump to top
+    var toTop = false;
+    if (orderedSections.length) {
+      var tops = orderedSections.map(function (el) {
+        var r = el.getBoundingClientRect();
+        return r.top + (window.scrollY || window.pageYOffset || 0);
+      });
+      var closingIdx = tops.length - 1; // closing-band is last in our list
+      var tolerance = 4;
+      // If scrolled past closing-band top, or near document bottom
+      var atOrPastClosing = y + tolerance >= tops[closingIdx];
+      var nearBottom = (y + window.innerHeight) >= (document.documentElement.scrollHeight - 2);
+      toTop = atOrPastClosing || nearBottom;
+    }
+    backTop.classList.toggle('to-top', toTop);
+    backTop.setAttribute('aria-label', toTop ? 'Back to top' : 'Previous section');
   }
   updateBackTop();
   window.addEventListener('scroll', updateBackTop, { passive: true });
+
+  // Blur-up header: mark header as loaded after window load to fade overlay
+  window.addEventListener('load', function(){
+    if (header) header.classList.add('bg-loaded');
+  });
 
   function updateNextBtn() {
     if (!nextBtn || !orderedNext.length) return;
@@ -172,7 +195,9 @@ document.addEventListener('DOMContentLoaded', function () {
       for (var i = 0; i < tops.length; i++) {
         if (tops[i] <= currentY + tolerance) currentIdx = i;
       }
-      var targetIdx = Math.max(0, currentIdx - 1);
+      var closingIdx = tops.length - 1;
+      var toTop = backTop.classList.contains('to-top') || currentIdx >= closingIdx;
+      var targetIdx = toTop ? 0 : Math.max(0, currentIdx - 1);
 
       // Smooth scroll to target section
       var targetEl = orderedSections[targetIdx];

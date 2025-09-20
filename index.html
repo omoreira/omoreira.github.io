@@ -8,7 +8,12 @@
 		<meta name="description" content="O.M. Landing page " />
 		<meta name="keywords" content="header, canvas, animated, creative, inspiration, javascript" />
 		<meta name="author" content="Olga" />
-		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="icon" type="image/svg+xml" href="img/OM.svg">
+		<link rel="icon" type="image/png" sizes="16x16" href="img/OM-16.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="img/OM-32.png">
+		<link rel="icon" type="image/png" sizes="192x192" href="img/OM.png">
+		<link rel="apple-touch-icon" href="img/OM.png">
+		<link rel="mask-icon" href="img/OM.svg" color="#dc143c">
 		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="css/om-landing.css" />
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
@@ -20,8 +25,6 @@
 	</head>
     <body>
         <a class="skip-link" href="#closing-band">Skip to closing call-to-action</a>
-		<div class="container demo-1">
-			<div class="content">
 				<div id="large-header" class="large-header">
 					<canvas id="demo-canvas"></canvas>
 					<button class="nav-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
@@ -48,7 +51,7 @@
 						</svg>
 					</a>
 					</div>
-						<main id="main">
+					<main id="main">
                   <section id="about" class="section-about section-block">
                     <div class="section-inner">
 		      				<div class="section-media">
@@ -105,7 +108,8 @@
 	      				<div class="section-content">
 	      					<h2>Research &amp; Development</h2>
 	    						<p>Two threads braid my R&D:</p>
-								<li><strong>Semantic systems</strong> — As GM-RKB's modular editorial architect, I design taxonomies and instruction sets that make AI-assisted curation reliable, explainable, and fast. Outcomes: tighter retrieval, auditable edits, and human-centered clarity at scale. If your team lives at the edge of science and AI, I’d love to compare notes.</li>
+								<li><strong>Semantic systems</strong> — As GM-RKB's modular editorial architect, I design taxonomies and instruction sets that make AI-assisted curation reliable, explainable, and fast. </p>
+									<p>Outcomes: tighter retrieval, auditable edits, and human-centered clarity at scale. If your team lives at the edge of science and AI, I’d love to compare notes.</li>
 								<li><strong>Solar physics</strong> — I'm drafting a pedagogical review, <em>From SOHO to Solar Orbiter: 25 Years of Solar MHD</em>, connecting missions, simulations, and the next wave of data-driven models.</li>
 	      				</div>
 	    			</div>
@@ -114,9 +118,12 @@
 
           <section id="openskies" class="section-openskies section-block">
             <div class="section-inner">
-	      <div class="section-media">
-	        <img src="img/omopenskiesw.svg" alt="OM OpenSkies" />
-			<p class="tagline"><strong>Making science accessible, compassionate, and inclusive.</strong></p>
+      <div class="section-media">
+        <picture>
+          <source type="image/svg+xml" srcset="img/omopenskiesw.svg">
+          <img src="img/omopenskiesw.png" alt="OM OpenSkies" />
+        </picture>
+        <p class="tagline"><strong>Making science accessible, compassionate, and inclusive.</strong></p>
 			<p class="lead">Because critical thinking is a right, not a privilege.</p>
 	       
 	      </div>
@@ -132,9 +139,12 @@
 
           <section id="sam" class="section-sam section-block">
             <div class="section-inner">
-	      <div class="section-media">
-	        <img src="img/sam-ai-logo.svg" alt="Sam AI" />
-	        <p class="tagline"><strong>Smart. Soft. Structured.</strong></p>
+      <div class="section-media">
+        <picture>
+          <source type="image/svg+xml" srcset="img/sam-ai-logo.svg">
+          <img src="img/sam-ai-logo.png" alt="Sam AI" />
+        </picture>
+        <p class="tagline"><strong>Smart. Soft. Structured.</strong></p>
 	        <p class="lead">Trauma-aware. Thoughtfully Modular.</p>
 	      </div>
 	      <div class="section-content">
@@ -164,15 +174,14 @@
 
   <section id="closing-band" class="closing-band" aria-labelledby="closing-title">
     <h2 id="closing-title">Clear and open skies—together</h2>
-    <p>I build humane systems at the edge of science and AI. If you’re curious, let’s talk.</p>
+    <p>I build humane systems at the edge of science and AI. If you're curious, let's talk.</p>
     <div class="cta-row">
-      <a class="btn" href="mailto:olga.moreira@omopenskies.org">Start a conversation →</a>
-      <a class="btn" href="#projects">Explore my projects →</a>
+      <a class="btn" href="mailto:olga.moreira@omopenskies.org">Start a conversation</a>
+      <a class="btn" href="#projects">Explore my projects</a>
     </div>
   </section>
 
 	</main>
-
   <footer class="site-footer" role="contentinfo">
     <div class="cols">
       <section aria-labelledby="f-about">
@@ -218,8 +227,13 @@
 
   <a href="#large-header" class="back-to-top" aria-label="Previous section">
     <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-      <path d="M6 15l6-6 6 6" />
-      <path d="M6 11l6-6 6 6" />
+      <g class="icon-prev">
+        <path d="M6 15l6-6 6 6" />
+        <path d="M6 11l6-6 6 6" />
+      </g>
+      <g class="icon-top">
+        <path d="M6 15l6-6 6 6" />
+      </g>
     </svg>
   </a>
 
@@ -231,10 +245,10 @@
   </a>
   
  
-		<script src="js/TweenLite.min.js"></script>
-		<script src="js/EasePack.min.js"></script>
-		<script src="js/rAF.js"></script>
-			<script src="js/om-landing.js"></script>
-			<script src="js/nav.js"></script>
+        <script src="js/TweenLite.min.js" defer></script>
+        <script src="js/EasePack.min.js" defer></script>
+        <script src="js/rAF.js" defer></script>
+        <script src="js/om-landing.js" defer></script>
+        <script src="js/nav.js" defer></script>
 		</body>
 	</html>

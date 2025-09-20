@@ -91,6 +91,8 @@ section {
     object-fit: contain;
 }
 
+.section-block .section-media picture { display: block; }
+
 /* Larger portrait in About section; keep proportions */
 .section-about .section-media img {
     max-width: clamp(180px, 32vw, 340px);
@@ -194,19 +196,7 @@ section {
 section.section-block:nth-of-type(even) .section-media { order: 2; }
 section.section-block:nth-of-type(even) .section-content { order: 1; }
 
-/* Simple badge styling */
-.badge {
-    display: inline-block;
-    padding: 0.15em 0.5em;
-    border: 2px solid currentColor;
-    border-radius: 999px;
-    font-weight: 800;
-    letter-spacing: 0.06em;
-}
 
-/* Optional grid helper for R&D cards */
-.grid { display: grid; gap: 1rem; }
-.grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
 
 @media (max-width: 900px) {
     .section-block .section-inner {
@@ -222,13 +212,11 @@ section.section-block:nth-of-type(even) .section-content { order: 1; }
     background: var(--sand);
     color: #2a2f33;
 }
-.section-about .badge { border-color: var(--heading-color); }
 
 .section-rnd {
     background: #ffffff;
     color: var(--ink);
 }
-.section-rnd .badge { border-color: var(--heading-color); }
 
 .section-openskies {
     /* Lighter left-to-right gradient for OpenSkies (cooler tone) */
@@ -249,17 +237,48 @@ section.section-block:nth-of-type(even) .section-content { order: 1; }
 
 /* Header */
 .large-header {
-	position: relative;
-	width: 100%;
-	background: #333;
-	overflow: hidden;
-	background-size: cover;
-	background-position: center center;
-	z-index: 1;
+    position: relative;
+    width: 100%;
+    background: #333;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+    z-index: 1;
+    /* Fallback first for older browsers */
+    background-image: url('../img/om-header.png');
+    /* Prefer modern WebP with PNG fallback, include 2x for high-DPI */
+    background-image: -webkit-image-set(
+        url('../img/om-header.webp') type('image/webp') 1x,
+        url('../img/om-header4K.webp') type('image/webp') 2x,
+        url('../img/om-header.png') type('image/png') 1x,
+        url('../img/om-header4K.png') type('image/png') 2x
+    );
+    background-image: image-set(
+        url('../img/om-header.webp') type('image/webp') 1x,
+        url('../img/om-header4K.webp') type('image/webp') 2x,
+        url('../img/om-header.png') type('image/png') 1x,
+        url('../img/om-header4K.png') type('image/png') 2x
+    );
 }
 
-.demo-1 .large-header {
-	background-image: url('../img/demo-1-bg.jpg');
+/* Progressive blur-up placeholder over the header background */
+.large-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('../img/om-header.webp');
+    background-size: cover;
+    background-position: center;
+    filter: blur(16px);
+    transform: scale(1.06); /* avoid edge transparency from blur */
+    opacity: 1;
+    transition: opacity 600ms ease;
+    z-index: 0;
+}
+
+/* Once the page is ready, fade out the blurred overlay */
+.large-header.bg-loaded::before {
+    opacity: 0;
 }
 
 .main-title {
@@ -283,10 +302,6 @@ section.section-block:nth-of-type(even) .section-content { order: 1; }
     overflow-wrap: normal;
 }
 
-.demo-1 .main-title {
-    font-size: clamp(2rem, 5.2vw, 3.8rem);
-    letter-spacing: 0.01em;
-}
 
 .main-title .thin {
     display: block;
@@ -299,44 +314,7 @@ section.section-block:nth-of-type(even) .section-content { order: 1; }
     white-space: normal;
 }
 
-@media only screen and (max-width : 768px) {
-	.demo-1 .main-title {
-		font-size: clamp(1.75rem, 8vw, 3rem);
-	}
-}
 
-/* Nav (Codrops demo styles used in page) */
-.codrops-header {
-	margin: 0 auto;
-	padding: 2em;
-	text-align: center;
-	max-width: 900px;
-}
-
-.codrops-demos {
-	padding-top: 1em;
-	font-size: 0.8em;
-}
-
-.codrops-demos a {
-	display: inline-block;
-	margin: 0.35em 0.1em;
-	padding: 0.5em 1.2em;
-	outline: none;
-	text-decoration: none;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	font-weight: 700;
-	border-radius: 2px;
-	font-size: 110%;
-	border: 2px solid transparent;
-}
-
-.codrops-demos a:hover,
-.codrops-demos a.current-demo {
-    color: inherit;
-    border-color: #383a3c;
-}
 
 /* Scroll indicator (arrow) */
 .scroll-indicator {
@@ -599,6 +577,19 @@ html.nav-scheme-light {
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke-width: 2.5;
+}
+.back-to-top svg .icon-top { display: none; }
+
+/* Distinct style when acting as Back to top (keeps double chevrons) */
+.back-to-top.to-top {
+    background-color: var(--cta-color);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25), 0 0 0 2px rgba(255,255,255,0.18) inset;
+}
+.back-to-top.to-top:hover,
+.back-to-top.to-top:focus {
+    background-color: var(--cta-hover);
 }
 .back-to-top.visible {
     opacity: 1;
