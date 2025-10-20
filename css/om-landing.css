@@ -95,14 +95,57 @@ section {
 
 /* Data Visualization image: similar to other logo sizing */
 .section-dataviz .section-media img {
-    max-width: clamp(150px, 24vw, 280px);
-    max-height: clamp(90px, 18vw, 180px);
+    max-width: clamp(180px, 32vw, 340px);
+    max-height: clamp(140px, 24vw, 260px);
+}
+/* Ensure the hover container grows to target size */
+.section-dataviz .dataviz-anim {
+    width: clamp(180px, 32vw, 340px);
+    display: block;
+    margin: 0 auto 0.5rem;
+    transform: translateX(8px);
+}
+
+/* Keep tagline/lead the same width as the visual for perfect centering */
+.section-dataviz .section-media .tagline,
+.section-dataviz .section-media .lead {
+    /* revert to default centering rules */
+}
+/* Constrain the entire media column to a fixed width and center it */
+/* use grid defaults; no fixed width on media column */
+
+/* Hover to animate: stack static and GIF, fade on hover */
+.dataviz-anim {
+    position: relative;
+    display: inline-block;
+}
+.dataviz-anim img { display: block; max-width: 100%; height: auto; }
+.dataviz-anim .anim {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    transition: opacity .25s ease;
+}
+.dataviz-anim:hover .anim,
+.dataviz-anim:focus-within .anim {
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dataviz-anim .anim { display: none; }
+}
+
+/* Reset the slight right shift on narrow screens */
+@media (max-width: 600px) {
+  .section-dataviz .dataviz-anim { transform: none; }
 }
 
 /* Writing image: similar scale to OpenSkies */
 .section-writing .section-media img {
-    max-width: clamp(220px, 36vw, 420px);
-    max-height: clamp(160px, 28vw, 320px);
+    max-width: clamp(180px, 28vw, 340px);
+    max-height: clamp(140px, 22vw, 260px);
 }
 
 /* Larger portrait in About section; keep proportions */
@@ -123,13 +166,7 @@ section {
     max-height: clamp(90px, 18vw, 180px);
 }
 
-/* Writing logo: match general section logo sizing (square-friendly) */
-.section-writing .section-media img {
-    max-width: clamp(120px, 30vw, 260px);
-    max-height: clamp(60px, 12vw, 120px);
-    width: auto;
-    height: auto;
-}
+
 
 /* Hide placeholder when About section has a real photo */
 .section-about .logo-placeholder { display: none; }
