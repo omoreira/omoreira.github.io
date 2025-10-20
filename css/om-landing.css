@@ -8,6 +8,7 @@
     --midnight: #0b132b;
     --midnight-soft: #1a2340;
     --sand: #f5ede1;
+    --sand-light: #fbf3e6;
     --crimson: #dc143c;
     --red: #d32f2f;
     --silver: #dfe3e6;
@@ -102,8 +103,14 @@ section {
 .section-dataviz .dataviz-anim {
     width: clamp(180px, 32vw, 340px);
     display: block;
-    margin: 0 auto 0.5rem;
-    transform: translateX(8px);
+    margin: 0 0 0.5rem 0;
+    align-self: flex-end;   /* push visual toward the right inside media column */
+    margin-left: auto;      /* ensure rightward alignment */
+    transform: translateX(-4px); /* tiny nudge left */
+}
+
+@media (max-width: 600px) {
+  .section-dataviz .dataviz-anim { transform: none; }
 }
 
 /* Keep tagline/lead the same width as the visual for perfect centering */
@@ -287,6 +294,13 @@ section.section-block:nth-of-type(even) .section-content { order: 1; }
     color: var(--ink);
 }
 
+/* Data Visualization: distinct cool light gradient */
+.section-dataviz {
+    /* Light sand tint for a warm, distinct vibe */
+    background: linear-gradient(180deg, var(--offwhite) 0%, var(--sand-light) 100%);
+    color: var(--ink);
+}
+
 .section-openskies {
     /* Lighter left-to-right gradient for OpenSkies (cooler tone) */
     background: linear-gradient(90deg, var(--offwhite) 0%, var(--pale-blue) 100%);
@@ -329,6 +343,50 @@ section.section-block:nth-of-type(even) .section-content { order: 1; }
         url('../img/om-header4K.png') type('image/png') 2x
     );
 }
+
+/* Compact page header (for non-landing pages) */
+.page-header {
+    position: relative;
+    width: 100%;
+    height: clamp(200px, 32vh, 320px);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* Fallback */
+    background-image: url('../img/om-header.png');
+    background-image: -webkit-image-set(
+        url('../img/om-header.webp') type('image/webp') 1x,
+        url('../img/om-header4K.webp') type('image/webp') 2x,
+        url('../img/om-header.png') type('image/png') 1x,
+        url('../img/om-header4K.png') type('image/png') 2x
+    );
+    background-image: image-set(
+        url('../img/om-header.webp') type('image/webp') 1x,
+        url('../img/om-header4K.webp') type('image/webp') 2x,
+        url('../img/om-header.png') type('image/png') 1x,
+        url('../img/om-header4K.png') type('image/png') 2x
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+.page-header .page-title {
+    margin: 0;
+    padding: 0 1rem;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 800;
+}
+
+/* Generic page content layout */
+.page-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: clamp(1.5rem, 4vw, 2.5rem) 1rem;
+}
+.page-content h1, .page-content h2, .page-content h3 { color: var(--heading-color); }
+.page-content img { max-width: 100%; height: auto; }
 
 /* Progressive blur-up placeholder over the header background */
 .large-header::before {

@@ -1,0 +1,24 @@
+{
+  "name": "omoreira.github.io",
+  "version": "1.0.0",
+  "description": "OM Personal Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omoreira/omoreira.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/omoreira/omoreira.github.io/issues"
+  },
+  "homepage": "https://github.com/omoreira/omoreira.github.io#readme",
+  "devDependencies": {
+    "marked": "^16.4.1"
+  }
+}

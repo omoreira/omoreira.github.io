@@ -2,13 +2,14 @@ document.addEventListener('DOMContentLoaded', function () {
   var toggle = document.querySelector('.nav-toggle');
   var menu = document.getElementById('site-menu');
   var root = document.documentElement;
-  var header = document.getElementById('large-header');
+  var header = document.getElementById('large-header') || document.getElementById('page-header');
   var backTop = document.querySelector('.back-to-top');
   var nextBtn = document.querySelector('.next-section');
   var orderedSections = [
     document.getElementById('large-header'),
     document.getElementById('about'),
     document.getElementById('projects'),
+    document.getElementById('dataviz'),
     document.getElementById('openskies'),
     document.getElementById('sam'),
     document.getElementById('writing'),
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('large-header'),
     document.getElementById('about'),
     document.getElementById('projects'),
+    document.getElementById('dataviz'),
     document.getElementById('openskies'),
     document.getElementById('sam'),
     document.getElementById('writing'),
