@@ -93,6 +93,18 @@ section {
 
 .section-block .section-media picture { display: block; }
 
+/* Data Visualization image: similar to other logo sizing */
+.section-dataviz .section-media img {
+    max-width: clamp(150px, 24vw, 280px);
+    max-height: clamp(90px, 18vw, 180px);
+}
+
+/* Writing image: similar scale to OpenSkies */
+.section-writing .section-media img {
+    max-width: clamp(220px, 36vw, 420px);
+    max-height: clamp(160px, 28vw, 320px);
+}
+
 /* Larger portrait in About section; keep proportions */
 .section-about .section-media img {
     max-width: clamp(180px, 32vw, 340px);
@@ -109,6 +121,14 @@ section {
 .section-openskies .section-media img {
     max-width: clamp(150px, 24vw, 280px);
     max-height: clamp(90px, 18vw, 180px);
+}
+
+/* Writing logo: match general section logo sizing (square-friendly) */
+.section-writing .section-media img {
+    max-width: clamp(120px, 30vw, 260px);
+    max-height: clamp(60px, 12vw, 120px);
+    width: auto;
+    height: auto;
 }
 
 /* Hide placeholder when About section has a real photo */
