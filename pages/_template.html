@@ -68,7 +68,7 @@
           <h3 id="f-standards">Standards</h3>
           <ul>
             <li><a href="/ai-assistance">AI Assistance Disclosure</a></li>
-            <li><a href="/accessibility">Accessibility</a></li>
+            <li><a href="/conduct">Open Scientific Practice</a></li>
             <li><a href="/privacy">Privacy &amp; Terms</a></li>
             <li><a href="/legal">Copyright &amp; Fair Dealing (Canada)</a></li>
           </ul>
@@ -88,7 +88,71 @@
       </div>
     </footer>
 
-    <script src="js/nav.js" defer></script>
+    <!-- Fullscreen overlay for Standards pages -->
+    <div id="site-overlay" class="overlay" hidden aria-modal="true" role="dialog" aria-labelledby="overlay-title">
+      <div class="overlay__panel">
+        <header class="overlay__header">
+          <h2 id="overlay-title" class="overlay__title">Overlay</h2>
+          <button class="overlay__close" aria-label="Close overlay">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </header>
+        <div class="overlay__body" id="overlay-body" tabindex="0">
+          <p>Coming soon.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inline overlay templates (no fetch needed) -->
+    
+  <template id="overlay-tpl-ai-assistance">
+<p>The development of this website involved the use of AI tools — including GitHub Copilot, Codex, and ChatGPT (GPT-5 mini) — in much the same way that modern creators use code completion, grammar checking, or documentation assistants.</p>
+<p><strong>AI tools were used for:</strong></p>
+<ul>
+<li>Generating boilerplate code and debugging suggestions</li>
+<li>Refining text clarity and enhancing visual presentation</li>
+</ul>
+<p>However, <strong>all architectural design, creative direction, and ethical decisions</strong> were entirely conceived, guided, and reviewed by the human creator, <strong>Olga Moreira, PhD</strong>.
+Every element of content and code was <strong>manually audited</strong> for accuracy, coherence, and integrity.</p>
+<p>This disclosure is offered in the interest of <strong>transparency</strong> — to acknowledge that while AI can support structured thinking and development, it does not replace <strong>human intent, authorship, or ethical responsibility</strong>.</p>
+  </template>
+    
+  <template id="overlay-tpl-conduct">
+<p>Open scientific practice is more than a research standard — it’s a way of engaging with knowledge that honors transparency, equity, and intellectual honesty.
+I align my work with the principles set out by the <a href="https://assets.w3.tue.nl/w/fileadmin/2019-01-31%20TUe%20Code%20of%20Scientific%20Conduct%20ENG.pdf">TU/e Code of Scientific Conduct</a> and <a href="https://igdore.org/open-scientific-practices/">IGDORE&#39;s Open Scientific Practices</a>, integrating them into every stage of my research, writing, and project design.</p>
+<p><strong>Core Commitments:</strong></p>
+<ul>
+<li><strong>Integrity and Transparency</strong> — Upholding clarity in data, sources, and authorship.</li>
+<li><strong>Openness and Accessibility</strong> — Sharing knowledge responsibly, making science understandable and available to all.</li>
+<li><strong>Equity and Responsibility</strong> — Recognizing the social impact of research and prioritizing inclusivity in scientific participation.</li>
+<li><strong>Reflection and Accountability</strong> — Continuously examining how methods, technologies, and biases shape the stories we tell through science.</li>
+</ul>
+<p>Open practice, to me, means building bridges between rigor and compassion — ensuring that science remains both a shared language and a shared right.</p>
+  </template>
+    
+  <template id="overlay-tpl-privacy">
+<p>We favor <strong>local-first workflows</strong> and collect <strong>minimal analytics</strong> to protect user privacy.
+No personal data is sold, shared, or tracked beyond what is technically necessary for secure site functionality.</p>
+<p>If you choose to subscribe to our newsletter, your email address will be used <strong>solely for that purpose</strong> and can be <strong>unsubscribed at any time</strong>.
+We support informed consent and transparent communication, because openness begins with trust.</p>
+  </template>
+    
+  <template id="overlay-tpl-legal">
+<p>Except where otherwise noted, all content on this website is &copy; <strong>Olga Moreira</strong>.
+Fair dealing under Canadian law applies for purposes of <strong>private study, research, criticism, review, or news reporting</strong>, provided that appropriate attribution is given.
+Please do not redistribute or reproduce this material in bulk or without acknowledgment.</p>
+<p><strong>Credits &amp; Source Acknowledgments:</strong></p>
+<ul>
+<li>The hero header animation concept was inspired by <a href="https://tympanus.net/codrops/2014/09/23/animated-background-headers/">Codrops’ <em>Animated Background Headers</em> (2014)</a>.</li>
+<li>The <strong>header background image</strong> is a composite of binary code and an <strong>ESO Milky Way</strong> photograph.</li>
+<li>The <strong>R&amp;D section image</strong> combines a printed circuit board texture with a <strong>SOHO/NASA solar image</strong>.</li>
+<li>All other images, including the <strong>Data Visualization Tools</strong> and <strong>Creative Writing section</strong>, as well as the <strong>Sam AI</strong> and <strong>OM OpenSkies</strong> logos, are <strong>original works by Olga Moreira</strong>.</li>
+</ul>
+<p>This notice is provided to support transparency, ethical reuse, and respect for creative labor within the open science and digital media communities.</p>
+  </template>
+
+    <script src="../js/nav.js" defer></script>
   </body>
   </html>
-
