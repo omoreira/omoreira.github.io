@@ -1,3 +1,0 @@
-# OM OpenSkies
-
-Coming soon.

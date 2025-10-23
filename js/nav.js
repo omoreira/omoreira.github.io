@@ -5,6 +5,10 @@ document.addEventListener('DOMContentLoaded', function () {
   var header = document.getElementById('large-header') || document.getElementById('page-header');
   var backTop = document.querySelector('.back-to-top');
   var nextBtn = document.querySelector('.next-section');
+  var overlay = document.getElementById('site-overlay');
+  var overlayBody = document.getElementById('overlay-body');
+  var overlayClose = overlay ? overlay.querySelector('.overlay__close') : null;
+  var lastFocus = null;
   var orderedSections = [
     document.getElementById('large-header'),
     document.getElementById('about'),
@@ -62,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
       closeMenu();
+      if (overlay && !overlay.hasAttribute('hidden')) closeOverlay();
     }
   });
 
@@ -126,6 +131,64 @@ document.addEventListener('DOMContentLoaded', function () {
   // Blur-up header: mark header as loaded after window load to fade overlay
   window.addEventListener('load', function(){
     if (header) header.classList.add('bg-loaded');
+  });
+
+  // Overlay handling for /ai-assistance, /conduct, /privacy, /legal
+  function isOverlayPath(href) {
+    return /^(\/ai-assistance|\/conduct|\/privacy|\/legal)$/.test(href);
+  }
+  function tpl(slug) { return document.getElementById('overlay-tpl-' + slug); }
+  function openOverlay(slug, title) {
+    if (!overlay) return;
+    lastFocus = document.activeElement;
+    document.documentElement.classList.add('overlay-open');
+    document.body.classList.add('overlay-open');
+    overlay.removeAttribute('hidden');
+    var t = overlay.querySelector('#overlay-title');
+    if (t) t.textContent = title || 'Information';
+    if (overlayBody) {
+      var fallback = {
+        'ai-assistance': '<h3>AI Assistance Disclosure</h3><p>We use human-in-the-loop AI tools to draft and refine content, designs, and code. All work is reviewed by Olga for accuracy and tone.</p>',
+        'conduct': '<h3>Code of Conduct</h3><p>We aim for kindness, clarity, and inclusion. Harassment, discrimination, and abuse are not tolerated.</p>',
+        'privacy': '<h3>Privacy</h3><p>No invasive tracking. Minimal analytics and local-first principles.</p>',
+        'legal': '<h3>Legal</h3><p>Copyright and fair dealing (Canada). Please attribute and do not redistribute without permission.</p>'
+      };
+      var template = tpl(slug);
+      overlayBody.innerHTML = template ? template.innerHTML : (fallback[slug] || '<p>Coming soon.</p>');
+      overlayBody.focus();
+    }
+  }
+  function closeOverlay() {
+    if (!overlay) return;
+    overlay.setAttribute('hidden', '');
+    document.documentElement.classList.remove('overlay-open');
+    document.body.classList.remove('overlay-open');
+    if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+  }
+  if (overlayClose) {
+    overlayClose.addEventListener('click', function(){ closeOverlay(); });
+  }
+  if (overlay) {
+    overlay.addEventListener('click', function(e){
+      if (e.target === overlay) closeOverlay();
+    });
+  }
+
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[href]');
+    if (!a) return;
+    var href = a.getAttribute('href');
+    if (isOverlayPath(href)) {
+      e.preventDefault();
+      var slug = href.replace(/^\//,'');
+      var titleMap = {
+        'ai-assistance': 'AI Assistance Disclosure',
+        'conduct': 'Open Scientific Practice',
+        'privacy': 'Privacy & Terms',
+        'legal': 'Copyright & Fair Dealing'
+      };
+      openOverlay(slug, titleMap[slug]);
+    }
   });
 
   function updateNextBtn() {

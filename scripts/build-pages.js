@@ -28,10 +28,60 @@ const pages = [
   { out: 'chatdemo.html', title: 'Demo Chat', md: 'chatdemo.md', desc: 'Demo chat interface.' },
   { out: 'newletter.html', title: 'Newsletter', md: 'newletter.md', desc: 'Newsletter signup and archives.' },
   { out: 'gmrkba.html', title: 'GM-RKB Assistant', md: 'gmrkba.md', desc: 'GM-RKB assistant info.' },
+  // Generic demo pages used by the main nav
+  { out: 'page1.html', title: 'Demo Page 1', md: 'page1.md', desc: 'Demo page placeholder.' },
+  { out: 'page2.html', title: 'Demo Page 2', md: 'page2.md', desc: 'Demo page placeholder.' },
+  { out: 'page3.html', title: 'Demo Page 3', md: 'page3.md', desc: 'Demo page placeholder.' },
 ];
 
 const contentDir = path.join(__dirname, '..', 'pages', 'content');
-const outDir = path.join(__dirname, '..');
+// Write generated HTML into the pages/ directory
+const outDir = path.join(__dirname, '..', 'pages');
+
+function syncOverlayTemplates() {
+  const rootDir = path.join(__dirname, '..');
+  const targets = [
+    path.join(rootDir, 'index.html'),
+    path.join(rootDir, 'pages', '_template.html'),
+  ];
+  const overlaysDir = path.join(rootDir, 'pages', 'overlay');
+  // Overlay content is authored in Markdown files
+  const overlays = [
+    { slug: 'ai-assistance', file: 'ai-assistance.md' },
+    { slug: 'conduct', file: 'conduct.md' },
+    { slug: 'privacy', file: 'privacy.md' },
+    { slug: 'legal', file: 'legal.md' },
+  ];
+
+  const fragments = {};
+  overlays.forEach(o => {
+    const p = path.join(overlaysDir, o.file);
+    try {
+      const md = fs.readFileSync(p, 'utf8');
+      const html = marked.parse(md);
+      fragments[o.slug] = html.trim();
+    } catch (e) {
+      fragments[o.slug] = `<p>Coming soon.</p>`;
+    }
+  });
+
+  targets.forEach(tgt => {
+    let html = '';
+    try { html = fs.readFileSync(tgt, 'utf8'); } catch (e) { return; }
+    overlays.forEach(o => {
+      const re = new RegExp(`<template\\s+id=["']overlay-tpl-${o.slug}["']\\s*>[\\s\\S]*?<\\/template>`, 'm');
+      const replacement = `
+  <template id="overlay-tpl-${o.slug}">
+${fragments[o.slug]}
+  </template>`;
+      if (re.test(html)) {
+        html = html.replace(re, replacement);
+      }
+    });
+    fs.writeFileSync(tgt, html, 'utf8');
+    console.log('Updated overlay templates in', path.relative(rootDir, tgt));
+  });
+}
 
 for (const p of pages) {
   const mdPath = path.join(contentDir, p.md);
@@ -50,3 +100,5 @@ for (const p of pages) {
   console.log('Wrote', p.out);
 }
 
+// Also sync overlay template blocks in index.html and pages/_template.html
+syncOverlayTemplates();

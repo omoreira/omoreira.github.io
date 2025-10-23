@@ -24,6 +24,9 @@
     /* CTA buttons */
     --cta-color: #2b6cb0;       /* accessible blue */
     --cta-hover: #245a94;       /* slightly darker on hover */
+    /* Overlay tokens */
+    --overlay-bg: rgba(15,18,27,0.45);
+    --overlay-panel-bg: linear-gradient(180deg, var(--offwhite) 0%, var(--sand-light) 100%);
 }
 
 body {
@@ -83,8 +86,8 @@ section {
 
 .section-block .section-media img {
     display: block;
-    max-width: clamp(120px, 30vw, 260px);
-    max-height: clamp(60px, 12vw, 120px);
+    max-width: clamp(180px, 28vw, 340px);
+    max-height: clamp(140px, 22vw, 260px);
     width: auto;
     height: auto;
     margin: 0.25rem 0 0.5rem;
@@ -94,11 +97,7 @@ section {
 
 .section-block .section-media picture { display: block; }
 
-/* Data Visualization image: similar to other logo sizing */
-.section-dataviz .section-media img {
-    max-width: clamp(180px, 32vw, 340px);
-    max-height: clamp(140px, 24vw, 260px);
-}
+/* Data Visualization image inherits common section image sizing */
 /* Ensure the hover container grows to target size */
 .section-dataviz .dataviz-anim {
     width: clamp(180px, 32vw, 340px);
@@ -149,29 +148,13 @@ section {
   .section-dataviz .dataviz-anim { transform: none; }
 }
 
-/* Writing image: similar scale to OpenSkies */
-.section-writing .section-media img {
-    max-width: clamp(180px, 28vw, 340px);
-    max-height: clamp(140px, 22vw, 260px);
-}
+/* Writing image inherits common section image sizing */
 
-/* Larger portrait in About section; keep proportions */
-.section-about .section-media img {
-    max-width: clamp(180px, 32vw, 340px);
-    max-height: clamp(140px, 24vw, 260px);
-}
+/* About image inherits common section image sizing */
 
-/* R&D image: scale similar to About portrait */
-.section-rnd .section-media img {
-    max-width: clamp(180px, 32vw, 340px);
-    max-height: clamp(140px, 24vw, 260px);
-}
+/* R&D image inherits common section image sizing */
 
-/* OpenSkies logo: slightly larger for balance */
-.section-openskies .section-media img {
-    max-width: clamp(150px, 24vw, 280px);
-    max-height: clamp(90px, 18vw, 180px);
-}
+/* OpenSkies image inherits common section image sizing */
 
 
 
@@ -328,19 +311,19 @@ section.section-block:nth-of-type(even) .section-content { order: 1; }
     background-position: center center;
     z-index: 1;
     /* Fallback first for older browsers */
-    background-image: url('../img/om-header.png');
+    background-image: url('../img/hero-header.png');
     /* Prefer modern WebP with PNG fallback, include 2x for high-DPI */
     background-image: -webkit-image-set(
-        url('../img/om-header.webp') type('image/webp') 1x,
-        url('../img/om-header4K.webp') type('image/webp') 2x,
-        url('../img/om-header.png') type('image/png') 1x,
-        url('../img/om-header4K.png') type('image/png') 2x
+        url('../img/hero-header.webp') type('image/webp') 1x,
+        url('../img/hero-header4K.webp') type('image/webp') 2x,
+        url('../img/hero-header.png') type('image/png') 1x,
+        url('../img/hero-header4K.png') type('image/png') 2x
     );
     background-image: image-set(
-        url('../img/om-header.webp') type('image/webp') 1x,
-        url('../img/om-header4K.webp') type('image/webp') 2x,
-        url('../img/om-header.png') type('image/png') 1x,
-        url('../img/om-header4K.png') type('image/png') 2x
+        url('../img/hero-header.webp') type('image/webp') 1x,
+        url('../img/hero-header4K.webp') type('image/webp') 2x,
+        url('../img/hero-header.png') type('image/png') 1x,
+        url('../img/hero-header4K.png') type('image/png') 2x
     );
 }
 
@@ -353,18 +336,18 @@ section.section-block:nth-of-type(even) .section-content { order: 1; }
     background-size: cover;
     background-repeat: no-repeat;
     /* Fallback */
-    background-image: url('../img/om-header.png');
+    background-image: url('../img/hero-header.png');
     background-image: -webkit-image-set(
-        url('../img/om-header.webp') type('image/webp') 1x,
-        url('../img/om-header4K.webp') type('image/webp') 2x,
-        url('../img/om-header.png') type('image/png') 1x,
-        url('../img/om-header4K.png') type('image/png') 2x
+        url('../img/hero-header.webp') type('image/webp') 1x,
+        url('../img/hero-header4K.webp') type('image/webp') 2x,
+        url('../img/hero-header.png') type('image/png') 1x,
+        url('../img/hero-header4K.png') type('image/png') 2x
     );
     background-image: image-set(
-        url('../img/om-header.webp') type('image/webp') 1x,
-        url('../img/om-header4K.webp') type('image/webp') 2x,
-        url('../img/om-header.png') type('image/png') 1x,
-        url('../img/om-header4K.png') type('image/png') 2x
+        url('../img/hero-header.webp') type('image/webp') 1x,
+        url('../img/hero-header4K.webp') type('image/webp') 2x,
+        url('../img/hero-header.png') type('image/png') 1x,
+        url('../img/hero-header4K.png') type('image/png') 2x
     );
     display: flex;
     align-items: center;
@@ -393,7 +376,7 @@ section.section-block:nth-of-type(even) .section-content { order: 1; }
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url('../img/om-header.webp');
+    background-image: url('../img/hero-header.webp');
     background-size: cover;
     background-position: center;
     filter: blur(16px);
@@ -563,6 +546,69 @@ section.section-block:nth-of-type(even) .section-content { order: 1; }
     color: var(--ink);
     padding: clamp(2rem, 5vw, 4rem) 1rem;
 }
+
+/* Fullscreen overlay (site-wide panels) */
+.overlay[hidden] { display: none !important; }
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: grid;
+    grid-template-rows: 1fr;
+    background: var(--overlay-bg);
+    backdrop-filter: saturate(120%) blur(6px);
+    -webkit-backdrop-filter: saturate(120%) blur(6px);
+    animation: overlayFade .2s ease;
+}
+.overlay__panel {
+    align-self: stretch;
+    justify-self: stretch;
+    max-width: min(1100px, 94vw);
+    height: 92vh;
+    margin: 4vh auto;
+    background: var(--overlay-panel-bg);
+    color: var(--ink);
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    display: grid;
+    grid-template-rows: auto 1fr;
+    overflow: hidden;
+}
+.overlay__header {
+    position: relative;
+    padding: 1rem 3.25rem 1rem 1.25rem;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.overlay__title {
+    margin: 0;
+    font-size: clamp(1.5rem, 3.2vw, 2.25rem);
+    font-weight: 800;
+    color: var(--heading-color);
+}
+.overlay__close {
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--nav-color);
+    background-color: var(--nav-bg);
+    border: 1px solid var(--nav-border);
+    border-radius: 999px;
+}
+.overlay__body {
+    overflow: auto;
+    padding: clamp(1rem, 3vw, 2rem);
+}
+.overlay__body p { line-height: 1.7; }
+
+@keyframes overlayFade { from { opacity: 0 } to { opacity: 1 } }
+
+html.overlay-open { overflow: hidden; }
+body.overlay-open { overflow: hidden; }
 .site-footer .cols {
     max-width: 1100px;
     margin: 0 auto;
