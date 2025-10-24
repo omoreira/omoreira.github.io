@@ -136,6 +136,32 @@ document.addEventListener('DOMContentLoaded', function () {
   // Overlay routing (works on index and pages/*)
   function isOverlayPath(href) { return /^(\/ai-assistance|\/conduct|\/privacy|\/legal|\/newletter)$/.test(href); }
   function tpl(slug){ return document.getElementById('overlay-tpl-' + slug); }
+  function initOverlayContent(slug){
+    if (!overlayBody) return;
+    // Newsletter AJAX submission (inline success)
+    var nl = overlayBody.querySelector('.nl-form');
+    if (nl) {
+      nl.addEventListener('submit', function(e){
+        e.preventDefault();
+        var fd = new FormData(nl);
+        var action = nl.getAttribute('action') || '';
+        fetch(action, { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } })
+          .then(function(r){ if (!r.ok) throw new Error('HTTP '+r.status); return r.json().catch(function(){ return {}; }); })
+          .then(function(){
+            overlayBody.innerHTML = '<div class="nl-success" style="max-width:640px;margin:0 auto;text-align:center">\
+              <h3>Thanks for subscribing!</h3>\
+              <p>You\'re on the list. We\'ll be in touch soon.</p>\
+            </div>';
+            overlayBody.focus();
+          })
+          .catch(function(){
+            var note = overlayBody.querySelector('.note');
+            if (note) { note.textContent = 'Hmm, something went wrong. Please try again in a minute.'; }
+          });
+      }, { once: true });
+    }
+  }
+
   function openOverlay(slug, title){
     if (!overlay) return;
     lastFocus = document.activeElement;
@@ -154,6 +180,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var template = tpl(slug);
       overlayBody.innerHTML = template ? template.innerHTML : (fallback[slug] || '<p>Coming soon.</p>');
       overlayBody.focus();
+      initOverlayContent(slug);
     }
   }
   function closeOverlay(){
