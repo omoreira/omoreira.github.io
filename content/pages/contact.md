@@ -19,6 +19,20 @@ Have a project in mind or just want to say hello? Send a note below — I read e
   </div>
 
   <div class="field">
+    <label for="c-topic">Sub‑subject</label>
+    <select id="c-topic" name="topic" required>
+      <option value="" disabled selected>Select a topic…</option>
+      <option>Modular Assistant System</option>
+      <option>Solar Physics</option>
+      <option>OM OpenSkies Initiative</option>
+      <option>Sam AI</option>
+      <option>Semantic Systems</option>
+      <option>Data Visualization</option>
+      <option>Miscellaneous</option>
+    </select>
+  </div>
+
+  <div class="field">
     <label for="c-message">Message</label>
     <textarea id="c-message" name="message" rows="6" placeholder="Write your message…" required></textarea>
   </div>
