@@ -46,7 +46,37 @@
     <main id="main">
       <article class="page-content">
         <h1>Contact</h1>
-<p>Coming soon.</p>
+<p>Have a project in mind or just want to say hello? Send a note below — I read every message.</p>
+<form class="contact-form" action="#" method="post" onsubmit="return false;">
+  <div class="field">
+    <label for="c-name">Your Name</label>
+    <input type="text" id="c-name" name="name" placeholder="Jane Doe" required />
+  </div>
+
+  <div class="field">
+    <label for="c-email">Email Address</label>
+    <input type="email" id="c-email" name="email" placeholder="jane@example.com" required />
+  </div>
+
+  <div class="field">
+    <label for="c-subject">Subject</label>
+    <input type="text" id="c-subject" name="subject" placeholder="How can we collaborate?" />
+  </div>
+
+  <div class="field">
+    <label for="c-message">Message</label>
+    <textarea id="c-message" name="message" rows="6" placeholder="Write your message…" required></textarea>
+  </div>
+
+  <!-- Honeypot anti‑spam -->
+  <div class="field hp" aria-hidden="true">
+    <label for="c-company">Company</label>
+    <input type="text" id="c-company" name="company" tabindex="-1" autocomplete="off" />
+  </div>
+
+<p>  <button type="submit" class="contact-btn">Send Message</button>
+  <p class="contact-note">No server connected yet — wire this to your preferred service (Formspree, Netlify Forms, or custom API).</p></p>
+</form>
 
       </article>
     </main>
@@ -81,7 +111,7 @@
             <li><a href="mailto:olga.moreira@omopenskies.org">Email</a></li>
             <li><a href="https://www.linkedin.com/in/..." rel="me">LinkedIn</a></li>
             <li><a href="https://github.com/..." rel="me">GitHub</a></li>
-            <li><a href="/newsletter">Newsletter</a></li>
+            <li><a href="/newletter">Newsletter</a></li>
           </ul>
         </section>
       </div>
@@ -114,6 +144,8 @@
   
   
   
+  
+  
   <template id="overlay-tpl-ai-assistance">
 <p>The development of this website involved the use of AI tools — including GitHub Copilot, Codex, and ChatGPT (GPT-5 mini) — in much the same way that modern creators use code completion, grammar checking, or documentation assistants.</p>
 <p><strong>AI tools were used for:</strong></p>
@@ -121,11 +153,13 @@
 <li>Generating boilerplate code and debugging suggestions</li>
 <li>Refining text clarity and enhancing visual presentation</li>
 </ul>
-<p>However, <strong>all architectural design, creative direction, and ethical decisions</strong> were entirely conceived, guided, and reviewed by the human creator, <strong>Olga Moreira, PhD</strong>.
-Every element of content and code was <strong>manually audited</strong> for accuracy, coherence, and integrity.</p>
-<p>This disclosure is offered in the interest of <strong>transparency</strong> — to acknowledge that while AI can support structured thinking and development, it does not replace <strong>human intent, authorship, or ethical responsibility</strong>.</p>
+<p>However, <strong>all architectural design, creative direction, and ethical decisions</strong> were entirely conceived, guided, and reviewed by the human creator, <strong>Olga Moreira, PhD</strong>.</p>
+<p>Every element of content and code was <strong>manually audited</strong> for accuracy, coherence, and integrity.</p>
+<p>This disclosure is offered in the interest of <strong>transparency</strong> — to acknowledge that <strong>while AI can support structured thinking and development, it does not replace human intent, authorship, or ethical responsibility</strong>.</p>
   </template>
     
+  
+  
   
   
   
@@ -149,6 +183,8 @@ I align my work with the principles set out by the <a href="https://assets.w3.tu
   
   
   
+  
+  
   <template id="overlay-tpl-privacy">
 <p>We favor <strong>local-first workflows</strong> and collect <strong>minimal analytics</strong> to protect user privacy.
 No personal data is sold, shared, or tracked beyond what is technically necessary for secure site functionality.</p>
@@ -161,10 +197,12 @@ We support informed consent and transparent communication, because openness begi
   
   
   
+  
+  
   <template id="overlay-tpl-legal">
 <p>Except where otherwise noted, all content on this website is &copy; <strong>Olga Moreira</strong>.
-Fair dealing under Canadian law applies for purposes of <strong>private study, research, criticism, review, or news reporting</strong>, provided that appropriate attribution is given.
-Please do not redistribute or reproduce this material in bulk or without acknowledgment.</p>
+Fair dealing under Canadian law applies for purposes of <strong>private study, research, criticism, review, or news reporting</strong>, provided that appropriate attribution is given.</p>
+<p><strong>Please do not redistribute or reproduce this material in bulk or without acknowledgment.</strong></p>
 <p><strong>Credits &amp; Source Acknowledgments:</strong></p>
 <ul>
 <li>The hero header animation concept was inspired by <a href="https://tympanus.net/codrops/2014/09/23/animated-background-headers/">Codrops’ <em>Animated Background Headers</em> (2014)</a>.</li>
