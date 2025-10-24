@@ -2,7 +2,7 @@
 
 Have a project in mind or just want to say hello? Send a note below — I read every message.
 
-<form class="contact-form" action="#" method="post" onsubmit="return false;">
+<form class="contact-form" action="https://formspree.io/olga.moreira@omopenskies.org" method="POST">
   <div class="field">
     <label for="c-name">Your Name</label>
     <input type="text" id="c-name" name="name" placeholder="Jane Doe" required />
@@ -30,5 +30,6 @@ Have a project in mind or just want to say hello? Send a note below — I read e
   </div>
 
   <button type="submit" class="contact-btn">Send Message</button>
-  <p class="contact-note">No server connected yet — wire this to your preferred service (Formspree, Netlify Forms, or custom API).</p>
+  <input type="hidden" name="_subject" value="Website contact form" />
+  <p class="contact-note">Powered by Formspree. You may receive a verification email on first submission.</p>
 </form>
