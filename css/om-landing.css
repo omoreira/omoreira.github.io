@@ -668,6 +668,25 @@ html.overlay-open, body.overlay-open { overflow: hidden; }
 .contact-form .contact-btn { display:inline-block; background: var(--cta-color); color:#fff; padding:.6rem 1rem; border:none; border-radius:8px; font-weight:800; letter-spacing:.03em; cursor:pointer; box-shadow:0 6px 16px rgba(0,0,0,.18); transition: background-color .2s ease, transform .15s ease, box-shadow .2s ease; }
 .contact-form .contact-btn:hover,.contact-form .contact-btn:focus { background: var(--cta-hover); transform: translateY(1px); box-shadow:0 8px 20px rgba(0,0,0,.22); }
 .contact-form .contact-note { margin-top:.5rem; opacity:.7; font-size:.95rem; }
+
+/* Inline link tooltips (omlinks) */
+.omtip { position: absolute; inset: auto auto auto auto; z-index: 1200; pointer-events: none; }
+.omtip__panel {
+  background: var(--overlay-panel-bg);
+  color: var(--ink);
+  border-radius: 10px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.35);
+  max-width: min(420px, 80vw);
+  padding: .75rem .9rem;
+}
+.omtip__arrow { position: absolute; width: 14px; height: 14px; transform: rotate(45deg); background: var(--overlay-panel-bg); box-shadow: -4px 4px 10px rgba(0,0,0,.15); }
+.omtip h3 { margin: 0 0 .25rem; font-weight: 800; color: var(--heading-color); font-size: 1.05rem; }
+.omtip p { margin: .25rem 0; line-height: 1.5; }
+.omtip img { max-width: 80px; height: auto; float: left; margin: .15rem .6rem .3rem 0; border-radius: 6px; }
+.omtip a { color: #2b6cb0; text-decoration: underline; pointer-events: auto; }
+
+a[data-omlink] { position: relative; }
+a[data-omlink]:hover, a[data-omlink]:focus { outline: none; }
 .site-footer .cols {
     max-width: 1100px;
     margin: 0 auto;

@@ -1,0 +1,3 @@
+*An international university located in the heart of Europe, the University of Liège is spread out over 4 campuses gathering together 10 Faculties and 1 School of Management. Today, ULiège hosts 28,000 students forming a multicultural community brought together and animated by an intense intellectual, cultural, sports, and associative life.*
+
+[Unversity of Liege](https://www.uliege.be/cms/c_8699436/en/uliege)

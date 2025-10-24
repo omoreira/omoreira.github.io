@@ -7,8 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:pages": "node scripts/build-pages.js",
     "build:overlays": "node scripts/build-overlays.js",
+    "build:omlinks": "node scripts/build-omlinks.js",
     "update:landing": "node scripts/update-landing.js",
-    "build:all": "npm run update:landing && npm run build:overlays && npm run build:pages"
+    "build:all": "npm run update:landing && npm run build:overlays && npm run build:omlinks && npm run build:pages"
   },
   "repository": {
     "type": "git",
