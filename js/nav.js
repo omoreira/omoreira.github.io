@@ -134,7 +134,12 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Overlay routing (works on index and pages/*)
-  function isOverlayPath(href) { return /^(\/ai-assistance|\/conduct|\/privacy|\/legal|\/newletter)$/.test(href); }
+  function isOverlayPath(href) {
+    if (!href) return false;
+    var m = href.match(/^\/([a-z0-9\-]+)$/i);
+    if (m && document.getElementById('overlay-tpl-' + m[1])) return true;
+    return /^(\/ai-assistance|\/conduct|\/privacy|\/legal|\/newletter)$/.test(href);
+  }
   function tpl(slug){ return document.getElementById('overlay-tpl-' + slug); }
   function initOverlayContent(slug){
     if (!overlayBody) return;

@@ -16,13 +16,10 @@ const targets = [
   path.join(root, 'content', '_template.html'),
 ];
 const overlaysDir = path.join(root, 'content', 'overlay');
-const overlays = [
-  { slug: 'ai-assistance', file: 'ai-assistance.md' },
-  { slug: 'conduct', file: 'conduct.md' },
-  { slug: 'privacy', file: 'privacy.md' },
-  { slug: 'legal', file: 'legal.md' },
-  { slug: 'newletter', file: 'newletter.md' },
-];
+// Discover all .md files in content/overlay and use filename (without .md) as slug
+const overlays = fs.readdirSync(overlaysDir)
+  .filter(f => f.endsWith('.md'))
+  .map(file => ({ slug: file.replace(/\.md$/, ''), file }));
 
 const fragments = {};
 overlays.forEach(o => {
@@ -40,8 +37,13 @@ targets.forEach(tgt => {
   try { html = fs.readFileSync(tgt, 'utf8'); } catch { return; }
   overlays.forEach(o => {
     const re = new RegExp(`<template\\s+id=["']overlay-tpl-${o.slug}["']\\s*>[\\s\\S]*?<\\/template>`, 'm');
-    const replacement = `\n  <template id="overlay-tpl-${o.slug}">\n${fragments[o.slug]}\n  </template>`;
-    if (re.test(html)) html = html.replace(re, replacement);
+    const replacement = `\n  <template id=\"overlay-tpl-${o.slug}\">\n${fragments[o.slug]}\n  </template>`;
+    if (re.test(html)) {
+      html = html.replace(re, replacement);
+    } else {
+      // append missing template before closing body/html
+      html = html.replace(/<\/body>\s*<\/html>\s*$/m, `${replacement}\n</body>\n</html>`);
+    }
   });
   fs.writeFileSync(tgt, html, 'utf8');
   console.log('Updated overlay templates in', path.relative(root, tgt));
