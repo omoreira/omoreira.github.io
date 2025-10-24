@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Simple static page builder: injects Markdown into pages/_template.html
+// Simple static page builder: injects Markdown into content/_template.html (omlanding)
 // Usage: node scripts/build-pages.js
 
 const fs = require('fs');
@@ -13,7 +13,7 @@ try {
   process.exit(1);
 }
 
-const templatePath = path.join(__dirname, '..', 'pages', '_template.html');
+const templatePath = path.join(__dirname, '..', 'content', '_template.html');
 const template = fs.readFileSync(templatePath, 'utf8');
 
 const pages = [
@@ -30,9 +30,9 @@ const pages = [
   { out: 'gmrkba.html', title: 'GM-RKB Assistant', md: 'gmrkba.md', desc: 'GM-RKB assistant info.' },
 ];
 
-const contentDir = path.join(__dirname, '..', 'pages', 'content');
-// Write generated HTML into the pages/ directory
-const outDir = path.join(__dirname, '..', 'pages');
+const contentDir = path.join(__dirname, '..', 'content', 'pages');
+// Write generated HTML into the content/ directory (HTML pages output location)
+const outDir = path.join(__dirname, '..', 'content');
 
 function syncOverlayTemplates() {
   const rootDir = path.join(__dirname, '..');
@@ -96,5 +96,4 @@ for (const p of pages) {
   console.log('Wrote', p.out);
 }
 
-// Also sync overlay template blocks in index.html and pages/_template.html
-syncOverlayTemplates();
+// Overlay syncing is handled by scripts/build-overlays.js
