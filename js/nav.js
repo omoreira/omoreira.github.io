@@ -212,7 +212,29 @@ document.addEventListener('DOMContentLoaded', function () {
     if (isOverlayPath(href)){
       e.preventDefault();
       var slug = href.replace(/^\//,'');
-      var titles = { 'ai-assistance':'AI Assistance Disclosure','conduct':'Open Scientific Practice','privacy':'Privacy & Terms','legal':'Copyright & Fair Dealing', 'newletter':'Subscribe to our Newsletter'};
+      var titles = {
+        // Standards
+        'ai-assistance':'AI Assistance Disclosure',
+        'conduct':'Open Scientific Practice',
+        'privacy':'Privacy & Terms',
+        'legal':'Copyright & Fair Dealing',
+        // Newsletter
+        'newletter':'Subscribe to our Newsletter',
+        // Articles
+        'articles-science-outreach':'Science Outreach',
+        'articles-solar-physics':'Solar Physics',
+        'articles-how-tos':'How‑Tos',
+        // Credits
+        'credits-website-design':'Website Design',
+        'credits-illustrations':'Illustrations',
+        'credits-animations':'Animations',
+        'credits-om-credentials':'OM Credentials',
+        // Labs
+        'labs-modularity':'Modularity',
+        'labs-decentralization':'Decentralization',
+        'labs-ai-tools':'AI Tools',
+        'labs-open-source':'Open‑Source'
+      };
       openOverlay(slug, titles[slug]);
     }
   });
