@@ -15,6 +15,14 @@ const indexPath = path.join(root, 'index.html');
 let html = fs.readFileSync(indexPath, 'utf8');
 
 const slugs = ['about','projects','dataviz','openskies','sam','writing'];
+const titles = {
+  about: 'About Me',
+  projects: 'Research & Development',
+  dataviz: 'Data Visualization Tools',
+  openskies: 'OM OpenSkies Initiative',
+  sam: 'Sam AI',
+  writing: 'Creative Writing'
+};
 const landDir = path.join(root, 'content', 'landing');
 
 function replaceSectionContent(doc, id, contentHtml){
@@ -33,10 +41,12 @@ slugs.forEach(slug => {
   const mdPath = path.join(landDir, `${slug}.md`);
   let md = '';
   try { md = fs.readFileSync(mdPath,'utf8'); } catch (e) { md = `# ${slug}\n\nComing soon.`; }
-  const sectionHtml = marked.parse(md).trim();
-  html = replaceSectionContent(html, slug, sectionHtml);
+  let sectionHtml = marked.parse(md).trim();
+  // If MD starts with a top heading, strip it to avoid duplicate titles
+  sectionHtml = sectionHtml.replace(/^<h[12][^>]*>.*?<\/h[12]>\s*/i, '');
+  const composed = `<h2>${titles[slug] || slug}</h2>\n${sectionHtml}`;
+  html = replaceSectionContent(html, slug, composed);
 });
 
 fs.writeFileSync(indexPath, html, 'utf8');
 console.log('Updated index.html sections from content/landing');
-
