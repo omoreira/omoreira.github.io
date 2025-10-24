@@ -555,6 +555,30 @@ section.section-block:nth-of-type(even) .section-content { order: 1; }
     box-shadow: 0 6px 16px rgba(0,0,0,0.18);
     transform: translateY(1px);
 }
+
+/* Read more buttons inside media column */
+.readmore-btn {
+    display: inline-block;
+    margin-top: 0.5rem;
+    background: var(--cta-color);
+    color: #fff;
+    padding: 0.5rem 0.9rem;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    transition: background-color .2s ease, box-shadow .2s ease, transform .15s ease;
+}
+.readmore-btn:hover,
+.readmore-btn:focus { background: var(--cta-hover); color: #e6e6e6; box-shadow: 0 6px 16px rgba(0,0,0,0.18); transform: translateY(1px); }
+
+/* Ensure themed link colors don't override CTA text */
+.section-openskies .readmore-btn,
+.section-openskies .readmore-btn:link,
+.section-openskies .readmore-btn:visited { color: #fff; }
+
+/* In OpenSkies, ensure hover darkening always applies */
+.section-openskies .readmore-btn:hover,
+.section-openskies .readmore-btn:focus { background: var(--cta-hover) !important; }
 .closing-band .link {
     color: inherit;
     text-decoration: underline;
