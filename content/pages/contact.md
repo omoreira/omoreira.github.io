@@ -2,7 +2,7 @@
 
 Have a project in mind or just want to say hello? Send a note below — I read every message.
 
-<form class="contact-form" action="https://formspree.io/olga.moreira@omopenskies.org" method="POST">
+<form class="contact-form" action="https://formspree.io/f/mwprgaea" method="POST">
   <div class="field">
     <label for="c-name">Your Name</label>
     <input type="text" id="c-name" name="name" placeholder="Jane Doe" required />
