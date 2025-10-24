@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Overlay routing (works on index and pages/*)
-  function isOverlayPath(href) { return /^(\/ai-assistance|\/conduct|\/privacy|\/legal)$/.test(href); }
+  function isOverlayPath(href) { return /^(\/ai-assistance|\/conduct|\/privacy|\/legal|\/newletter)$/.test(href); }
   function tpl(slug){ return document.getElementById('overlay-tpl-' + slug); }
   function openOverlay(slug, title){
     if (!overlay) return;
@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (isOverlayPath(href)){
       e.preventDefault();
       var slug = href.replace(/^\//,'');
-      var titles = { 'ai-assistance':'AI Assistance Disclosure','conduct':'Open Scientific Practice','privacy':'Privacy & Terms','legal':'Copyright & Fair Dealing'};
+      var titles = { 'ai-assistance':'AI Assistance Disclosure','conduct':'Open Scientific Practice','privacy':'Privacy & Terms','legal':'Copyright & Fair Dealing', 'newletter':'Subscribe to our Newsletter'};
       openOverlay(slug, titles[slug]);
     }
   });

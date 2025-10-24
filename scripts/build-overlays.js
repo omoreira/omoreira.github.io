@@ -21,6 +21,7 @@ const overlays = [
   { slug: 'conduct', file: 'conduct.md' },
   { slug: 'privacy', file: 'privacy.md' },
   { slug: 'legal', file: 'legal.md' },
+  { slug: 'newletter', file: 'newletter.md' },
 ];
 
 const fragments = {};
@@ -45,4 +46,3 @@ targets.forEach(tgt => {
   fs.writeFileSync(tgt, html, 'utf8');
   console.log('Updated overlay templates in', path.relative(root, tgt));
 });
-
