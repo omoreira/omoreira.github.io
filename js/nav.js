@@ -184,6 +184,13 @@ document.addEventListener('DOMContentLoaded', function () {
       };
       var template = tpl(slug);
       overlayBody.innerHTML = template ? template.innerHTML : (fallback[slug] || '<p>Coming soon.</p>');
+      // If no explicit title was provided, pull from first heading in content
+      if (t && !title) {
+        var heading = overlayBody.querySelector('h3, h2, h1');
+        if (heading && heading.textContent) {
+          t.textContent = heading.textContent.trim();
+        }
+      }
       overlayBody.focus();
       initOverlayContent(slug);
     }
