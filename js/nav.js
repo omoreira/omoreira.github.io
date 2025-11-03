@@ -138,9 +138,14 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!href) return false;
     var m = href.match(/^\/([a-z0-9\-]+)$/i);
     if (m && document.getElementById('overlay-tpl-' + m[1])) return true;
-    return /^(\/ai-assistance|\/conduct|\/privacy|\/legal|\/newletter)$/.test(href);
+    // Accept either spelling for compatibility
+    return /^(\/ai-assistance|\/conduct|\/privacy|\/legal|\/(?:newletter|newsletter))$/.test(href);
   }
-  function tpl(slug){ return document.getElementById('overlay-tpl-' + slug); }
+  function tpl(slug){
+    // Support alias: newsletter (correct spelling) maps to legacy template id 'newletter'
+    return document.getElementById('overlay-tpl-' + slug) ||
+           (slug === 'newsletter' ? document.getElementById('overlay-tpl-newletter') : null);
+  }
   function initOverlayContent(slug){
     if (!overlayBody) return;
     // Newsletter AJAX submission (inline success)
@@ -220,9 +225,11 @@ document.addEventListener('DOMContentLoaded', function () {
         'legal':'Copyright & Fair Dealing',
         // Newsletter
         'newletter':'Subscribe to our Newsletter',
+        'newsletter':'Subscribe to our Newsletter',
         // Articles
         'articles-science-outreach':'Science Outreach',
         'articles-solar-physics':'Solar Physics',
+        'articles-writing':'Creative Writing',
         'articles-how-tos':'How‑Tos',
         // Credits
         'credits-website-design':'Website Design',
