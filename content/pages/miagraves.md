@@ -1,3 +1,0 @@
-# Creative Writing
-
-Coming soon.

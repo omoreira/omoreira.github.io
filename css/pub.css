@@ -1,0 +1,63 @@
+    /* Minimal tab styles scoped to this page — blended with page background */
+.tabs-nav { display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1rem; }
+.tab-btn {
+    background: transparent;
+    border: none;
+    padding: 0.35rem 0.6rem;
+    cursor: pointer;
+    border-radius: 4px;
+    color: inherit;
+    opacity: 0.85;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: background-color 150ms ease, color 150ms ease, opacity 150ms ease, border-color 150ms ease;
+}
+.tab-btn:hover { opacity: 1; background-color: rgba(0,0,0,0.03); }
+.tab-btn.is-active, .tab-btn:focus {
+    background-color: rgb(241, 245, 244);
+    color: #d32f2f;
+    opacity: 1;
+    border-bottom-color: rgba(210, 219, 217);
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.tab-panel { display:block; }
+.tab-panel.is-hidden { display:none; }
+.pub-intro .note, .tab-panel .note { font-size:0.9rem; color:#555; }
+.tab-panel ul { margin-top:0.5rem; }
+.tab-panel li { margin-bottom:0.6rem; line-height:1.35; }
+.citations a { color: #0b66ff; text-decoration: none; }
+.citations a:hover { text-decoration: underline; }
+        
+/* Single-column publication list styles (scoped to this page) */
+.pub-list { display:flex; flex-direction:column; gap:1rem; margin:0 0 1rem 0; text-align:left; }
+.pub-item, .book-item { padding:0.6rem; border-radius:6px; background:transparent; border:1px solid rgba(0,0,0,0.03); text-align:left; }
+.pub-title strong { display:block; background: rgba(0,0,0,0.04); padding:0.18rem 0.4rem; border-radius:3px; font-weight:700; }
+.pub-meta { margin-top:0.45rem; color:#444; font-size:0.95rem; text-align:left; }
+.pub-venue { margin-top:0.25rem; color:#333; text-align:left; }
+.book-year { font-size:0.85rem; color:#666; margin-bottom:0.25rem; }
+.pub-list a { color: #0b66ff; }
+
+@media (prefers-reduced-motion: reduce) {
+          .pub-item, .book-item { transition: none; }
+        }
+
+/* Year tables: left-align text and style title cells */
+.year-table { width:100%; border-collapse:collapse; margin:0 0 1rem 0; }
+.year-table th, .year-table td { text-align:left; padding:0.45rem 0.6rem; border-bottom:1px solid rgba(0,0,0,0.06); }
+.year-table td strong { display:inline-block; background: rgba(0,0,0,0.04); padding:0.12rem 0.35rem; border-radius:3px; }
+
+/* Accessibility: visually hidden (screen-reader only) helpers */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+/* Publisher/ISBN small meta text */
+.book-meta { color: #555; font-size:0.92rem; margin-left:0.4rem; }

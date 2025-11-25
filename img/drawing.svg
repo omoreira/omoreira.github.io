@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="drawing.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     showguides="true"
+     inkscape:zoom="0.94964927"
+     inkscape:cx="294.31919"
+     inkscape:cy="226.92588"
+     inkscape:window-width="1366"
+     inkscape:window-height="699"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <sodipodi:guide
+       position="27.861163,261.89494"
+       orientation="1,0"
+       id="guide1815"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="68.817072,250.47186"
+       orientation="1,0"
+       id="guide1817"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="48.199811,221.49625"
+       orientation="1,0"
+       id="guide3384"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="61.294558,243.78519"
+       orientation="0,-1"
+       id="guide3386"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="111.72326,284.7411"
+       orientation="0,-1"
+       id="guide13041"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="92.777671,270.81051"
+       orientation="0,-1"
+       id="guide13043"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="140.64494"
+       y="20.711637"
+       id="text1003-3"><tspan
+         sodipodi:role="line"
+         id="tspan1001-6"
+         style="stroke-width:0.264583"
+         x="140.64494"
+         y="20.711637">SQLite (chat)</tspan></text>
+    <rect
+       style="fill:#e4edec;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-dasharray:0.1, 0.1;stroke-dashoffset:0;stroke-opacity:0.995651"
+       id="rect1781-37-5"
+       width="41.066975"
+       height="14.199713"
+       x="117.84251"
+       y="80.392609"
+       ry="4.9756007"
+       rx="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="121.63319"
+       y="88.351753"
+       id="text1003-3-6"><tspan
+         sodipodi:role="line"
+         id="tspan1001-6-0"
+         style="stroke-width:0.264583"
+         x="121.63319"
+         y="88.351753">LlamaIndex Retriever</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="148.90999"
+       y="110.08151"
+       id="text1003-3-6-7"><tspan
+         id="tspan1001-6-0-9"
+         style="stroke-width:0.264583"
+         x="148.90999"
+         y="110.08151"
+         sodipodi:role="line">QLite (symbolic)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="105.67655"
+       y="109.7814"
+       id="text1003-3-6-6"><tspan
+         sodipodi:role="line"
+         id="tspan1001-6-0-2"
+         style="stroke-width:0.264583"
+         x="105.67655"
+         y="109.7814">Qdrant (vectors)</tspan></text>
+    <rect
+       style="fill:#e4edec;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-dasharray:0.1, 0.1;stroke-dashoffset:0;stroke-opacity:0.995651"
+       id="rect1781-37"
+       width="41.066975"
+       height="14.199713"
+       x="120.97708"
+       y="61.976837"
+       ry="4.9756007"
+       rx="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;white-space:pre;inline-size:43.228;stroke-width:0.264583"
+       x="127.80997"
+       y="53.912613"
+       id="text1003-3-2"
+       transform="translate(14.146565,13.796859)"><tspan
+         x="127.80997"
+         y="53.912613"
+         id="tspan18617">BrainService<tspan
+   y="53.912613"
+   id="tspan18619"> </tspan></tspan><tspan
+         x="127.80997"
+         y="59.204272"
+         id="tspan18621">(retrieve)</tspan></text>
+    <rect
+       style="opacity:1;fill:#e4edec;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-dasharray:0.1,0.1;stroke-opacity:0.99565119;stroke-dashoffset:0"
+       id="rect1781"
+       width="41.066975"
+       height="14.199713"
+       x="27.549519"
+       y="12.339875"
+       ry="4.9756007"
+       rx="0" />
+    <rect
+       style="fill:#e4edec;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-dasharray:0.1, 0.1;stroke-dashoffset:0;stroke-opacity:0.995651"
+       id="rect1781-2"
+       width="41.066975"
+       height="14.199713"
+       x="27.447001"
+       y="72.389076"
+       ry="4.9756007"
+       rx="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="33.334312"
+       y="20.167675"
+       id="text1003"><tspan
+         sodipodi:role="line"
+         id="tspan1001"
+         style="stroke-width:0.264583"
+         x="33.334312"
+         y="20.167675">User (React UI)</tspan></text>
+    <rect
+       style="opacity:0.418729;fill:#6666e6;fill-opacity:0.446316;stroke:#000000;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1781-3"
+       width="41.066975"
+       height="14.199713"
+       x="132.75421"
+       y="12.23263"
+       ry="4.9756007"
+       rx="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="30.823639"
+       y="81.110687"
+       id="text1003-5"><tspan
+         sodipodi:role="line"
+         id="tspan1001-62"
+         style="stroke-width:0.264583"
+         x="30.823639"
+         y="81.110687">FastAPI Chat API</tspan></text>
+  </g>
+</svg>

@@ -14,6 +14,7 @@
     <link rel="mask-icon" href="../img/OM.svg" color="#dc143c">
     <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="../css/om-landing.css" />
+    <link rel="stylesheet" type="text/css" href="../css/pub.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
@@ -26,66 +27,284 @@
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
+       <button class="cred-toggle" aria-expanded="false" aria-controls="cred-panel" aria-label="Show academic verification details">
+        <span class="cred-label">Olga Moreira, PhD &bull; Verified Credentials</span>
+      </button>
+      <!-- Main Title and Scroll Indicator -->
       <nav id="site-menu" class="site-menu" aria-label="Site" hidden>
         <ul>
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="modular.html">Modular Assistant Systems</a></li>
-          <li><a href="solarp.html">Solar Physics</a></li>
-          <li><a href="dataviz.html">Data Visualization</a></li>
-          <li><a href="pub.html">Academic Publications</a></li>
-          <li><a href="omopenskies.html">OM OpenSkies</a></li>
-          <li><a href="samai.html">Sam AI</a></li>
-          <li><a href="miagraves.html">Creative Writing</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="https://omoreira.github.io/index.html">Home</a></li>
+          <li><a href="https://omoreira.github.io/content/temp.html">Modular Assistant Systems</a></li>
+          <li><a href="https://omoreira.github.io/content/temp.html">Solar Physics</a></li>
+          <li><a href="https://omoreira.github.io/content/temp.html">Data Visualization</a></li>
+          <li><a href="https://omoreira.github.io/content/temp.html">Science Outreach</a></li>
+          <li><a href="https://omoreira.github.io/content/contact.html">Contact</a></li>
         </ul>
       </nav>
-      <h1 class="page-title">Academic Publications</h1>
+      <h1 class="page-title">OM Publications</h1>
     </header>
 
     <main id="main">
       <article class="page-content">
-        <h1>Academic Publications</h1>
-<p>Coming soon.</p>
+        <section class="pub-tabs" aria-label="Publications">
+          <div class="tabs-nav" role="tablist" aria-label="Publication categories">
+            <button id="tab-btn-articles" class="tab-btn is-active" role="tab" aria-selected="true" aria-controls="tab-articles">Research Articles</button>
+            <button id="tab-btn-books" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-books">Edited Books</button>
+            <button id="tab-btn-notes" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-notes">Research Notes</button>
+            <button id="tab-btn-preprints" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-preprints">Pre-prints</button>
+            
+          </div>
+
+          <div id="tab-articles" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-articles">
+            <div class="pub-list articles-list">
+              <article class="pub-item">
+                <div class="pub-title"><strong>GM-RKB WikiText Error Correction Task and Baselines</strong></div>
+                <div class="pub-meta">Melli, G.; Eldallal, A.; Lazem, B.; <span style="color: #1b1daf;font-weight: bold;">Moreira, O.</span> (2020)</div>
+                <div class="pub-venue">Proceedings of the 12th Language Resources and Evaluation Conference (LREC), Marseille &mdash; <a href="https://aclanthology.org/2020.lrec-1.295/" target="_blank" rel="noopener">ACL Anthology (2020)</a></div>
+              </article>
+                <article class="pub-item">
+                <div class="pub-title"><strong>The GMRKB.com Semantic Wiki.</strong></div>
+                <div class="pub-meta">Melli, G.; <span style="color: #1b1daf;font-weight: bold;">Moreira, O.</span> (2019)</div>
+                <div class="pub-venue">Scientific Literature Knowledge Bases (SLKB &#64; AKBC) 2019. Accepted Abstract No. 9. &mdash; <a href="https://wammar.github.io/misc/slkb19-abstracts/9.pdf" target="_blank" rel="noopener">PDF</a></div>
+              </article>
+                <article class="pub-item">
+                <div class="pub-title"><strong>On the State of Art of Decentralized Online Social Networks</strong></div>
+                <div class="pub-meta"><span style="color: #1b1daf;font-weight: bold;">Moreira, O.</span> (2019)</div>
+                <div class="pub-venue">Freelance work &mdash; <a href="https://www.academia.edu/2438846/On_the_State_of_Art_of_Decentralized_Online_Social_Networks" target="_blank" rel="noopener">PDF</a></div>
+              </article>
+              <article class="pub-item">
+                <div class="pub-title"><strong>Asteroseismology and Interferometry of Red Giants</strong></div>
+                <div class="pub-meta"><span style="color: #1b1daf;font-weight: bold;">Moreira, O.</span> (2010)</div>
+                <div class="pub-venue">PhD thesis / extended manuscript &mdash; <a href="https://www.academia.edu/2438669/Asteroseismology_and_Interferometry_of_Red_Giants" target="_blank" rel="noopener">PDF</a></div>
+              </article>
+              <article class="pub-item">
+                <div class="pub-title"><strong>Effects of Rotation on the Evolution and Asteroseismic Properties of Red Giants</strong></div>
+                <div class="pub-meta">Eggenberger, P.; Miglio, A.; Montalban, J; <span style="color: #1b1daf;font-weight: bold;">Moreira, O.</span> Noels, A.; Meynet, G.; Maeder, A. (2010)</div>
+                <div class="pub-venue">Astronomy &amp; Astrophysics &mdash; <a href="https://www.aanda.org/articles/aa/full_html/2010/01/aa12897-09/aa12897-09.html" target="_blank" rel="noopener">A&amp;A article (2010)</a></div>
+              </article>
+              <article class="pub-item">
+                <div class="pub-title"><strong>Theoretical Amplitudes and Lifetimes of Non-radial Solar-like Oscillations in Red Giants</strong></div>
+                <div class="pub-meta">Dupret, M.-A.; Belkacem, K.; Samadi, R.; Montalban, J.; <span style="color: #1b1daf;font-weight: bold;">Moreira, O.</span> et al. (2009)</div>
+                <div class="pub-venue">Astronomy &amp; Astrophysics &mdash; <a href="https://www.aanda.org/articles/aa/full_html/2009/40/aa11713-09/aa11713-09.html" target="_blank" rel="noopener">A&amp;A article (2009)</a></div>
+              </article>
+              <article class="pub-item">
+                <div class="pub-title"><strong>Modelling Intermediate Mass Red Giants</strong></div>
+                <div class="pub-meta"><span style="color: #1b1daf;font-weight: bold;">Moreira, O.</span>; Noels, A.; Dupret, M.-A. (2006)</div>
+                <div class="pub-venue">Proceedings SOHO 18/GONG 2006/HELAS I (ESA SP-624) &mdash; <a href="https://articles.adsabs.harvard.edu/pdf/2006soho...18E..31M" target="_blank" rel="noopener">PDF</a></div>
+              </article>
+              <article class="pub-item">
+                <div class="pub-title"><strong>Red Giants as Asteroseismology Targets</strong></div>
+                <div class="pub-meta"><span style="color: #1b1daf;font-weight: bold;">Moreira, O.</span> (2006)</div>
+                <div class="pub-venue">ASP Conference Series, Vol. 349, p.305 &mdash; <a href="https://aspbooks.org/custom/publications/paper/349-0305.html" target="_blank" rel="noopener">ASP Conference paper</a></div>
+              </article>
+ 
+              <article class="pub-item">
+                <div class="pub-title"><strong>On the detection of pure sine waves embedded in a spectrum of stochastically excited p modes</strong></div>
+                <div class="pub-meta"><span style="color: #1b1daf;font-weight: bold;">Moreira, O.</span>; Appourchaux, T.; Berthomieu, G.; Toutain, T. (2005)</div>
+                <div class="pub-venue">Monthly Notices of the Royal Astronomical Society, 357(1), 191-199 &mdash; <a href="https://academic.oup.com/mnras/article/357/1/191/1035004" target="_blank" rel="noopener">MNRAS (2005)</a></div>
+              </article>
+
+              <article class="pub-item">
+                <div class="pub-title"><strong>Mode extraction from time series: from the challenges of COROT to those of Eddington</strong></div>
+                <div class="pub-meta">Appourchaux, T.; <span style="color: #1b1daf;font-weight: bold;">Moreira, O.</span>;Berthomieu, G.; Toutain, T. (2005)</div>
+                <div class="pub-venue"> Stellar Structure and Habitable Planet Finding (ESA SP-538) &mdash; <a href="https://articles.adsabs.harvard.edu/pdf/2004ESASP.538..109A" target="_blank" rel="noopener">PDF</a></div>
+              </article>
+            </div>
+          </div>
+
+          <div id="tab-books" class="tab-panel is-hidden" role="tabpanel" aria-labelledby="tab-btn-books">
+            <!-- 2024 -->
+            <section class="books-year">
+              <h3>2024</h3>
+              <table class="year-table" summary="Edited books 2024">
+                <thead class="sr-only"><tr><th>Title</th><th>Info</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Functional Calculus</strong></td>
+                    <td><a href="https://isbnsearch.org/isbn/1774698323" target="_blank" rel="noopener">ISBN 1774698323</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Introduction: Algebraic &amp; Combinatorial Coding Theory</strong></td>
+                    <td><a href="https://isbnsearch.org/isbn/1774698315" target="_blank" rel="noopener">ISBN 1774698315</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Basic Theory of Fractional Differential Equations</strong></td>
+                    <td><a href="https://isbnsearch.org/isbn/1774698994" target="_blank" rel="noopener">ISBN 1774698994</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>The Application of Probability Theory</strong></td>
+                    <td><a href="https://isbnsearch.org/isbn/1774698617" target="_blank" rel="noopener">ISBN 1774698617</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <!-- 2022 -->
+            <section class="books-year">
+              <h3>2022</h3>
+              <table class="year-table" summary="Edited books 2022">
+                <thead class="sr-only"><tr><th>Title</th><th>Info</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Use of Abstraction and Logic in Mathematics</strong></td><td><a href="https://isbnsearch.org/isbn/1774695006" target="_blank" rel="noopener">ISBN 1774695006</a></td></tr>
+                  <tr><td><strong>Notion of Mathematical Proof</strong></td><td><a href="https://isbnsearch.org/isbn/1774694980" target="_blank" rel="noopener">ISBN 1774694980</a></td></tr>
+                  <tr><td><strong>Applied Mathematics in Engineering</strong></td><td><a href="https://isbnsearch.org/isbn/1774694743" target="_blank" rel="noopener">ISBN 1774694743</a></td></tr>
+                  <tr><td><strong>Advanced Techniques for Collecting Statistical Data</strong></td><td><a href="https://isbnsearch.org/isbn/1774694972" target="_blank" rel="noopener">ISBN 1774694972</a></td></tr>
+                </tbody>
+              </table>
+            </section>
+
+            <!-- 2021 -->
+            <section class="books-year">
+              <h3>2021</h3>
+              <table class="year-table" summary="Edited books 2021">
+                <thead class="sr-only"><tr><th>Title</th><th>Info</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Principles of Optical Interferometry</strong></td><td><a href="https://isbnsearch.org/isbn/1774691817" target="_blank" rel="noopener">ISBN 1774691817</a></td></tr>
+                  <tr><td><strong>Solar and Space Physics</strong></td><td><a href="https://isbnsearch.org/isbn/1774691809" target="_blank" rel="noopener">ISBN 1774691809</a></td></tr>
+                  <tr><td><strong>Statistical Mechanics and Entropy</strong></td><td><a href="https://isbnsearch.org/isbn/1774691787" target="_blank" rel="noopener">ISBN 1774691787</a></td></tr>
+                  <tr><td><strong>Use of Mathematical Structures</strong></td><td><a href="https://isbnsearch.org/isbn/1774694999" target="_blank" rel="noopener">ISBN 1774694999</a></td></tr>
+                  <tr><td><strong>Applied Algebraic and Differential Calculus</strong></td><td><a href="https://isbnsearch.org/isbn/1774691795" target="_blank" rel="noopener">ISBN 1774691795</a></td></tr>
+                </tbody>
+              </table>
+            </section>
+
+            <!-- 2020 -->
+            <section class="books-year">
+              <h3>2020</h3>
+              <table class="year-table" summary="Edited books 2020">
+                <thead class="sr-only"><tr><th>Title</th><th>Info</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Fractal Analysis</strong></td><td><a href="https://isbnsearch.org/isbn/1774076993" target="_blank" rel="noopener">ISBN 1774076993</a></td></tr>
+                  <tr><td><strong>Handbook of Mixture Analysis</strong></td><td><a href="https://isbnsearch.org/isbn/1774077086" target="_blank" rel="noopener">ISBN 1774077086</a></td></tr>
+                  <tr><td><strong>Numerical Methods for Inverse Problems</strong></td><td><a href="https://isbnsearch.org/isbn/1774077078" target="_blank" rel="noopener">ISBN 1774077078</a></td></tr>
+                  <tr><td><strong>Multivariable Mathematics</strong></td><td><a href="https://isbnsearch.org/isbn/1774077000" target="_blank" rel="noopener">ISBN 1774077000</a></td></tr>
+                  <tr><td><strong>Graphs Theory and Algorithms</strong></td><td><a href="https://isbnsearch.org/isbn/1774077019" target="_blank" rel="noopener">ISBN 1774077019</a></td></tr>
+                </tbody>
+              </table>
+            </section>
+
+            <!-- 2019 -->
+            <section class="books-year">
+              <h3>2019</h3>
+              <table class="year-table" summary="Edited books 2019">
+                <thead class="sr-only"><tr><th>Title</th><th>Info</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Fundamentals of Matrix Computations</strong></td><td><a href="https://isbnsearch.org/isbn/1774071444" target="_blank" rel="noopener">ISBN 1774071444</a></td></tr>
+                  <tr><td><strong>Modeling in Mathematics</strong></td><td><a href="https://isbnsearch.org/isbn/1774071436" target="_blank" rel="noopener">ISBN 1774071436</a></td></tr>
+                  <tr><td><strong>Mathematical Optimization Terminology</strong></td><td><a href="https://isbnsearch.org/isbn/1774071452" target="_blank" rel="noopener">ISBN 1774071452</a></td></tr>
+                  <tr><td><strong>Modern Physics</strong></td><td><a href="https://isbnsearch.org/isbn/1774071428" target="_blank" rel="noopener">ISBN 1774071428</a></td></tr>
+                </tbody>
+              </table>
+            </section>
+
+            <!-- 2018 -->
+            <section class="books-year">
+              <h3>2018</h3>
+              <table class="year-table" summary="Edited books 2018">
+                <thead class="sr-only"><tr><th>Title</th><th>Info</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>An Introduction to Integral Transforms and Their Applications</strong></td><td><a href="https://isbnsearch.org/isbn/1773615548" target="_blank" rel="noopener">ISBN 1773615548</a></td></tr>
+                  <tr><td><strong>Theory and Problems of Fluid Dynamics</strong></td><td><a href="https://isbnsearch.org/isbn/1773613766" target="_blank" rel="noopener">ISBN 1773613766</a></td></tr>
+                  <tr><td><strong>Probabilistic Inference and Statistical Methods in Network Analysis</strong></td><td><a href="https://isbnsearch.org/isbn/1773615556" target="_blank" rel="noopener">ISBN 1773615556</a></td></tr>
+                  <tr><td><strong>Numerical Methods and Their Applications to Linear Algebra</strong></td><td><a href="https://isbnsearch.org/isbn/1773615572" target="_blank" rel="noopener">ISBN 1773615572</a></td></tr>
+                  <tr><td><strong>Group Majorization Methods</strong></td><td><a href="https://isbnsearch.org/isbn/1773615564" target="_blank" rel="noopener">ISBN 1773615564</a></td></tr>
+                </tbody>
+              </table>
+            </section>
+
+            <!-- 2017 -->
+            <section class="books-year">
+              <h3>2017</h3>
+              <table class="year-table" summary="Edited books 2017">
+                <thead class="sr-only"><tr><th>Title</th><th>Info</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Semiconductor Physics</strong></td><td><a href="https://isbnsearch.org/isbn/1773612999" target="_blank" rel="noopener">ISBN 1773612999</a></td></tr>
+                  <tr><td><strong>Superconductors - New Developments</strong></td><td><a href="https://isbnsearch.org/isbn/168094360X" target="_blank" rel="noopener">ISBN 168094360X</a></td></tr>
+                  <tr><td><strong>Fourier Transform - Signal Processing</strong></td><td><a href="https://isbnsearch.org/isbn/1680943952" target="_blank" rel="noopener">ISBN 1680943952</a></td></tr>
+                  <tr><td><strong>Nuclear and High Energy Physics</strong></td><td><a href="https://isbnsearch.org/isbn/1680944347" target="_blank" rel="noopener">ISBN 1680944347</a></td></tr>
+                  <tr><td><strong>Nonlinear and Complex Systems</strong></td><td><a href="https://isbnsearch.org/isbn/1680944339" target="_blank" rel="noopener">ISBN 1680944339</a></td></tr>
+                  <tr><td><strong>Laser and Magnetism</strong></td><td><a href="https://isbnsearch.org/isbn/1680944312" target="_blank" rel="noopener">ISBN 1680944312</a></td></tr>
+                  <tr><td><strong>Wave Motion and Applied Science</strong></td><td><a href="https://isbnsearch.org/isbn/1680943693" target="_blank" rel="noopener">ISBN 1680943693</a></td></tr>
+                  <tr><td><strong>Quantum Mechanics for Applied Nanotechnology</strong></td><td><a href="https://isbnsearch.org/isbn/1680943537" target="_blank" rel="noopener">ISBN 1680943537</a></td></tr>
+                  <tr><td><strong>Mathematical and Computational Physics</strong></td><td><a href="https://isbnsearch.org/isbn/1680944320" target="_blank" rel="noopener">ISBN 1680944320</a></td></tr>
+                  <tr><td><strong>Thermal Physics and Statistical Mechanics</strong></td><td><a href="https://isbnsearch.org/isbn/1680944363" target="_blank" rel="noopener">ISBN 1680944363</a></td></tr>
+                  <tr><td><strong>Particle Physics</strong></td><td><a href="https://isbnsearch.org/isbn/1680944355" target="_blank" rel="noopener">ISBN 1680944355</a></td></tr>
+                  <tr><td><strong>Statistical Methods in Radiation Physics</strong></td><td><a href="https://isbnsearch.org/isbn/1680944371" target="_blank" rel="noopener">ISBN 1680944371</a></td></tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+
+          <div id="tab-notes" class="tab-panel is-hidden" role="tabpanel" aria-labelledby="tab-btn-notes">
+            <p>List of reseach notes will be added soon</p>
+          </div>
+
+          <div id="tab-preprints" class="tab-panel is-hidden" role="tabpanel" aria-labelledby="tab-btn-preprints">
+            <p>List of pre-prints will be added soon</p>
+          </div>
+        </section>
+    <!-- JavaScript to handle tabs -->  
+    <!-- JavaScript Files -->
+    <script src="../js/tabs.js" defer></script>
 
       </article>
     </main>
+ <!-- Closing Call-to-Action Section -->
+      <section id="closing-band" class="closing-band" aria-labelledby="closing-title">
+        <h2 id="closing-title">Clear and open skies &mdash; together</h2>
+        <p>Let's make science more accessible, compassionate, and inclusive.</p>
+          <p>Because critical thinking is a right, not a privilege.</p>
+        <p></p>
+        <div class="cta-row">
+          <a class="btn" href="https://omoreira.github.io/content/temp.html">Start a conversation</a>
+          <a class="btn" href="https://omoreira.github.io/content/contact.html">Let's Connect</a>
+        </div>
+      </section>
 
+	  </main>
+    <!-- Footer Section -->
     <footer class="site-footer" role="contentinfo">
       <div class="cols">
-        <section aria-labelledby="f-about">
-          <h3 id="f-about">About</h3>
-          <p>Astrophysicist &amp; AI knowledge architect designing modular, trauma-informed tools in the Niagara region, Canada.</p>
-        </section>
-        <section aria-labelledby="f-projects">
-          <h3 id="f-projects">Projects</h3>
+        <!-- Footer Navigation Section: Read-->
+        <section aria-labelledby="f-articles">
+          <h3 id="f-articles">Read</h3>
           <ul>
-            <li><a href="modular.html">GM-RKB Modular Assistant</a></li>
-            <li><a href="omopenskies.html">OM OpenSkies Initiative</a></li>
-            <li><a href="samai.html">Sam AI</a></li>
-            <li><a href="pub.html">Solar Physics Review</a></li>
+            <li><a href="/articles-science-outreach">Science Outreach</a></li>
+            <li><a href="/articles-solar-physics">Solar Physics</a></li>
+            <li><a href="/articles-notes">Research Notes</a></li>
           </ul>
         </section>
+        <!-- Footer Navigation Section: Credits-->
+        <section aria-labelledby="f-credits">
+          <h3 id="f-credits">Credits</h3>
+          <ul>
+            <li><a href="/credits-website-design">Website Design</a></li>
+            <li><a href="/credits-illustrations">Illustrations & Animations</a></li>
+            <li><a href="/ai-assistance">AI Assistance Disclosure</a></li>
+          </ul>
+        </section>
+        <!-- Footer Navigation Section: Standards-->
         <section aria-labelledby="f-standards">
           <h3 id="f-standards">Standards</h3>
           <ul>
-            <li><a href="/ai-assistance">AI Assistance Disclosure</a></li>
             <li><a href="/conduct">Open Scientific Practice</a></li>
             <li><a href="/privacy">Privacy &amp; Terms</a></li>
-            <li><a href="/legal">Copyright &amp; Fair Dealing (Canada)</a></li>
+            <li><a href="/legal">Copyright &amp; Fair Dealing</a></li>
           </ul>
         </section>
-        <section aria-labelledby="f-connect" id="connect">
-          <h3 id="f-connect">Connect</h3>
+        <!-- Footer Navigation Section: Labs-->
+        <section aria-labelledby="f-labs" id="labs">
+          <h3 id="f-labs">Labs</h3>
           <ul>
-            <li><a href="mailto:olga.moreira@omopenskies.org">Email</a></li>
-            <li><a href="https://www.linkedin.com/in/..." rel="me">LinkedIn</a></li>
-            <li><a href="https://github.com/..." rel="me">GitHub</a></li>
-            <li><a href="/newletter">Newsletter</a></li>
+            <li><a href="/labs-omscripting">OM Scripting</a></li>
+            <li><a href="/labs-openscience">Open Research</a></li>
+            <li><a href="/labs-templates"> Design & Formatting</a></li>
           </ul>
         </section>
       </div>
+      <!-- Fine Print -->
       <div class="fineprint">
-        <p>© 2025 Olga Moreira • “Clear and open skies.”</p>
+        <p> &copy; 2025 Olga Moreira &bull; "Clear and open skies."</p>
       </div>
     </footer>
 
@@ -105,83 +324,127 @@
         </div>
       </div>
     </div>
-
+    <!-- Credentials popover -->
+    <div id="cred-panel" class="cred-panel" hidden role="dialog" aria-modal="false" aria-labelledby="cred-panel-title">
+      <div class="cred-panel__inner">
+        <h3 id="cred-panel-title">Verified International Academic Qualifications</h3>
+        <p><strong>World Education Services (WES)</strong> has authenticated the academic credentials of <strong>Olga Moreira, PhD</strong>.</p>
+        <p>Verification confirms that:</p>
+        <ul>
+          <li>The awarding institution and program were accredited at the time the credential was issued.</li>
+          <li>The credential's authenticity and Canadian equivalency have been assessed and verified.</li>
+        </ul>
+        <p>Evidence of credential verification:
+        <a href="https://badges.wes.org/Evidence?i=9db97a02-46a7-49be-877d-e9bd350b7115&type=ca">WES Verification Record</a></p>
+      </div>
+    </div>
+    <!-- JavaScript Files -->
+    <script src="js/TweenLite.min.js" defer></script>
+    <script src="js/EasePack.min.js" defer></script>
+    <script src="js/rAF.js" defer></script>
+    <script src="js/om-landing.js" defer></script>
+    <script src="js/nav.js" defer></script>
+    <script src="js/omlinks.js" defer></script>  
     <!-- Inline overlay templates (no fetch needed) -->
-    
-  
-  
-  
-  
-  
-  
-  
-  <template id="overlay-tpl-ai-assistance">
-<p>The development of this website involved the use of AI tools — including GitHub Copilot, Codex, and ChatGPT (GPT-5 mini) — in much the same way that modern creators use code completion, grammar checking, or documentation assistants.</p>
-<p><strong>AI tools were used for:</strong></p>
-<ul>
-<li>Generating boilerplate code and debugging suggestions</li>
-<li>Refining text clarity and enhancing visual presentation</li>
-</ul>
-<p>However, <strong>all architectural design, creative direction, and ethical decisions</strong> were entirely conceived, guided, and reviewed by the human creator, <strong>Olga Moreira, PhD</strong>.</p>
-<p>Every element of content and code was <strong>manually audited</strong> for accuracy, coherence, and integrity.</p>
-<p>This disclosure is offered in the interest of <strong>transparency</strong> — to acknowledge that <strong>while AI can support structured thinking and development, it does not replace human intent, authorship, or ethical responsibility</strong>.</p>
-  </template>
-    
-  
-  
-  
-  
-  
-  
-  
-  <template id="overlay-tpl-conduct">
-<p>Open scientific practice is more than a research standard — it’s a way of engaging with knowledge that honors transparency, equity, and intellectual honesty.
-I align my work with the principles set out by the <a href="https://assets.w3.tue.nl/w/fileadmin/2019-01-31%20TUe%20Code%20of%20Scientific%20Conduct%20ENG.pdf">TU/e Code of Scientific Conduct</a> and <a href="https://igdore.org/open-scientific-practices/">IGDORE&#39;s Open Scientific Practices</a>, integrating them into every stage of my research, writing, and project design.</p>
-<p><strong>Core Commitments:</strong></p>
-<ul>
-<li><strong>Integrity and Transparency</strong> — Upholding clarity in data, sources, and authorship.</li>
-<li><strong>Openness and Accessibility</strong> — Sharing knowledge responsibly, making science understandable and available to all.</li>
-<li><strong>Equity and Responsibility</strong> — Recognizing the social impact of research and prioritizing inclusivity in scientific participation.</li>
-<li><strong>Reflection and Accountability</strong> — Continuously examining how methods, technologies, and biases shape the stories we tell through science.</li>
-</ul>
-<p>Open practice, to me, means building bridges between rigor and compassion — ensuring that science remains both a shared language and a shared right.</p>
-  </template>
-    
-  
-  
-  
-  
-  
-  
-  
-  <template id="overlay-tpl-privacy">
-<p>We favor <strong>local-first workflows</strong> and collect <strong>minimal analytics</strong> to protect user privacy.
-No personal data is sold, shared, or tracked beyond what is technically necessary for secure site functionality.</p>
-<p>If you choose to subscribe to our newsletter, your email address will be used <strong>solely for that purpose</strong> and can be <strong>unsubscribed at any time</strong>.
-We support informed consent and transparent communication, because openness begins with trust.</p>
-  </template>
-    
-  
-  
-  
-  
-  
-  
-  
-  <template id="overlay-tpl-legal">
-<p>Except where otherwise noted, all content on this website is &copy; <strong>Olga Moreira</strong>.
-Fair dealing under Canadian law applies for purposes of <strong>private study, research, criticism, review, or news reporting</strong>, provided that appropriate attribution is given.</p>
-<p><strong>Please do not redistribute or reproduce this material in bulk or without acknowledgment.</strong></p>
-<p><strong>Credits &amp; Source Acknowledgments:</strong></p>
-<ul>
-<li>The hero header animation concept was inspired by <a href="https://tympanus.net/codrops/2014/09/23/animated-background-headers/">Codrops’ <em>Animated Background Headers</em> (2014)</a>.</li>
-<li>The <strong>header background image</strong> is a composite of binary code and an <strong>ESO Milky Way</strong> photograph.</li>
-<li>The <strong>R&amp;D section image</strong> combines a printed circuit board texture with a <strong>SOHO/NASA solar image</strong>.</li>
-<li>All other images, including the <strong>Data Visualization Tools</strong> and <strong>Creative Writing section</strong>, as well as the <strong>Sam AI</strong> and <strong>OM OpenSkies</strong> logos, are <strong>original works by Olga Moreira</strong>.</li>
-</ul>
-<p>This notice is provided to support transparency, ethical reuse, and respect for creative labor within the open science and digital media communities.</p>
-  </template>
-
+    <!--- Articles -->
+    <!--- Science Outreach -->  
+    <template id="overlay-tpl-articles-science-outreach">
+      <p><strong>Science Outreach &mdash; Coming Soon</strong><p>
+      <p>Short, accessible articles that translate complex science into clear language.</p>
+    </template>
+    <!-- Solar Physics-->
+    <template id="overlay-tpl-articles-solar-physics">
+      <p><strong>Solar Physics &mdash; Coming Soon</strong></p>
+      <p>Early materials for my solar-physics work: outlines, datasets, and first analyses.</p>
+    </template>
+    <!-- Lecture Notes --> 
+    <template id="overlay-tpl-articles-notes">
+    <p><strong>Research Notes — Coming Soon</strong></p>
+    <p>Concise technical references: cheat-sheets, guides, and structured working notes.</p>
+    </template>
+ 
+    <!--- Credits -->
+    <!---AI Assistance -->    
+    <template id="overlay-tpl-ai-assistance">
+      <p>The development of this website involved the use of AI tools — including GitHub Copilot, Codex, and ChatGPT (GPT-5 mini) — in much the same way that modern creators use code completion, grammar checking, or documentation assistants.</p>
+      <p><strong>AI tools were used for:</strong></p>
+      <ul>
+      <li>Generating basic boilerplate code and debugging suggestions</li>
+      <li>Refining text clarity and enhancing visual presentation</li>
+      </ul>
+      <p>However, <strong>all architectural design, creative direction, and ethical decisions</strong> were entirely conceived, guided, and reviewed by the human creator, <strong>Olga Moreira, PhD</strong>.</p>
+      <p>Every element of content and code was <strong>manually audited</strong> for accuracy, coherence, and integrity.</p>
+      <p>This disclosure is offered in the interest of <strong>transparency</strong> — to acknowledge that <strong>while AI can support structured thinking and development, it does not replace human intent, authorship, or ethical responsibility</strong>.</p>
+    </template>
+    <!---Conduct -->  
+    <template id="overlay-tpl-conduct">
+      <p>Open scientific practice is more than a research standard — it's a way of engaging with knowledge that honors transparency, equity, and intellectual honesty.
+      I align my work with the principles set out by the <a href="https://assets.w3.tue.nl/w/fileadmin/2019-01-31%20TUe%20Code%20of%20Scientific%20Conduct%20ENG.pdf">TU/e Code of Scientific Conduct</a> and <a href="https://igdore.org/open-scientific-practices/">IGDORE&#39;s Open Scientific Practices</a>, integrating them into every stage of my research, writing, and project design.</p>
+      <p><strong>Core Commitments:</strong></p>
+      <ul>
+      <li><strong>Integrity and Transparency</strong> — Upholding clarity in data, sources, and authorship.</li>
+      <li><strong>Openness and Accessibility</strong> — Sharing knowledge responsibly, making science understandable and available to all.</li>
+      <li><strong>Equity and Responsibility</strong> — Recognizing the social impact of research and prioritizing inclusivity in scientific participation.</li>
+      <li><strong>Reflection and Accountability</strong> — Continuously examining how methods, technologies, and biases shape the stories we tell through science.</li>
+      </ul>
+      <p>Open practice, to me, means building bridges between rigor and compassion — ensuring that science remains both a shared language and a shared right.</p>
+    </template> 
+    <!---Privacy -->  
+    <template id="overlay-tpl-privacy">
+      <p>We favor <strong>local-first workflows</strong> and collect <strong>minimal analytics</strong> to protect user privacy.
+      No personal data is sold, shared, or tracked beyond what is technically necessary for secure site functionality.</p>
+      <p>If you choose to subscribe to our newsletter, your email address will be used <strong>solely for that purpose</strong> and can be <strong>unsubscribed at any time</strong>.
+      We support informed consent and transparent communication, because openness begins with trust.</p>
+    </template>   
+    <!---Legal -->  
+    <template id="overlay-tpl-legal">
+      <p>Except where otherwise noted, all content on this website is &copy; <strong>Olga Moreira</strong>.
+      Fair dealing under Canadian law applies for purposes of <strong>private study, research, criticism, review, or news reporting</strong>, provided that appropriate attribution is given.</p>
+      <p><strong>Please do not redistribute or reproduce this material in bulk or without acknowledgment.</strong></p>
+      <p>This notice is provided to support transparency, ethical reuse, and respect for creative labor within the open science and digital media communities.</p>
+    </template>
+    <!--- Animations -->
+    <template id="overlay-tpl-credits-animations">
+      <ul>
+             </ul>
+      <p>This notice is provided to uphold transparency, ethical reuse, and acknowledgment of creative contribution in digital media and open science.</p>
+    </template>  
+    <!--- Illustrations -->  
+    <template id="overlay-tpl-credits-illustrations">
+      <ul>
+      <li>The <strong>header background image</strong> is a composite of binary code and an <strong>ESO Milky Way</strong> photograph.</li>
+      <li>The <strong>R&amp;D section image</strong> merges a printed circuit board texture with a <strong>SOHO/NASA solar</strong> image.</li>
+      <li>The <strong>hero header animation concept</strong> was inspired by <a href="https://tympanus.net/codrops/2014/09/23/animated-background-headers/">Codrops’ <em>Animated Background Headers</em> (2014)</a>.</li>
+      <li>All other visuals — including the <strong>Data Visualization Tools</strong> and <strong>Creative Writing</strong> section imagery, as well as the <strong>Sam AI</strong> and <strong>OM OpenSkies</strong> logos — are original works by <strong>Olga Moreira</strong>.</li>
+    </ul>
+      <p>This notice supports transparency, ethical reuse, and recognition of creative authorship across scientific and artistic domains.</p>
+    </template> 
+    <!--- Website Design -->  
+    <template id="overlay-tpl-credits-website-design">
+      <p>All architectural design, creative direction, and ethical decisions were conceived, guided, and reviewed by the human creator, <strong>Olga Moreira, PhD</strong>.</p>
+      <p>For details regarding authorship and fair use:</p>
+      <ul>
+      <li>See &quot;Copyright &amp; Fair Dealing&quot;.</li>
+      <li>See &quot;AI Assistance Disclosure]&quot; for information on AI tool usage.</li>
+      </ul>
+      <p>This notice is offered in the spirit of transparency, ethical reuse, and respect for creative labor within the open science and digital media communities.</p>
+    </template>  
+    <!--- Labs -->  
+    <!--- AI tools -->
+    <template id="overlay-tpl-labs-omscripting">
+      <p><strong>OM Scripting &mdash; Coming Soon</strong></p>
+      <p>Gateway to my om-scripting repo: Python patterns, workflows, and modular tools.</p>
+    </template>  
+    <!--- Decentralization -->  
+    <template id="overlay-tpl-labs-openscience">
+      <p><strong>Open Science &mdash; Coming Soon</strong></p>
+      <p>Open-science archives, preprints, datasets, and reproducible research components.</p>
+    </template>
+    <!--- Modularity -->
+    <template id="overlay-tpl-labs-templates">
+    <p><strong>Design & Formatting &mdash; Coming Soon</strong></p>
+    <p>LaTeX templates and HTML/CSS layout prototypes for clean, minimal design work.</p>
+    </template>
     <script src="../js/nav.js" defer></script>
   </body>
   </html>

@@ -7,33 +7,15 @@ document.addEventListener('DOMContentLoaded', function () {
   var overlayBody = document.getElementById('overlay-body');
   var overlayClose = overlay ? overlay.querySelector('.overlay__close') : null;
   var lastFocus = null;
-  var backTop = document.querySelector('.back-to-top');
-  var nextBtn = document.querySelector('.next-section');
-  var orderedSections = [
-    document.getElementById('large-header'),
-    document.getElementById('about'),
-    document.getElementById('projects'),
-    document.getElementById('dataviz'),
-    document.getElementById('openskies'),
-    document.getElementById('sam'),
-    document.getElementById('writing'),
-    document.getElementById('closing-band')
-  ].filter(Boolean);
-  // Next scroll excludes footer only; allows navigating into closing-band but not from it
-  var orderedNext = [
-    document.getElementById('large-header'),
-    document.getElementById('about'),
-    document.getElementById('projects'),
-    document.getElementById('dataviz'),
-    document.getElementById('openskies'),
-    document.getElementById('sam'),
-    document.getElementById('writing'),
-    document.getElementById('closing-band')
-  ].filter(Boolean);
-
-  if (!toggle || !menu) return;
+  var credToggle = document.querySelector('.cred-toggle');
+  var credPanel = document.getElementById('cred-panel');
+  var closingBand = document.getElementById('closing-band');
+  var hasMenu = toggle && menu;
+  var heroVisible = true;
+  var closingVisible = false;
 
   function openMenu() {
+    if (!hasMenu) return;
     menu.hidden = false;
     toggle.setAttribute('aria-expanded', 'true');
     toggle.setAttribute('aria-label', 'Close menu');
@@ -41,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function closeMenu() {
+    if (!hasMenu) return;
     menu.hidden = true;
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Open menu');
@@ -48,25 +31,69 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function toggleMenu() {
+    if (!hasMenu) return;
     var expanded = toggle.getAttribute('aria-expanded') === 'true';
     if (expanded) closeMenu(); else openMenu();
   }
 
-  toggle.addEventListener('click', function (e) {
-    e.preventDefault();
-    toggleMenu();
-  });
+  if (hasMenu) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      toggleMenu();
+    });
 
-  menu.addEventListener('click', function (e) {
-    if (e.target && e.target.closest('a')) {
-      closeMenu();
+    menu.addEventListener('click', function (e) {
+      if (e.target && e.target.closest('a')) {
+        closeMenu();
+      }
+    });
+  }
+
+  function openCred() {
+    if (!credToggle || !credPanel) return;
+    credPanel.hidden = false;
+    credToggle.setAttribute('aria-expanded', 'true');
+    credToggle.setAttribute('aria-label', 'Hide academic verification details');
+    root.classList.add('cred-open');
+    root.classList.remove('cred-fade');
+  }
+
+  function closeCred() {
+    if (!credToggle || !credPanel) return;
+    credPanel.hidden = true;
+    credToggle.setAttribute('aria-expanded', 'false');
+    credToggle.setAttribute('aria-label', 'Show academic verification details');
+    root.classList.remove('cred-open');
+    refreshCredFade();
+  }
+
+  function toggleCred() {
+    if (!credToggle || !credPanel) return;
+    var expanded = credToggle.getAttribute('aria-expanded') === 'true';
+    if (expanded) closeCred(); else openCred();
+  }
+
+  if (credToggle && credPanel) {
+    credToggle.addEventListener('click', function(e){
+      e.preventDefault();
+      toggleCred();
+    });
+  }
+
+  function refreshCredFade() {
+    if (credPanel && !credPanel.hidden) {
+      root.classList.remove('cred-fade');
+      return;
     }
-  });
+    var fade = !heroVisible && !closingVisible;
+    root.classList.toggle('cred-fade', fade);
+  }
 
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
       closeMenu();
       if (overlay && !overlay.hasAttribute('hidden')) closeOverlay();
+      if (credPanel && !credPanel.hidden) closeCred();
     }
   });
 
@@ -77,56 +104,33 @@ document.addEventListener('DOMContentLoaded', function () {
   if (header && 'IntersectionObserver' in window) {
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
-        if (entry.isIntersecting && entry.intersectionRatio > 0.25) {
-          root.classList.remove('nav-scheme-light');
-        } else {
-          root.classList.add('nav-scheme-light');
-        }
+        heroVisible = entry.isIntersecting && entry.intersectionRatio > 0.25;
+        if (heroVisible) root.classList.remove('nav-scheme-light');
+        else root.classList.add('nav-scheme-light');
+        refreshCredFade();
       });
     }, { threshold: [0, 0.25, 0.5, 0.75, 1] });
     io.observe(header);
+
+    if (closingBand) {
+      var closingIO = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          closingVisible = entry.isIntersecting && entry.intersectionRatio > 0.1;
+          refreshCredFade();
+        });
+      }, { threshold: [0, 0.1, 0.25, 0.5] });
+      closingIO.observe(closingBand);
+    }
   } else {
     // Fallback: switch to light scheme after first scroll past viewport height
     window.addEventListener('scroll', function(){
       var y = window.scrollY || window.pageYOffset;
-      if (y > (window.innerHeight * 0.5)) {
-        root.classList.add('nav-scheme-light');
-      } else {
-        root.classList.remove('nav-scheme-light');
-      }
+      heroVisible = y <= (window.innerHeight * 0.5);
+      closingVisible = closingBand ? (y + window.innerHeight) >= (document.documentElement.scrollHeight - (closingBand.clientHeight * 0.5)) : false;
+      if (!heroVisible) root.classList.add('nav-scheme-light'); else root.classList.remove('nav-scheme-light');
+      refreshCredFade();
     });
   }
-
-  // Back to top visibility
-  function updateBackTop() {
-    if (!backTop) return;
-    var y = window.scrollY || window.pageYOffset;
-    // Visibility
-    if (y > (window.innerHeight * 0.75)) {
-      backTop.classList.add('visible');
-    } else {
-      backTop.classList.remove('visible');
-    }
-
-    // Mode: when in or past the closing band (or near page bottom), make it jump to top
-    var toTop = false;
-    if (orderedSections.length) {
-      var tops = orderedSections.map(function (el) {
-        var r = el.getBoundingClientRect();
-        return r.top + (window.scrollY || window.pageYOffset || 0);
-      });
-      var closingIdx = tops.length - 1; // closing-band is last in our list
-      var tolerance = 4;
-      // If scrolled past closing-band top, or near document bottom
-      var atOrPastClosing = y + tolerance >= tops[closingIdx];
-      var nearBottom = (y + window.innerHeight) >= (document.documentElement.scrollHeight - 2);
-      toTop = atOrPastClosing || nearBottom;
-    }
-    backTop.classList.toggle('to-top', toTop);
-    backTop.setAttribute('aria-label', toTop ? 'Back to top' : 'Previous section');
-  }
-  updateBackTop();
-  window.addEventListener('scroll', updateBackTop, { passive: true });
 
   // Blur-up header: mark header as loaded after window load to fade overlay
   window.addEventListener('load', function(){
@@ -211,6 +215,13 @@ document.addEventListener('DOMContentLoaded', function () {
   if (overlay){ overlay.addEventListener('click', function(e){ if (e.target === overlay) closeOverlay(); }); }
 
   document.addEventListener('click', function(e){
+    if (!credPanel || credPanel.hidden) return;
+    var withinPanel = credPanel.contains(e.target);
+    var withinToggle = credToggle && credToggle.contains(e.target);
+    if (!withinPanel && !withinToggle) closeCred();
+  });
+
+  document.addEventListener('click', function(e){
     var a = e.target.closest('a[href]');
     if (!a) return;
     var href = a.getAttribute('href');
@@ -246,96 +257,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  function updateNextBtn() {
-    if (!nextBtn || !orderedNext.length) return;
-    var y = window.scrollY || window.pageYOffset || 0;
-    // Compute tops
-    var tops = orderedNext.map(function (el) {
-      var r = el.getBoundingClientRect();
-      return r.top + (window.scrollY || window.pageYOffset || 0);
-    });
-    // Find current index (last whose top <= y + tolerance)
-    var tolerance = 4;
-    var currentIdx = 0;
-    for (var i = 0; i < tops.length; i++) {
-      if (tops[i] <= y + tolerance) currentIdx = i;
-    }
-    var atFirst = currentIdx === 0;            // first is hero
-    var atLast = currentIdx >= tops.length - 1; // last is closing-band
-    if (atLast || atFirst) {
-      nextBtn.classList.remove('visible');
-    } else {
-      nextBtn.classList.add('visible');
-    }
-  }
-  updateNextBtn();
-  window.addEventListener('scroll', updateNextBtn, { passive: true });
-
-  if (nextBtn) {
-    nextBtn.addEventListener('click', function (e) {
-      if (!orderedNext.length) return;
-      e.preventDefault();
-      var y = window.scrollY || window.pageYOffset || 0;
-      var tops = orderedNext.map(function (el) {
-        var r = el.getBoundingClientRect();
-        return r.top + (window.scrollY || window.pageYOffset || 0);
-      });
-      var tolerance = 4;
-      var currentIdx = 0;
-      for (var i = 0; i < tops.length; i++) {
-        if (tops[i] <= y + tolerance) currentIdx = i;
-      }
-      var targetIdx = Math.min(orderedNext.length - 1, currentIdx + 1);
-      var targetEl = orderedNext[targetIdx];
-      if (targetEl && typeof targetEl.scrollIntoView === 'function') {
-        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      } else if (tops[targetIdx] !== undefined) {
-        window.scrollTo({ top: tops[targetIdx], behavior: 'smooth' });
-      }
-    });
-  }
-
-  // Back-to-top: scroll to previous section instead of absolute top
-  if (backTop) {
-    backTop.addEventListener('click', function (e) {
-      // If no sections, fallback to default behavior
-      if (!orderedSections.length) return;
-      e.preventDefault();
-
-      var currentY = window.scrollY || window.pageYOffset || 0;
-      // Compute absolute tops for each section
-      var tops = orderedSections.map(function (el) {
-        var rect = el.getBoundingClientRect();
-        return rect.top + (window.scrollY || window.pageYOffset || 0);
-      });
-
-      // Find current section index as the last whose top <= currentY + tolerance
-      var tolerance = 4;
-      var currentIdx = 0;
-      for (var i = 0; i < tops.length; i++) {
-        if (tops[i] <= currentY + tolerance) currentIdx = i;
-      }
-      var closingIdx = tops.length - 1;
-      var toTop = backTop.classList.contains('to-top') || currentIdx >= closingIdx;
-      var targetIdx = toTop ? 0 : Math.max(0, currentIdx - 1);
-
-      // Smooth scroll to target section
-      var targetEl = orderedSections[targetIdx];
-      if (targetEl && typeof targetEl.scrollIntoView === 'function') {
-        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      } else if (tops[targetIdx] !== undefined) {
-        window.scrollTo({ top: tops[targetIdx], behavior: 'smooth' });
-      }
-    });
-  }
-
   // Active link highlighting based on sections in view
-  var links = Array.prototype.slice.call(menu.querySelectorAll('a[href^="#"]'));
-  var sections = links
-    .map(function(a){
-      try { return document.querySelector(a.getAttribute('href')); } catch(e) { return null; }
-    })
-    .filter(function(el){ return !!el; });
+  var links = hasMenu ? Array.prototype.slice.call(menu.querySelectorAll('a[href^="#"]')) : [];
+  var sections = hasMenu ? links
+      .map(function(a){
+        try { return document.querySelector(a.getAttribute('href')); } catch(e) { return null; }
+      })
+      .filter(function(el){ return !!el; }) : [];
 
   function setActive(id) {
     links.forEach(function(a){

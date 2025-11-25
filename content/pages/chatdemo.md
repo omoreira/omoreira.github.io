@@ -1,3 +1,0 @@
-# Demo Chat
-
-Coming soon.

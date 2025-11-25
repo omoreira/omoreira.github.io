@@ -1,3 +1,0 @@
-# Solar Physics
-
-Coming soon.

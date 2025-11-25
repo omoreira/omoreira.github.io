@@ -116,14 +116,6 @@ section {
   .section-dataviz .dataviz-anim { transform: none; }
 }
 
-/* Keep tagline/lead the same width as the visual for perfect centering */
-.section-dataviz .section-media .tagline,
-.section-dataviz .section-media .lead {
-    /* revert to default centering rules */
-}
-/* Constrain the entire media column to a fixed width and center it */
-/* use grid defaults; no fixed width on media column */
-
 /* Hover to animate: stack static and GIF, fade on hover */
 .dataviz-anim {
     position: relative;
@@ -253,13 +245,15 @@ section {
     color: var(--heading-color);
 }
 
-.section-block .tagline {
+.section-block .tagline,
+.section-dataviz .section-media .tagline {
     font-weight: 700;
     letter-spacing: 0.01em;
     margin: 0.1rem 0 0.1rem;
 }
 
-.section-block .lead {
+.section-block .lead,
+.section-dataviz .section-media .lead {
     font-size: 1.05rem;
     line-height: 1.6;
     opacity: 0.95;
@@ -347,7 +341,6 @@ section.section-block:nth-of-type(even) .section-content { order: 1; }
     );
 }
 
-/* Compact page header (for non-landing pages) */
 .page-header {
     position: relative;
     width: 100%;
@@ -502,6 +495,51 @@ section.section-block:nth-of-type(even) .section-content { order: 1; }
     backdrop-filter: saturate(120%) blur(6px);
     -webkit-backdrop-filter: saturate(120%) blur(6px);
     transition: background-color .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.cred-toggle {
+    position: fixed;
+    top: 0.75rem;
+    right: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    min-height: 42px;
+    padding: 0.55rem 0.8rem;
+    max-width: min(72vw, 460px);
+    color: var(--nav-color);
+    background-color: var(--nav-bg);
+    border: 1px solid var(--nav-border);
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.28);
+    backdrop-filter: saturate(120%) blur(6px);
+    -webkit-backdrop-filter: saturate(120%) blur(6px);
+    font-weight: 800;
+    font-size: 0.82rem;
+    letter-spacing: .01em;
+    text-align: left;
+    cursor: pointer;
+    z-index: 3;
+    transition: background-color .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease, transform .2s ease, opacity .3s ease;
+}
+.cred-toggle:hover,
+.cred-toggle:focus {
+    transform: translateY(1px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.32);
+}
+.cred-label { line-height: 1.25; }
+
+html.cred-open .cred-toggle {
+    background-color: var(--cta-color);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.32), 0 0 0 2px rgba(255,255,255,0.18) inset;
+}
+
+html.cred-fade:not(.cred-open) .cred-toggle {
+    opacity: 0.2;
+    pointer-events: none;
 }
 
 /* Skip link (a11y) */
@@ -743,6 +781,11 @@ a[data-omlink]:hover, a[data-omlink]:focus { outline: none; }
     outline-offset: 2px;
 }
 
+.cred-toggle:focus-visible {
+    outline: 2px solid rgba(249,241,233,0.85);
+    outline-offset: 2px;
+}
+
 .nav-toggle .bar {
     display: block;
     width: 22px;
@@ -797,103 +840,33 @@ html.nav-scheme-light {
     background-color: rgba(255,255,255,0.16);
 }
 
+.cred-panel {
+    position: fixed;
+    top: 3.5rem;
+    right: 0.75rem;
+    max-width: min(360px, 90vw);
+    background: var(--nav-bg);
+    color: var(--nav-color);
+    border: 1px solid var(--nav-border);
+    border-radius: 12px;
+    box-shadow: 0 14px 34px rgba(0,0,0,0.28);
+    backdrop-filter: saturate(120%) blur(6px);
+    -webkit-backdrop-filter: saturate(120%) blur(6px);
+    z-index: 4;
+}
+.cred-panel__inner {
+    padding: 1rem 1.1rem;
+}
+.cred-panel h3 {
+    margin: 0 0 0.35rem;
+    font-size: 1rem;
+    color: var(--heading-color);
+}
+.cred-panel p {
+    margin: 0 0 0.45rem;
+    line-height: 1.5;
+}
 /* Back to top */
-.back-to-top {
-    position: fixed;
-    right: 0.75rem;
-    bottom: 4rem;
-    width: 44px;
-    height: 44px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--nav-color);
-    background-color: var(--nav-bg);
-    border: 1px solid var(--nav-border);
-    border-radius: 999px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-    backdrop-filter: saturate(120%) blur(6px);
-    -webkit-backdrop-filter: saturate(120%) blur(6px);
-    z-index: 4;
-    opacity: 0;
-    transform: translateY(10px);
-    pointer-events: none;
-    transition: opacity .2s ease, transform .2s ease, background-color .2s ease, border-color .2s ease, color .2s ease;
-}
-.back-to-top svg {
-    width: 20px;
-    height: 20px;
-    stroke: currentColor;
-    fill: none;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-width: 2.5;
-}
-.back-to-top svg .icon-top { display: none; }
-
-/* Distinct style when acting as Back to top (keeps double chevrons) */
-.back-to-top.to-top {
-    background-color: var(--cta-color);
-    color: #fff;
-    border-color: transparent;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.25), 0 0 0 2px rgba(255,255,255,0.18) inset;
-}
-.back-to-top.to-top:hover,
-.back-to-top.to-top:focus {
-    background-color: var(--cta-hover);
-}
-.back-to-top.visible {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-}
-.back-to-top:hover,
-.back-to-top:focus {
-    transform: translateY(-1px);
-}
-
-/* Next section */
-.next-section {
-    position: fixed;
-    right: 0.75rem;
-    bottom: 0.75rem;
-    width: 44px;
-    height: 44px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--nav-color);
-    background-color: var(--nav-bg);
-    border: 1px solid var(--nav-border);
-    border-radius: 999px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-    backdrop-filter: saturate(120%) blur(6px);
-    -webkit-backdrop-filter: saturate(120%) blur(6px);
-    z-index: 4;
-    opacity: 0;
-    transform: translateY(10px);
-    pointer-events: none;
-    transition: opacity .2s ease, transform .2s ease, background-color .2s ease, border-color .2s ease, color .2s ease;
-}
-.next-section svg {
-    width: 20px;
-    height: 20px;
-    stroke: currentColor;
-    fill: none;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-width: 2.5;
-}
-.next-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-}
-.next-section:hover,
-.next-section:focus {
-    transform: translateY(-1px);
-}
-
 /* Optional dark scheme variant for CTAs */
 .closing-band[data-scheme="dark"] {
     background: var(--midnight-soft);
