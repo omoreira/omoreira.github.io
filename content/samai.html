@@ -26,17 +26,18 @@
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
+           <button class="cred-toggle" aria-expanded="false" aria-controls="cred-panel" aria-label="Show academic verification details">
+        <span class="cred-label">Olga Moreira, PhD &bull; Verified Credentials</span>
+      </button>
+      <!-- Main Title and Scroll Indicator -->
       <nav id="site-menu" class="site-menu" aria-label="Site" hidden>
         <ul>
           <li><a href="../index.html">Home</a></li>
-          <li><a href="modular.html">Modular Assistant Systems</a></li>
-          <li><a href="solarp.html">Solar Physics</a></li>
-          <li><a href="dataviz.html">Data Visualization</a></li>
-          <li><a href="pub.html">Academic Publications</a></li>
-          <li><a href="omopenskies.html">OM OpenSkies</a></li>
-          <li><a href="samai.html">Sam AI</a></li>
-          <li><a href="miagraves.html">Creative Writing</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="../index.html#projects">Research & Development</a></li>
+          <li><a href="../index.html#dataviz">Data Visualization</a></li>
+          <li><a href="../index.html#openskies">OM OpenSkies</a></li>
+          <li><a href="../content/pub.html">Publications</a></li>
+          <li><a href="../content/contact.html">Contact</a></li>
         </ul>
       </nav>
       <h1 class="page-title">Sam AI</h1>
@@ -44,10 +45,9 @@
 
     <main id="main">
       <article class="page-content">
-        <hr>
-<h2>title: Sam AI</h2>
+
 <p align="center">
-  <img src="assets/sam-ai-logo.png" alt="Sam AI Logo" width="100"/>
+  <img src="../img/sam-ai-logo.png" alt="Sam AI Logo" width="100"/>
 </p>
 <center>
   <strong>Smart. Soft. Structured.</strong><br>
@@ -86,12 +86,13 @@
 <p>This disclosure is offered in the interest of transparency and to acknowledge that while AI can support structured thinking and development, it does <strong>not replace human intent, authorship, or moral responsibility</strong>, especially in projects concerning mental well-being and personal narratives.</p>
 <h2>License and Copyrights</h2>
 <p><strong>Codebase</strong> 
-This project’s source code is licensed under the <a href="https://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public License v3.0 (AGPLv3)</a>. 
+This project's source code is licensed under the <a href="https://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public License v3.0 (AGPLv3)</a>. 
 You are free to use, modify, and share the code under the same license terms, including public-facing web deployments.</p>
 <p><strong>Documentation, Branding, and Non-Code Assets</strong> 
 All non-code content (documentation, logo, interface designs, and explanatory materials) will be licensed under the <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)</a>. 
 This allows sharing and adaptation with attribution, but restricts commercial use.</p>
 <h2>In Memoriam: Sam Lee Catson</h2>
+<hr>
 <p><strong>Date:</strong> May 4, 2022</p>
 <blockquote>
 <p>Goodbye, Sam! We will miss you immensely.</p>
@@ -106,47 +107,64 @@ This allows sharing and adaptation with attribution, but restricts commercial us
 <p>See you in Valhalla,</p>
 <p>Olga M.</p>
 <hr>
-<p>© 2025 Olga Moreira, PhD. All rights reserved.</p>
-
       </article>
     </main>
 
+  <!-- Closing Call-to-Action Section -->
+      <section id="closing-band" class="closing-band" aria-labelledby="closing-title">
+        <h2 id="closing-title">Clear and open skies &mdash; together</h2>
+       <p>Keep it private. Keep it local.</p> 
+       <p>Tune Sam into becoming your companion, not your overlord.</p>
+        <div class="cta-row">
+          <a class="btn" href="https://omoreira.github.io/content/temp.html">Start a conversation</a>
+          <a class="btn" href="https://omoreira.github.io/content/contact.html">Let's Connect</a>
+        </div>
+      </section>
+
+	  </main>
+    <!-- Footer Section -->
     <footer class="site-footer" role="contentinfo">
       <div class="cols">
-        <section aria-labelledby="f-about">
-          <h3 id="f-about">About</h3>
-          <p>Astrophysicist &amp; AI knowledge architect designing modular, trauma-informed tools in the Niagara region, Canada.</p>
-        </section>
-        <section aria-labelledby="f-projects">
-          <h3 id="f-projects">Projects</h3>
+        <!-- Footer Navigation Section: Read-->
+        <section aria-labelledby="f-articles">
+          <h3 id="f-articles">Read</h3>
           <ul>
-            <li><a href="modular.html">GM-RKB Modular Assistant</a></li>
-            <li><a href="omopenskies.html">OM OpenSkies Initiative</a></li>
-            <li><a href="samai.html">Sam AI</a></li>
-            <li><a href="pub.html">Solar Physics Review</a></li>
+            <li><a href="/articles-science-outreach">Science Outreach</a></li>
+            <li><a href="/articles-solar-physics">Solar Physics</a></li>
+            <li><a href="/articles-notes">Research Notes</a></li>
           </ul>
         </section>
+        <!-- Footer Navigation Section: Credits-->
+        <section aria-labelledby="f-credits">
+          <h3 id="f-credits">Credits</h3>
+          <ul>
+            <li><a href="/credits-website-design">Website Design</a></li>
+            <li><a href="/credits-illustrations">Illustrations & Animations</a></li>
+            <li><a href="/ai-assistance">AI Assistance Disclosure</a></li>
+          </ul>
+        </section>
+        <!-- Footer Navigation Section: Standards-->
         <section aria-labelledby="f-standards">
           <h3 id="f-standards">Standards</h3>
           <ul>
-            <li><a href="/ai-assistance">AI Assistance Disclosure</a></li>
             <li><a href="/conduct">Open Scientific Practice</a></li>
             <li><a href="/privacy">Privacy &amp; Terms</a></li>
-            <li><a href="/legal">Copyright &amp; Fair Dealing (Canada)</a></li>
+            <li><a href="/legal">Copyright &amp; Fair Dealing</a></li>
           </ul>
         </section>
-        <section aria-labelledby="f-connect" id="connect">
-          <h3 id="f-connect">Connect</h3>
+        <!-- Footer Navigation Section: Labs-->
+        <section aria-labelledby="f-labs" id="labs">
+          <h3 id="f-labs">Labs</h3>
           <ul>
-            <li><a href="mailto:olga.moreira@omopenskies.org">Email</a></li>
-            <li><a href="https://www.linkedin.com/in/..." rel="me">LinkedIn</a></li>
-            <li><a href="https://github.com/..." rel="me">GitHub</a></li>
-            <li><a href="/newletter">Newsletter</a></li>
+            <li><a href="/labs-omscripting">OM Scripting</a></li>
+            <li><a href="/labs-openscience">Open Research</a></li>
+            <li><a href="/labs-templates"> Design & Formatting</a></li>
           </ul>
         </section>
       </div>
+      <!-- Fine Print -->
       <div class="fineprint">
-        <p>© 2025 Olga Moreira • “Clear and open skies.”</p>
+        <p> &copy; 2025 Olga Moreira &bull; "Clear and open skies."</p>
       </div>
     </footer>
 
@@ -166,83 +184,126 @@ This allows sharing and adaptation with attribution, but restricts commercial us
         </div>
       </div>
     </div>
-
+    <!-- Credentials popover -->
+    <div id="cred-panel" class="cred-panel" hidden role="dialog" aria-modal="false" aria-labelledby="cred-panel-title">
+      <div class="cred-panel__inner">
+        <h3 id="cred-panel-title">Verified International Academic Qualifications</h3>
+        <p><strong>World Education Services (WES)</strong> has authenticated the academic credentials of <strong>Olga Moreira, PhD</strong>.</p>
+        <p>Verification confirms that:</p>
+        <ul>
+          <li>The awarding institution and program were accredited at the time the credential was issued.</li>
+          <li>The credential's authenticity and Canadian equivalency have been assessed and verified.</li>
+        </ul>
+        <p>Evidence of credential verification:
+        <a href="https://badges.wes.org/Evidence?i=9db97a02-46a7-49be-877d-e9bd350b7115&type=ca">WES Verification Record</a></p>
+      </div>
+    </div>
+    <!-- JavaScript Files -->
+    <script src="js/TweenLite.min.js" defer></script>
+    <script src="js/EasePack.min.js" defer></script>
+    <script src="js/rAF.js" defer></script>
+    <script src="js/om-landing.js" defer></script>
+    <script src="js/nav.js" defer></script>
+    <script src="js/omlinks.js" defer></script>  
     <!-- Inline overlay templates (no fetch needed) -->
-    
-  
-  
-  
-  
-  
-  
-  
-  <template id="overlay-tpl-ai-assistance">
-<p>The development of this website involved the use of AI tools — including GitHub Copilot, Codex, and ChatGPT (GPT-5 mini) — in much the same way that modern creators use code completion, grammar checking, or documentation assistants.</p>
-<p><strong>AI tools were used for:</strong></p>
-<ul>
-<li>Generating boilerplate code and debugging suggestions</li>
-<li>Refining text clarity and enhancing visual presentation</li>
-</ul>
-<p>However, <strong>all architectural design, creative direction, and ethical decisions</strong> were entirely conceived, guided, and reviewed by the human creator, <strong>Olga Moreira, PhD</strong>.</p>
-<p>Every element of content and code was <strong>manually audited</strong> for accuracy, coherence, and integrity.</p>
-<p>This disclosure is offered in the interest of <strong>transparency</strong> — to acknowledge that <strong>while AI can support structured thinking and development, it does not replace human intent, authorship, or ethical responsibility</strong>.</p>
-  </template>
-    
-  
-  
-  
-  
-  
-  
-  
-  <template id="overlay-tpl-conduct">
-<p>Open scientific practice is more than a research standard — it’s a way of engaging with knowledge that honors transparency, equity, and intellectual honesty.
-I align my work with the principles set out by the <a href="https://assets.w3.tue.nl/w/fileadmin/2019-01-31%20TUe%20Code%20of%20Scientific%20Conduct%20ENG.pdf">TU/e Code of Scientific Conduct</a> and <a href="https://igdore.org/open-scientific-practices/">IGDORE&#39;s Open Scientific Practices</a>, integrating them into every stage of my research, writing, and project design.</p>
-<p><strong>Core Commitments:</strong></p>
-<ul>
-<li><strong>Integrity and Transparency</strong> — Upholding clarity in data, sources, and authorship.</li>
-<li><strong>Openness and Accessibility</strong> — Sharing knowledge responsibly, making science understandable and available to all.</li>
-<li><strong>Equity and Responsibility</strong> — Recognizing the social impact of research and prioritizing inclusivity in scientific participation.</li>
-<li><strong>Reflection and Accountability</strong> — Continuously examining how methods, technologies, and biases shape the stories we tell through science.</li>
-</ul>
-<p>Open practice, to me, means building bridges between rigor and compassion — ensuring that science remains both a shared language and a shared right.</p>
-  </template>
-    
-  
-  
-  
-  
-  
-  
-  
-  <template id="overlay-tpl-privacy">
-<p>We favor <strong>local-first workflows</strong> and collect <strong>minimal analytics</strong> to protect user privacy.
-No personal data is sold, shared, or tracked beyond what is technically necessary for secure site functionality.</p>
-<p>If you choose to subscribe to our newsletter, your email address will be used <strong>solely for that purpose</strong> and can be <strong>unsubscribed at any time</strong>.
-We support informed consent and transparent communication, because openness begins with trust.</p>
-  </template>
-    
-  
-  
-  
-  
-  
-  
-  
-  <template id="overlay-tpl-legal">
-<p>Except where otherwise noted, all content on this website is &copy; <strong>Olga Moreira</strong>.
-Fair dealing under Canadian law applies for purposes of <strong>private study, research, criticism, review, or news reporting</strong>, provided that appropriate attribution is given.</p>
-<p><strong>Please do not redistribute or reproduce this material in bulk or without acknowledgment.</strong></p>
-<p><strong>Credits &amp; Source Acknowledgments:</strong></p>
-<ul>
-<li>The hero header animation concept was inspired by <a href="https://tympanus.net/codrops/2014/09/23/animated-background-headers/">Codrops’ <em>Animated Background Headers</em> (2014)</a>.</li>
-<li>The <strong>header background image</strong> is a composite of binary code and an <strong>ESO Milky Way</strong> photograph.</li>
-<li>The <strong>R&amp;D section image</strong> combines a printed circuit board texture with a <strong>SOHO/NASA solar image</strong>.</li>
-<li>All other images, including the <strong>Data Visualization Tools</strong> and <strong>Creative Writing section</strong>, as well as the <strong>Sam AI</strong> and <strong>OM OpenSkies</strong> logos, are <strong>original works by Olga Moreira</strong>.</li>
-</ul>
-<p>This notice is provided to support transparency, ethical reuse, and respect for creative labor within the open science and digital media communities.</p>
-  </template>
-
-    <script src="../js/nav.js" defer></script>
-  </body>
+    <!--- Articles -->
+    <!--- Science Outreach -->  
+    <template id="overlay-tpl-articles-science-outreach">
+      <p><strong>Science Outreach &mdash; Coming Soon</strong><p>
+      <p>Short, accessible articles that translate complex science into clear language.</p>
+    </template>
+    <!-- Solar Physics-->
+    <template id="overlay-tpl-articles-solar-physics">
+      <p><strong>Solar Physics &mdash; Coming Soon</strong></p>
+      <p>Early materials for my solar-physics work: outlines, datasets, and first analyses.</p>
+    </template>
+    <!-- Lecture Notes --> 
+    <template id="overlay-tpl-articles-notes">
+    <p><strong>Research Notes — Coming Soon</strong></p>
+    <p>Concise technical references: cheat-sheets, guides, and structured working notes.</p>
+    </template>
+ 
+    <!--- Credits -->
+    <!---AI Assistance -->    
+    <template id="overlay-tpl-ai-assistance">
+      <p>The development of this website involved the use of AI tools — including GitHub Copilot, Codex, and ChatGPT (GPT-5 mini) — in much the same way that modern creators use code completion, grammar checking, or documentation assistants.</p>
+      <p><strong>AI tools were used for:</strong></p>
+      <ul>
+      <li>Generating basic boilerplate code and debugging suggestions</li>
+      <li>Refining text clarity and enhancing visual presentation</li>
+      </ul>
+      <p>However, <strong>all architectural design, creative direction, and ethical decisions</strong> were entirely conceived, guided, and reviewed by the human creator, <strong>Olga Moreira, PhD</strong>.</p>
+      <p>Every element of content and code was <strong>manually audited</strong> for accuracy, coherence, and integrity.</p>
+      <p>This disclosure is offered in the interest of <strong>transparency</strong> — to acknowledge that <strong>while AI can support structured thinking and development, it does not replace human intent, authorship, or ethical responsibility</strong>.</p>
+    </template>
+    <!---Conduct -->  
+    <template id="overlay-tpl-conduct">
+      <p>Open scientific practice is more than a research standard — it's a way of engaging with knowledge that honors transparency, equity, and intellectual honesty.
+      I align my work with the principles set out by the <a href="https://assets.w3.tue.nl/w/fileadmin/2019-01-31%20TUe%20Code%20of%20Scientific%20Conduct%20ENG.pdf">TU/e Code of Scientific Conduct</a> and <a href="https://igdore.org/open-scientific-practices/">IGDORE&#39;s Open Scientific Practices</a>, integrating them into every stage of my research, writing, and project design.</p>
+      <p><strong>Core Commitments:</strong></p>
+      <ul>
+      <li><strong>Integrity and Transparency</strong> — Upholding clarity in data, sources, and authorship.</li>
+      <li><strong>Openness and Accessibility</strong> — Sharing knowledge responsibly, making science understandable and available to all.</li>
+      <li><strong>Equity and Responsibility</strong> — Recognizing the social impact of research and prioritizing inclusivity in scientific participation.</li>
+      <li><strong>Reflection and Accountability</strong> — Continuously examining how methods, technologies, and biases shape the stories we tell through science.</li>
+      </ul>
+      <p>Open practice, to me, means building bridges between rigor and compassion — ensuring that science remains both a shared language and a shared right.</p>
+    </template> 
+    <!---Privacy -->  
+    <template id="overlay-tpl-privacy">
+      <p>We favor <strong>local-first workflows</strong> and collect <strong>minimal analytics</strong> to protect user privacy.
+      No personal data is sold, shared, or tracked beyond what is technically necessary for secure site functionality.</p>
+      <p>If you choose to subscribe to our newsletter, your email address will be used <strong>solely for that purpose</strong> and can be <strong>unsubscribed at any time</strong>.
+      We support informed consent and transparent communication, because openness begins with trust.</p>
+    </template>   
+    <!---Legal -->  
+    <template id="overlay-tpl-legal">
+      <p>Except where otherwise noted, all content on this website is &copy; <strong>Olga Moreira</strong>.
+      Fair dealing under Canadian law applies for purposes of <strong>private study, research, criticism, review, or news reporting</strong>, provided that appropriate attribution is given.</p>
+      <p><strong>Please do not redistribute or reproduce this material in bulk or without acknowledgment.</strong></p>
+      <p>This notice is provided to support transparency, ethical reuse, and respect for creative labor within the open science and digital media communities.</p>
+    </template>
+    <!--- Animations -->
+    <template id="overlay-tpl-credits-animations">
+      <ul>
+             </ul>
+      <p>This notice is provided to uphold transparency, ethical reuse, and acknowledgment of creative contribution in digital media and open science.</p>
+    </template>  
+    <!--- Illustrations -->  
+    <template id="overlay-tpl-credits-illustrations">
+      <ul>
+      <li>The <strong>header background image</strong> is a composite of binary code and an <strong>ESO Milky Way</strong> photograph.</li>
+      <li>The <strong>R&amp;D section image</strong> merges a printed circuit board texture with a <strong>SOHO/NASA solar</strong> image.</li>
+      <li>The <strong>hero header animation concept</strong> was inspired by <a href="https://tympanus.net/codrops/2014/09/23/animated-background-headers/">Codrops’ <em>Animated Background Headers</em> (2014)</a>.</li>
+      <li>All other visuals — including the <strong>Data Visualization Tools</strong> and <strong>Creative Writing</strong> section imagery, as well as the <strong>Sam AI</strong> and <strong>OM OpenSkies</strong> logos — are original works by <strong>Olga Moreira</strong>.</li>
+    </ul>
+      <p>This notice supports transparency, ethical reuse, and recognition of creative authorship across scientific and artistic domains.</p>
+    </template> 
+    <!--- Website Design -->  
+    <template id="overlay-tpl-credits-website-design">
+      <p>All architectural design, creative direction, and ethical decisions were conceived, guided, and reviewed by the human creator, <strong>Olga Moreira, PhD</strong>.</p>
+      <p>For details regarding authorship and fair use:</p>
+      <ul>
+      <li>See &quot;Copyright &amp; Fair Dealing&quot;.</li>
+      <li>See &quot;AI Assistance Disclosure]&quot; for information on AI tool usage.</li>
+      </ul>
+      <p>This notice is offered in the spirit of transparency, ethical reuse, and respect for creative labor within the open science and digital media communities.</p>
+    </template>  
+    <!--- Labs -->  
+    <!--- AI tools -->
+    <template id="overlay-tpl-labs-omscripting">
+      <p><strong>OM Scripting &mdash; Coming Soon</strong></p>
+      <p>Gateway to my om-scripting repo: Python patterns, workflows, and modular tools.</p>
+    </template>  
+    <!--- Decentralization -->  
+    <template id="overlay-tpl-labs-openscience">
+      <p><strong>Open Science &mdash; Coming Soon</strong></p>
+      <p>Open-science archives, preprints, datasets, and reproducible research components.</p>
+    </template>
+    <!--- Modularity -->
+    <template id="overlay-tpl-labs-templates">
+    <p><strong>Design & Formatting &mdash; Coming Soon</strong></p>
+    <p>LaTeX templates and HTML/CSS layout prototypes for clean, minimal design work.</p>
+    </template>
+    <script src="../js/nav.js" defer></script>  </body>
   </html>
