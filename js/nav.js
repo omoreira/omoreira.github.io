@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var credToggle = document.querySelector('.cred-toggle');
   var credPanel = document.getElementById('cred-panel');
   var closingBand = document.getElementById('closing-band');
+  var credClose = credPanel ? credPanel.querySelector('.cred-panel__close') : null;
   var hasMenu = toggle && menu;
   var heroVisible = true;
   var closingVisible = false;
@@ -79,14 +80,26 @@ document.addEventListener('DOMContentLoaded', function () {
       toggleCred();
     });
   }
+  if (credClose) {
+    credClose.addEventListener('click', function(e){
+      e.preventDefault();
+      closeCred();
+    });
+  }
 
   function refreshCredFade() {
     if (credPanel && !credPanel.hidden) {
       root.classList.remove('cred-fade');
       return;
     }
-    var fade = !heroVisible && !closingVisible;
+    var fade = !heroVisible;
     root.classList.toggle('cred-fade', fade);
+  }
+
+  function autoCloseCredIfFaded() {
+    if (!heroVisible && credPanel && !credPanel.hidden) {
+      closeCred();
+    }
   }
 
   document.addEventListener('keydown', function (e) {
@@ -108,6 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (heroVisible) root.classList.remove('nav-scheme-light');
         else root.classList.add('nav-scheme-light');
         refreshCredFade();
+        autoCloseCredIfFaded();
       });
     }, { threshold: [0, 0.25, 0.5, 0.75, 1] });
     io.observe(header);
@@ -117,6 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
         entries.forEach(function(entry){
           closingVisible = entry.isIntersecting && entry.intersectionRatio > 0.1;
           refreshCredFade();
+          autoCloseCredIfFaded();
         });
       }, { threshold: [0, 0.1, 0.25, 0.5] });
       closingIO.observe(closingBand);
@@ -129,6 +144,7 @@ document.addEventListener('DOMContentLoaded', function () {
       closingVisible = closingBand ? (y + window.innerHeight) >= (document.documentElement.scrollHeight - (closingBand.clientHeight * 0.5)) : false;
       if (!heroVisible) root.classList.add('nav-scheme-light'); else root.classList.remove('nav-scheme-light');
       refreshCredFade();
+      autoCloseCredIfFaded();
     });
   }
 

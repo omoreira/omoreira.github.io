@@ -97,58 +97,6 @@ section {
 
 .section-block .section-media picture { display: block; }
 
-/* Data Visualization image: similar to other logo sizing */
-.section-dataviz .section-media img {
-    max-width: clamp(180px, 32vw, 340px);
-    max-height: clamp(140px, 24vw, 260px);
-}
-/* Ensure the hover container grows to target size */
-.section-dataviz .dataviz-anim {
-    width: clamp(180px, 32vw, 340px);
-    display: block;
-    margin: 0 0 0.5rem 0;
-    align-self: flex-end;   /* push visual toward the right inside media column */
-    margin-left: auto;      /* ensure rightward alignment */
-    transform: translateX(-4px); /* tiny nudge left */
-}
-
-@media (max-width: 600px) {
-  .section-dataviz .dataviz-anim { transform: none; }
-}
-
-/* Hover to animate: stack static and GIF, fade on hover */
-.dataviz-anim {
-    position: relative;
-    display: inline-block;
-}
-.dataviz-anim img { display: block; max-width: 100%; height: auto; }
-.dataviz-anim .anim {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: auto;
-    opacity: 0;
-    transition: opacity .25s ease;
-}
-.dataviz-anim:hover .anim,
-.dataviz-anim:focus-within .anim {
-    opacity: 1;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .dataviz-anim .anim { display: none; }
-}
-
-/* Reset the slight right shift on narrow screens */
-@media (max-width: 600px) {
-  .section-dataviz .dataviz-anim { transform: none; }
-}
-
-/* Writing image: similar scale to OpenSkies */
-.section-writing .section-media img {
-    max-width: clamp(180px, 28vw, 340px);
-    max-height: clamp(140px, 22vw, 260px);
-}
 
 /* Larger portrait in About section; keep proportions */
 .section-about .section-media img {
@@ -160,12 +108,6 @@ section {
 .section-rnd .section-media img {
     max-width: clamp(180px, 32vw, 340px);
     max-height: clamp(140px, 24vw, 260px);
-}
-
-/* OpenSkies logo: slightly larger for balance */
-.section-openskies .section-media img {
-    max-width: clamp(150px, 24vw, 280px);
-    max-height: clamp(90px, 18vw, 180px);
 }
 
 
@@ -245,15 +187,13 @@ section {
     color: var(--heading-color);
 }
 
-.section-block .tagline,
-.section-dataviz .section-media .tagline {
+.section-block .tagline {
     font-weight: 700;
     letter-spacing: 0.01em;
     margin: 0.1rem 0 0.1rem;
 }
 
-.section-block .lead,
-.section-dataviz .section-media .lead {
+.section-block .lead {
     font-size: 1.05rem;
     line-height: 1.6;
     opacity: 0.95;
@@ -264,12 +204,6 @@ section {
     font-size: 1rem;
     line-height: 1.7;
 }
-
-/* Alternate media/content sides every other section */
-section.section-block:nth-of-type(even) .section-media { order: 2; }
-section.section-block:nth-of-type(even) .section-content { order: 1; }
-
-
 
 @media (max-width: 900px) {
     .section-block .section-inner {
@@ -290,29 +224,82 @@ section.section-block:nth-of-type(even) .section-content { order: 1; }
     background: #ffffff;
     color: var(--ink);
 }
+.section-rnd .section-inner {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+}
+.project-layout { display: grid; grid-template-columns: 1fr; gap: clamp(1.5rem, 3vw, 2.5rem); }
+.project-intro {
+    grid-column: 1 / -1;
+    text-align: center;
+    max-width: 840px;
+    margin: 0 auto;
+}
+.project-subtitle {
+    margin: 0.35rem 0 0;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: clamp(1rem, 2vw, 1.5rem);
+}
+.project-grid .project-card:nth-child(odd) { justify-self: stretch; }
+.project-grid .project-card:nth-child(even) { justify-self: stretch; }
+@media (max-width: 760px) {
+  .project-grid { grid-template-columns: 1fr; }
+}
+.project-card {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    padding: clamp(1rem, 2vw, 1.25rem);
+}
+.project-card h3 { margin: 0 0 0.35rem; }
+.project-card__lede { margin: 0 0 0.75rem; line-height: 1.5; }
+.project-card ul { margin: 0; padding-left: 1.1rem; line-height: 1.5; }
 
-/* Data Visualization: distinct cool light gradient */
-.section-dataviz {
-    /* Light sand tint for a warm, distinct vibe */
+.section-consulting {
     background: linear-gradient(180deg, var(--offwhite) 0%, var(--sand-light) 100%);
     color: var(--ink);
 }
+.section-consulting .section-inner {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    align-items: flex-start;
+}
+.section-consulting__intro { grid-column: 1 / -1; }
+.section-consulting__how {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    gap: 0.35rem;
+    max-width: 720px;
+    margin: 0 auto;
+}
+.section-consulting__how h3 { text-align: center; margin: 0; }
+.section-consulting__how ul { margin: 0.35rem 0 0.75rem; padding-left: 1.2rem; }
+.section-consulting__cta { grid-column: 1 / -1; text-align: center; }
+.section-consulting .section-content h4 { margin: 0.75rem 0 0.25rem; }
+.section-consulting .section-content ul { margin: 0.35rem 0 0.9rem; padding-left: 1.1rem; }
 
-.section-openskies {
-    /* Lighter left-to-right gradient for OpenSkies (cooler tone) */
+.section-opensci {
     background: linear-gradient(90deg, var(--offwhite) 0%, var(--pale-blue) 100%);
     color: var(--ink);
 }
-.section-openskies a { color: #566473; }
-
-.section-sam {
-    background: #ffffff;
-    color: var(--ink);
+.opensci-layout {
+    display: block;
 }
-
-.section-writing {
-    background: linear-gradient(180deg, var(--sand) 0%, var(--silver) 100%);
-    color: #222;
+.section-opensci .section-inner {
+    grid-template-columns: 1fr;
+}
+.opensci-closing {
+    font-style: italic;
+    opacity: 0.9;
+    margin-top: 0.8rem;
 }
 
 /* Header */
@@ -502,9 +489,10 @@ section.section-block:nth-of-type(even) .section-content { order: 1; }
     top: 0.75rem;
     right: 0.75rem;
     display: inline-flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.4rem;
+    gap: 0.3rem;
     min-height: 42px;
     padding: 0.55rem 0.8rem;
     max-width: min(72vw, 460px);
@@ -518,7 +506,7 @@ section.section-block:nth-of-type(even) .section-content { order: 1; }
     font-weight: 800;
     font-size: 0.82rem;
     letter-spacing: .01em;
-    text-align: left;
+    text-align: center;
     cursor: pointer;
     z-index: 3;
     transition: background-color .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease, transform .2s ease, opacity .3s ease;
@@ -528,7 +516,25 @@ section.section-block:nth-of-type(even) .section-content { order: 1; }
     transform: translateY(1px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.32);
 }
-.cred-label { line-height: 1.25; }
+.cred-label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    line-height: 1.25;
+    text-align: center;
+}
+.cred-line {
+    margin: 0;
+    padding: 0.15rem 0.4rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+}
+.cred-line--accent {
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    background: rgba(255, 255, 255, 0.16);
+}
 
 html.cred-open .cred-toggle {
     background-color: var(--cta-color);
@@ -538,7 +544,8 @@ html.cred-open .cred-toggle {
 }
 
 html.cred-fade:not(.cred-open) .cred-toggle {
-    opacity: 0.2;
+    opacity: 0;
+    transform: translateY(-6px);
     pointer-events: none;
 }
 
@@ -563,7 +570,7 @@ html.cred-fade:not(.cred-open) .cred-toggle {
 .closing-band {
     padding: clamp(2rem, 5vw, 4rem) 1rem;
     text-align: center;
-    background: linear-gradient(90deg, var(--offwhite), var(--pale-blue));
+    background: #ffffff;
     color: var(--ink);
 }
 .closing-band h2 {
@@ -609,14 +616,6 @@ html.cred-fade:not(.cred-open) .cred-toggle {
 .readmore-btn:hover,
 .readmore-btn:focus { background: var(--cta-hover); color: #e6e6e6; box-shadow: 0 6px 16px rgba(0,0,0,0.18); transform: translateY(1px); }
 
-/* Ensure themed link colors don't override CTA text */
-.section-openskies .readmore-btn,
-.section-openskies .readmore-btn:link,
-.section-openskies .readmore-btn:visited { color: #fff; }
-
-/* In OpenSkies, ensure hover darkening always applies */
-.section-openskies .readmore-btn:hover,
-.section-openskies .readmore-btn:focus { background: var(--cta-hover) !important; }
 .closing-band .link {
     color: inherit;
     text-decoration: underline;
@@ -762,10 +761,9 @@ a[data-omlink]:hover, a[data-omlink]:focus { outline: none; }
 /* Full-screen sections in landscape: match hero height */
 @media (orientation: landscape) {
     .section-about.section-block,
+    .section-consulting.section-block,
     .section-rnd.section-block,
-    .section-openskies.section-block,
-    .section-sam.section-block,
-    .section-writing.section-block {
+    .section-opensci.section-block {
         min-height: 100vh;   /* fallback */
         min-height: 100svh;  /* modern stable viewport unit */
         display: grid;
@@ -853,8 +851,11 @@ html.nav-scheme-light {
     backdrop-filter: saturate(120%) blur(6px);
     -webkit-backdrop-filter: saturate(120%) blur(6px);
     z-index: 4;
+    animation: cred-drop 220ms ease;
+    transform-origin: top right;
 }
 .cred-panel__inner {
+    position: relative;
     padding: 1rem 1.1rem;
 }
 .cred-panel h3 {
@@ -865,6 +866,31 @@ html.nav-scheme-light {
 .cred-panel p {
     margin: 0 0 0.45rem;
     line-height: 1.5;
+}
+.cred-panel__close {
+    position: absolute;
+    top: 0.35rem;
+    right: 0.35rem;
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border: 1px solid var(--nav-border);
+    background: var(--nav-bg);
+    color: var(--nav-color);
+    cursor: pointer;
+    transition: background-color .2s ease, border-color .2s ease, transform .15s ease;
+}
+.cred-panel__close:hover,
+.cred-panel__close:focus {
+    transform: translateY(1px);
+    background: rgba(255,255,255,0.16);
+}
+@keyframes cred-drop {
+    from { opacity: 0; transform: translateY(-6px) scale(0.99); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
 }
 /* Back to top */
 /* Optional dark scheme variant for CTAs */

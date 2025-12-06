@@ -31,24 +31,26 @@
     <!-- Header Section -->
 		<div id="large-header" class="large-header">
       <!-- Hero Animation Canvas and Navigation -->
-			<canvas id="demo-canvas"></canvas>
+      <canvas id="demo-canvas"></canvas>
 			<button class="nav-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
 				<span class="bar"></span>
 				<span class="bar"></span>
 				<span class="bar"></span>
 			</button>
       <button class="cred-toggle" aria-expanded="false" aria-controls="cred-panel" aria-label="Show academic verification details">
-        <span class="cred-label">Olga Moreira, PhD &bull; Verified Credentials</span>
+        <span class="cred-label">
+          <span class="cred-line">Olga Moreira, PhD</span>
+          <span class="cred-line">Astrophysicist &bull; AI Architect &bull; Data Analytics &amp; Modular Systems</span>
+          <span class="cred-line cred-line--accent">Verified Credentials</span>
+        </span>
       </button>
       <!-- Main Title and Scroll Indicator -->
       <nav id="site-menu" class="site-menu" aria-label="Site" hidden>
         <ul>
           <li><a href="#about">About</a></li>
-          <li><a href="#projects">Research & Development</a></li>
-          <li><a href="#dataviz">Data Visualization</a></li>
-          <li><a href="#openskies">OM OpenSkies</a></li>
-          <li><a href="#sam">Sam AI</a></li>
-          <li><a href="content/pub.html">Publications</a></li>
+          <li><a href="#consulting">Consulting</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#opensci">Open Research & Initiatives</a></li>
           <li><a href="content/contact.html">Contact</a></li>
         </ul>
       </nav>
@@ -67,8 +69,8 @@
       <section id="about" class="section-about section-block">
         <div class="section-inner">
 		      <div class="section-media">
-		      	<img src="img/omoreira.png" alt="OM OpenSkies" />
-		      	<p class="tagline">Astrophysicist &bull;  AI Integration & Knowledge Systems Developer </p>
+		      	<img src="img/omoreira.png" alt="Portrait of Olga Moreira" />
+		      	<p class="tagline">Astrophysicist &bullet; AI Architect &bullet; Data Analytics & Modular Systems</p>
             <p class="lead">Scalable Insights from Complex Data <br> Open Science Advocate</p>
             <!-- Social Profiles -->
             <div class="social-row" aria-label="Profiles">
@@ -100,122 +102,176 @@
           </div>
         </div>
       </section>
-      <!-- Research & Development Section -->
+      <!-- Consulting & Collaboration Section -->
+      <section id="consulting" class="section-consulting section-block">
+        <div class="section-inner">
+          <div class="section-content section-consulting__intro">
+            <h2>Consulting &amp; Collaboration</h2>
+            <p class="tagline">Strategic systems for data-heavy and AI-driven teams</p>
+            <p>I help teams design <strong>reliable, interpretable, and well-structured AI and data workflows</strong>.</p>
+            <p>My work blends <strong>astrophysics-level analytical rigor</strong> with modern <strong>AI systems architecture</strong>, giving clients clarity, reproducibility, and measurable results.</p>
+          </div>
+          <div class="section-content section-consulting__how">
+            <h3>How I Work</h3>
+            <ul>
+              <li>Clear scoping and expectations</li>
+              <li>Transparent, reproducible methods</li>
+              <li>Clean documentation</li>
+              <li>Honest, actionable feedback</li>
+              <li>Collaborative, detail-oriented approach</li>
+            </ul>
+            <p>My goal is to deliver systems that are <strong>robust, easy to maintain, and genuinely useful</strong>.</p>
+          </div>
+          <div class="section-content section-consulting__col">
+            <!-- Services Columns -->
+            <h3>Data Modelling & AI Integration</h3>
+            <h4>AI-Assisted Editorial &amp; Knowledge Systems</h4>
+            <p>I design structured workflows that make technical content accurate, consistent, and scalable.</p>
+            <ul>
+              <li>Modular prompt and instruction design</li>
+              <li>Semantic taxonomy alignment</li>
+              <li>Quality checks and audit trails</li>
+              <li>Local-first or hybrid LLM integration (Ollama, HF, OpenAI-compatible)</li>
+            </ul>
+            <h4>Data Analytics &amp; Decision Modeling</h4>
+            <p>I turn complex datasets into clear, defensible insights using transparent, well-documented methods.</p>
+            <ul>
+              <li>EMV/EVPI decision analysis</li>
+              <li>Bayesian reasoning (e.g., PPV, diagnostic metrics)</li>
+              <li>Regression and classical ML models with diagnostics</li>
+              <li>Reproducible Python pipelines and clear reporting</li>
+            </ul>
+            <h4>Modular AI Assistant Architecture</h4>
+            <p>I design lightweight, privacy-conscious AI assistants tailored to real workflows.</p>
+            <ul>
+              <li>Chat and multi-step agent modes</li>
+              <li>Lightweight databases (SQLite)</li>
+              <li>Reusable modules and consistent reasoning patterns</li>
+              <li>Local + cloud LLM routing</li>
+            </ul>
+            <p>Ideal for teams seeking <strong>portable, transparent AI assistants</strong> that enhance productivity without compromising data privacy.</p>
+          </div>
+          <div class="section-content section-consulting__col">
+            <!-- Specialized Systems -->
+            <h3>Cognitive AI Systems &amp; Contextual Memory Architecture</h3>       
+            <!-- Assistant Brain--> 
+            <h4>Assistant Brain Architecture</h4>
+            <p>A lightweight, modular reasoning engine for LLM-based assistants that integrates:</p>
+            <ul>
+              <li>Instruction and reasoning layers</li>
+              <li>Error-taxonomy checks</li>
+              <li>Session continuity via lightweight memory stores</li>
+              <li>Structured self-reflection and correction</li>
+            </ul>
+            <p>This architecture underpins my GM-RKB workflows and my personal assistant system (“Sam AI”), supporting <strong>transparent, auditable AI &mdash; human collaboration</strong>.</p>
+            <!-- Neuro-Tag System-->
+            <h4>Neuro-Tag Cognitive System</h4>
+            <p>A structured tagging framework that encodes:</p>
+            <ul>
+              <li>Emotional-state classification</li>
+              <li>Boundary and trigger detection</li>
+              <li>Truth-checking logic</li>
+              <li>Semantic cues for reasoning and safety</li>
+              <li>Contextual recall rules</li>
+            </ul>
+            <p>Originally developed for trauma-aware AI interaction, Neuro-Tags now serve as a <strong>reusable cognitive layer</strong> for agentic LLM systems.</p>
+    
+          </div>
+          <div class="section-content section-consulting__cta">
+            <h3>Start a Collaboration</h3>
+            <p>If you have a project in AI, data analytics, or knowledge-system design, I'd be happy to review it.</p>
+            <p>Send me your project idea, I'll prepare a proposal and budget estimate.</p>
+            <p><a class="readmore-btn" href="content/contact.html">Let's Scope Your Project</a></p>
+          </div>
+        </div>
+      </section>
+      <!-- Projects / Portfolio Section -->
       <section id="projects" class="section-rnd section-block">
-        <div class="section-inner">
-	      	<div class="section-media">
-		      	<picture>
-              <source type="image/webp" srcset="img/rndsun.webp">
-              <img src="img/rndsun.png" alt="Research and Development" loading="lazy" decoding="async" />
-            </picture>
-            <p class="tagline">Research at the intersection of starlight and code.</p>
-            <p class="lead">Building modular, decentralized, portable AI systems.</p>
-            <p><a class="readmore-btn" href="content/temp.html">Keep Exploring</a></p>
+        <div class="section-inner project-layout">
+          <div class="section-content project-intro">
+            <h2>Projects / Portfolio</h2>
+            <p class="project-subtitle">A few of the systems and analyses I've been building at the intersection of starlight, data, and AI.</p>
           </div>
-	      	<div class="section-content">
-            <h2>Research & Development</h2>
-            <p>Three threads braid my R&amp;D:</p>
+        <div class="project-grid">
+          <article class="project-card">
+            <h3>GM-RKB Modular AI Editorial Assistant</h3>
+            <p class="project-card__lede">Local-first AI workflows for machine learning concept pages.</p>
             <ul>
-            <li><strong>Modular &amp; Portable A[i]ssistant Systems</strong> — I prototype local-first, AI frameworks that respect user context, memory, and autonomy. AI frameworks designed to think <em>with</em> people, not <em>for</em> them.</li>
-            <li><strong>Semantic Systems</strong> — As a research-knowledgebase modular editorial architect, I design taxonomies and instruction sets that make AI-assisted curation reliable, explainable, and fast.</li>
-            <li><strong>Solar Physics</strong> — I&#39;m drafting a review, <em>From SOHO to Solar Orbiter: 25 Years of Solar MHD</em>, connecting missions, simulations, and the next wave of data-driven models.</li>
+              <li>Designed modular prompt and instruction layers for 500+ ML concept pages.</li>
+              <li>Built a SQLite tracker to monitor concept completeness and editorial priorities.</li>
+              <li>Integrated local and cloud LLMs (Ollama, HF Transformers, OpenAI-compatible APIs).</li>
+              <li>Implemented semantic quality checks for taxonomy, links, and references.</li>
             </ul>
-          </div>
+          </article>
+          <article class="project-card">
+            <h3>Decision Analysis &amp; Regression Modeling</h3>
+            <p class="project-card__lede">EMV/EVPI, Bayesian PPV, and regression analytics in Python.</p>
+            <ul>
+              <li>Developed EMV/EVPI decision models with salvage-value and probability sensitivity analysis.</li>
+              <li>Implemented Bayesian PPV calculations for diagnostic testing scenarios.</li>
+              <li>Built OLS and Ridge regression models with R², RMSE, and residual diagnostics.</li>
+              <li>Delivered clean CSV tables, PNG plots, and fully vectorized Python scripts.</li>
+            </ul>
+         </article>
+
+          <article class="project-card">
+            <h3>Sam AI &mdash; Modular Personal Assistant</h3>
+            <p class="project-card__lede">Local-first personal assistant with structured reasoning and portable memory.</p>
+            <ul>
+              <li>Combines chat mode with agent mode for multi-step workflows.</li>
+              <li>Uses a portable contextual memory layer that can run locally or via APIs.</li>
+              <li>Includes truth-checking and cognitive-distortion detection for safer reasoning support.</li>
+              <li>Designed as a modular system so new tools and workflows can be added easily.</li>
+            </ul>
+          </article>    
+          <article class="project-card">
+            <h3>Solar Physics Analytics Notebook (In Progress)</h3>
+            <p class="project-card__lede">Integrated analysis of stellar, flare, and sunspot datasets.</p>
+            <ul>
+              <li>Combines SIMBAD stellar parameters, GOES solar X-ray, and NOAA sunspot region data.</li>
+              <li>Plans regression modeling of stellar and solar parameters with interpretable diagnostics.</li>
+              <li>Explores flare classification metrics (PPV, sensitivity, specificity) and event statistics.</li>
+              <li>Frames results in a decision-theoretic context for space-weather risk assessment.</li>
+            </ul>
+          </article>  
+        </div>
         </div>
       </section>
-      <!-- Data Visualization Section -->
-      <section id="dataviz" class="section-dataviz section-block">
-        <div class="section-inner">
-          <div class="section-media">
-            <div class="dataviz-anim" aria-label="Data visualization preview (hover to animate)">
-              <img class="static" src="img/vizstatic.png" alt="Data Visualization Tools" loading="lazy" decoding="async" />
-              <img class="anim" src="img/vizanimation.gif" alt="" aria-hidden="true" loading="lazy" decoding="async" />
-            </div>
-            <p class="tagline">Where science becomes visible.</p>
-            <p class="lead">Creating visual bridges between science and understanding, turning raw data into discovery and wonder.</p>
-            <p><a class="readmore-btn" href="content/temp.html">Dive into the Data</a></p>
-          </div>
+      <!-- Open Research & Initiatives Section -->
+      <section id="opensci" class="section-opensci section-block">
+        <div class="section-inner opensci-layout">
           <div class="section-content">
-            <h2>Data Visualization Tools</h2>
-            <p>My passion for data visualization began early in my research career, when I discovered that beauty and clarity could coexist in science. Whether modeling stellar interiors or visualizing magnetic flows, I&#39;ve always sought ways to make complexity intuitive, <strong>transforming numbers and equations into motion, structure, and light</strong>.</p>
-            <p>Throughout my work in <strong>astrophysics</strong> and <strong>AI knowledge systems</strong>, I have created <strong>scientific and educational animations</strong> based on both synthetic simulations and real observational data, helping audiences grasp what equations alone could not.</p>
-          </div>
+            <h2>Open Research &amp; Initiatives</h2>
+            <p class="opensci-intro"><em>Research threads and long-term projects exploring the intersection of astrophysics, AI systems, and open knowledge.</em></p>
+
+            <h3>OM OpenSkies Initiative</h3>
+              A long-term project creating emotionally supportive, culturally inclusive scientific resources.
+              It blends open-access research, Indigenous sky traditions, and modern astrophysics to build a global platform where science is a shared right — not a privilege.
+              This initiative includes future projects such as the **OM Atlas of the Skies**, **Voices in Science**, and the **SkyMemory Archive**.
+            <h3>Solar Physics & Stellar Research</h3>
+            <p>My scientific roots are in asteroseismology, solar-like oscillations in red giants, and interferometric radius calibration — work that connected stellar interiors with observable seismic signatures. I continue exploring these themes while expanding into heliophysics and space-weather research.</p>
+            <p>I am currently drafting a review paper, <strong>From SOHO to Solar Orbiter: 25 Years of Solar MHD</strong>, which traces the evolution of solar missions, MHD simulations, and the transition toward data-driven heliophysics. The review aims to bridge classical plasma modeling with modern machine learning workflows and next-generation mission data.</p>
+            <p>Additional ongoing threads include flare statistics, sunspot region analysis, and the broader interplay between magnetic activity in the Sun and other solar-type stars. These projects evolve steadily alongside my AI systems work, informing how I combine astrophysical reasoning with modern computational tools.</p>
+
+            <h3>AI Cognitive Systems & Assistant Architecture</h3>
+            <p>Ongoing conceptual development of AI systems that combine:</p>
+            <ul>
+                <li>structured reasoning templates,</li>
+                <li>contextual memory engines,</li>
+                <li>cognitive tagging systems (Neuro-Tags),</li>
+                <li>and modular assistant workflows.</li>
+            </ul>
+            <p>This includes the evolving "Assistant Brain" architecture, designed for <strong>local-first</strong>, <strong>transparent</strong>, and <strong>auditable</strong> AI collaboration.</p>
+            <p class="opensci-closing">
+            These research threads evolve slowly and steadily alongside my professional work, informing how I design AI systems, analyze data, and explore the sky.
+            </p>
         </div>
       </section>
-      <!-- OM OpenSkies Section -->
-      <section id="openskies" class="section-openskies section-block">
-        <div class="section-inner">
-          <div class="section-media">
-            <picture>
-              <source type="image/svg+xml" srcset="img/omopenskiesw.svg">
-              <img src="img/omopenskiesw.png" alt="OM OpenSkies" loading="lazy" decoding="async" />
-            </picture>
-            <p class="tagline"><strong>Making science accessible, compassionate, and inclusive.</strong></p>
-				    <p class="lead">Because critical thinking is a right, not a privilege.</p>
-            <p><a class="readmore-btn" href="content/temp.html">Look Up</a></p>
-          </div>
-          <div class="section-content">
-            <h2>OM OpenSkies Initiative</h2>
-            <p>The <strong>OM OpenSkies Initiative</strong> makes science accessible, emotionally supportive, and culturally inclusive. Bridging <strong>rigorous research</strong> with human experience. The platform curates <strong>open-access literature, educational media, and historical texts</strong>, while honoring <strong>Indigenous sky knowledge</strong> and spotlighting <strong>women in STEM.</strong></p>
-            <p>Core strands:</p>
-            <ul>
-            <li>the Library,</li>
-            <li>Atlas of the Skies,</li>
-            <li>Voices in Science,</li>
-            <li>and the SkyMemory Archive.</li>
-            </ul>
-            <p><strong>We&#39;re seeking seed support, fiscal hosting, and collaborator-advisors to bring the pilot to life.</strong></p>
-          </div>
-        </div>
-      </section>
-      <!-- Sam AI Section -->
-      <section id="sam" class="section-sam section-block">
-        <div class="section-inner">
-          <div class="section-media">
-            <picture>
-              <source type="image/svg+xml" srcset="img/sam-ai-logo.svg">
-              <img src="img/sam-ai-logo.png" alt="Sam AI" loading="lazy" decoding="async" />
-            </picture>
-            <p class="tagline"><strong>Smart. Soft. Structured.</strong></p>
-		        <p class="lead">Trauma-aware. Thoughtfully Modular.</p>
-            <p><a class="readmore-btn" href="content/samai.html">Follow the Cat</a></p>
-	        </div>
-	        <div class="section-content">
-            <h2>Sam AI</h2>
-            <p><strong>Sam AI</strong> is a trauma-informed, modular, and portable personal assistant built around <strong>local-first execution, modular tools</strong>, and <strong>contextual memory you control</strong>. It runs in chat for dialogue and as an agent for multi-step tasks: so you can research, plan, and truth-check thought distortions <strong>without surrendering your data.</strong></p>
-            <p>The goal is <strong>NOT to replace your therapist</strong>. It&#39;s to extend the tools of reflection and logic into everyday life. To support clarity and momentum through auditable, humane automation.</p>
-            <ul>
-            <li><strong>Current milestones:</strong> core architecture and portable memory are functional; an open-core release and mobile UI are on the roadmap.</li>
-            </ul>
-            <p><strong>Keep it private. Keep it local. Tune Sam into becoming your companion, not your overlord.</strong></p>
-          </div>
-        </div>
-      </section>
-      <!-- Creative Writing Section -->
-      <section id="writing" class="section-writing section-block">
-	      <div class="section-inner">
-          <div class="section-media">
-            <img src="img/creative-w.png" alt="Creative Writing logo" loading="lazy" decoding="async" />
-            <p class="tagline">Data, Doubt, and Comic Relief.</p>
-            <p class="lead">Dark humour, lab-tested. <br>Science + dark humour. What could go wrong?</p>
-            <p><a class="readmore-btn" href="content/temp.html">Enter the Chapter</a></p>
-          </div>
-	        <div class="section-content">
-            <h2>Creative Writing</h2>
-            <p>I write essays and stories from the bright edge of recovery, mapping where science, memory, and meaning meet. Under my pen names (<strong>Mia Graves</strong>; <strong>Doctor OM-some</strong>), I explore courage, multilingual identity, and the strange comedy of being human after hard things.</p>
-            <ul>
-            <li><strong>Series in development:</strong> Mia Graves&#39; Memoirs (a trilogy) and a collection of essays exploring science, identity, and ethics, including Unsung Women in Science; Gold, Ivory, Spices, and Slaves; AI: To Explore or to Exploit?; Logical Fallacies and the Scientific Method; and Code-Switchers.</li>
-            </ul>
-            <p><strong>These pieces are not therapy notes. They&#39;re craft. Raw, lyrical, and logically grounded</strong>. Meant to share a life experience and maybe, in the process, to help others feel less alone while keeping the scientific method in view.</p>
-          </div>
-	      </div>
-			</section>
       <!-- Closing Call-to-Action Section -->
       <section id="closing-band" class="closing-band" aria-labelledby="closing-title">
         <h2 id="closing-title">Clear and open skies—together</h2>
         <p>I build humane systems at the edge of science and AI. If you're curious, let's talk.</p>
         <div class="cta-row">
-          <a class="btn" href="content/temp.html">Start a conversation</a>
           <a class="btn" href="content/contact.html">Let's Connect</a>
         </div>
       </section>
@@ -225,13 +281,18 @@
     <footer class="site-footer" role="contentinfo">
       <div class="cols">
         <!-- Footer Navigation Section: Read-->
+         
         <section aria-labelledby="f-articles">
-          <h3 id="f-articles">Read</h3>
+           <h3 id="f-about">Coming Soon</h3>
+            Early previews of active research and AI development work.
+              <!--
+          <h3 id="f-articles">Explore</h3>
           <ul>
-            <li><a href="/articles-science-outreach">Science Outreach</a></li>
-            <li><a href="/articles-solar-physics">Solar Physics</a></li>
-            <li><a href="/articles-notes">Research Notes</a></li>
+            <li><a href="#">Science Outreach</a></li>
+            <li><a href="#">Solar Physics</a></li>
+            <li><a href="#">Research Notes</a></li>
           </ul>
+          -->
         </section>
         <!-- Footer Navigation Section: Credits-->
         <section aria-labelledby="f-credits">
@@ -253,12 +314,19 @@
         </section>
         <!-- Footer Navigation Section: Labs-->
         <section aria-labelledby="f-labs" id="labs">
-          <h3 id="f-labs">Labs</h3>
+             <h3 id="f-connect">Social Media</h3>
           <ul>
-            <li><a href="/labs-omscripting">OM Scripting</a></li>
-            <li><a href="/labs-openscience">Open Research</a></li>
-            <li><a href="/labs-templates"> Design & Formatting</a></li>
+            <li><a href="https://independent.academia.edu/OMoreirag">Academia.edu</a></li>
+            <li><a href="https://www.linkedin.com/in/omsome" rel="me">LinkedIn</a></li>
+            <li><a href="https://github.com/omoreira" rel="me">GitHub</a></li>
+          <!--
+          <h3 id="f-labs">Workbenches</h3>
+          <ul>
+            <li>OM Scripting</li>
+            <li>Open Research</li>
+            <li>Design & Formatting</li>
           </ul>
+          -->
         </section>
       </div>
       <!-- Fine Print -->
@@ -286,6 +354,9 @@
     <!-- Credentials popover -->
     <div id="cred-panel" class="cred-panel" hidden role="dialog" aria-modal="false" aria-labelledby="cred-panel-title">
       <div class="cred-panel__inner">
+        <button class="cred-panel__close" aria-label="Close credentials panel">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
         <h3 id="cred-panel-title">Verified International Academic Qualifications</h3>
         <p><strong>World Education Services (WES)</strong> has authenticated the academic credentials of <strong>Olga Moreira, PhD</strong>.</p>
         <p>Verification confirms that:</p>
@@ -372,9 +443,9 @@
     <template id="overlay-tpl-credits-illustrations">
       <ul>
       <li>The <strong>header background image</strong> is a composite of binary code and an <strong>ESO Milky Way</strong> photograph.</li>
-      <li>The <strong>R&amp;D section image</strong> merges a printed circuit board texture with a <strong>SOHO/NASA solar</strong> image.</li>
+      <li>The <strong>Projects / Portfolio image</strong> merges a printed circuit board texture with a <strong>SOHO/NASA solar</strong> image.</li>
       <li>The <strong>hero header animation concept</strong> was inspired by <a href="https://tympanus.net/codrops/2014/09/23/animated-background-headers/">Codrops’ <em>Animated Background Headers</em> (2014)</a>.</li>
-      <li>All other visuals — including the <strong>Data Visualization Tools</strong> and <strong>Creative Writing</strong> section imagery, as well as the <strong>Sam AI</strong> and <strong>OM OpenSkies</strong> logos — are original works by <strong>Olga Moreira</strong>.</li>
+      <li>All other visuals — including the <strong>Consulting &amp; Collaboration</strong>, <strong>Open Research &amp; Initiatives</strong>, and <strong>Creative Writing</strong> section imagery — are original works by <strong>Olga Moreira</strong>.</li>
     </ul>
       <p>This notice supports transparency, ethical reuse, and recognition of creative authorship across scientific and artistic domains.</p>
     </template> 
