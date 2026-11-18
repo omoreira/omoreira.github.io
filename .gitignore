@@ -8,4 +8,5 @@ Thumbs.db
 
 # Local experimentation folder (ignored)
 ideas-sandbox-experimentation/
+tmp/
 

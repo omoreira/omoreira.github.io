@@ -104,12 +104,6 @@ section {
     max-height: clamp(140px, 24vw, 260px);
 }
 
-/* R&D image: scale similar to About portrait */
-.section-rnd .section-media img {
-    max-width: clamp(180px, 32vw, 340px);
-    max-height: clamp(140px, 24vw, 260px);
-}
-
 
 
 /* Hide placeholder when About section has a real photo */
@@ -215,54 +209,47 @@ section {
 }
 
 /* Section themes */
+/* About keeps its sand wash; heading + tagline follow the Open Research & Initiatives treatment */
 .section-about {
+    /* consulting gradient, mirrored horizontally */
+    background: linear-gradient(270deg, var(--offwhite) 0%, var(--sand-light) 100%);
+    color: #2a2f33;
+}
+/* Same heading + italic tagline treatment as Open Research & Initiatives */
+.section-about h2 {
+    text-align: center;
+}
+.section-about .about-intro {
+    text-align: center;
+    font-style: italic;
+    opacity: 0.95;
+    margin: 0.15rem 0 1.1rem;
+}
+/* Same single-column text width as Open Research & Initiatives */
+.section-about .section-inner {
+    grid-template-columns: 1fr;
+}
+
+/* Profile card strip before the closing CTA */
+.section-portrait {
     background: var(--sand);
     color: #2a2f33;
 }
-
-.section-rnd {
-    background: #ffffff;
-    color: var(--ink);
-}
-.section-rnd .section-inner {
-    grid-template-columns: 1fr;
-    align-items: stretch;
-}
-.project-layout { display: grid; grid-template-columns: 1fr; gap: clamp(1.5rem, 3vw, 2.5rem); }
-.project-intro {
-    grid-column: 1 / -1;
+.section-portrait .section-inner {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
     text-align: center;
-    max-width: 840px;
-    margin: 0 auto;
 }
-.project-subtitle {
-    margin: 0.35rem 0 0;
-    font-size: 1.05rem;
-    line-height: 1.6;
+.section-portrait .section-media { align-items: center; }
+/* Keep the portrait at its original About size */
+.section-portrait .section-media img {
+    max-width: clamp(180px, 32vw, 340px);
+    max-height: clamp(140px, 24vw, 260px);
 }
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(280px, 1fr));
-    gap: clamp(1rem, 2vw, 1.5rem);
-}
-.project-grid .project-card:nth-child(odd) { justify-self: stretch; }
-.project-grid .project-card:nth-child(even) { justify-self: stretch; }
-@media (max-width: 760px) {
-  .project-grid { grid-template-columns: 1fr; }
-}
-.project-card {
-    background: #fff;
-    border: 1px solid rgba(0,0,0,0.06);
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-    padding: clamp(1rem, 2vw, 1.25rem);
-}
-.project-card h3 { margin: 0 0 0.35rem; }
-.project-card__lede { margin: 0 0 0.75rem; line-height: 1.5; }
-.project-card ul { margin: 0; padding-left: 1.1rem; line-height: 1.5; }
 
 .section-consulting {
-    background: linear-gradient(180deg, var(--offwhite) 0%, var(--sand-light) 100%);
+    /* opensci gradient */
+    background: linear-gradient(90deg, var(--offwhite) 0%, var(--pale-blue) 100%);
     color: var(--ink);
 }
 .section-consulting .section-inner {
@@ -328,7 +315,8 @@ section {
 }
 
 .section-opensci {
-    background: linear-gradient(90deg, var(--offwhite) 0%, var(--pale-blue) 100%);
+    /* consulting gradient */
+    background: linear-gradient(180deg, var(--offwhite) 0%, var(--sand-light) 100%);
     color: var(--ink);
 }
 .opensci-layout {
@@ -337,7 +325,7 @@ section {
 .section-opensci .section-inner {
     grid-template-columns: 1fr;
 }
-.opensci-closing {
+.section-closing {
     font-style: italic;
     opacity: 0.9;
     margin-top: 0.8rem;
@@ -618,14 +606,66 @@ html.cred-fade:not(.cred-open) .cred-toggle {
     margin: 0 0 0.5rem;
     color: var(--heading-color);
 }
-.closing-band .cta-row {
+
+/* Closing band layout: portrait left, contact details right */
+.closing-band__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: center;
+    text-align: left;
+}
+.closing-band__media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+}
+.closing-band__media img {
+    display: block;
+    width: clamp(110px, 12vw, 170px);
+    max-width: 100%;
+    height: auto;
+    border-radius: 14px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+.closing-band__name { font-weight: 400; margin: 0.3rem 0 0; }
+/* One occupation per line */
+.job {
+    font-weight: 400;
+    font-size: 0.95rem;
+    line-height: 1.35;
+    margin: 0.1rem 0;
+    opacity: 0.9;
+}
+.closing-band__content { align-self: start; }
+.closing-band__content > p { margin: 0.35rem 0 0.75rem; }
+.closing-band__address {
+    font-style: normal;
+    line-height: 1.6;
+    margin: 0 0 1rem;
+    opacity: 0.95;
+}
+.closing-band__content .cta-row { justify-content: flex-start; }
+.btn[aria-disabled="true"] {
+    opacity: 0.55;
+    cursor: default;
+    pointer-events: none;
+}
+@media (max-width: 900px) {
+    .closing-band__inner { grid-template-columns: 1fr; text-align: center; }
+    .closing-band__content .cta-row { justify-content: center; }
+}
+.cta-row {
     display: flex;
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 0.75rem;
 }
-.closing-band .btn {
+.btn {
     background: var(--cta-color);
     color: #fff;
     padding: 0.6rem 1rem;
@@ -634,8 +674,8 @@ html.cred-fade:not(.cred-open) .cred-toggle {
     box-shadow: 0 4px 12px rgba(0,0,0,0.12);
     transition: background-color .2s ease, box-shadow .2s ease, transform .15s ease;
 }
-.closing-band .btn:hover,
-.closing-band .btn:focus {
+.btn:hover,
+.btn:focus {
     /* Subtle change on hover for feedback */
     background-color: var(--cta-hover);
     box-shadow: 0 6px 16px rgba(0,0,0,0.18);
@@ -803,7 +843,6 @@ a[data-omlink]:hover, a[data-omlink]:focus { outline: none; }
 @media (orientation: landscape) {
     .section-about.section-block,
     .section-consulting.section-block,
-    .section-rnd.section-block,
     .section-opensci.section-block {
         min-height: 100vh;   /* fallback */
         min-height: 100svh;  /* modern stable viewport unit */
@@ -946,4 +985,15 @@ html.nav-scheme-light {
 .closing-band[data-scheme="dark"] .btn:hover,
 .closing-band[data-scheme="dark"] .btn:focus {
     background: #e8eef9;
+}
+
+/* Inline links in the page body (not hero, nav or footer): easier to spot */
+main a:not(.btn):not(.readmore-btn):not(.social-btn) {
+    color: var(--cta-color);
+    text-decoration: none;
+    transition: color .15s ease;
+}
+main a:not(.btn):not(.readmore-btn):not(.social-btn):hover,
+main a:not(.btn):not(.readmore-btn):not(.social-btn):focus-visible {
+    color: var(--cta-hover);
 }
