@@ -199,6 +199,30 @@ section {
     line-height: 1.7;
 }
 
+.section-profile-topic .section-inner {
+    display: block;
+}
+
+.section-ai-systems {
+    background: linear-gradient(90deg, var(--offwhite) 0%, var(--pale-blue) 100%);
+    color: var(--ink);
+}
+
+.section-open-science {
+    background: linear-gradient(180deg, var(--offwhite) 0%, var(--sand-light) 100%);
+    color: var(--ink);
+}
+
+.section-astrophysics {
+    background: linear-gradient(270deg, var(--offwhite) 0%, var(--sand-light) 100%);
+    color: var(--ink);
+}
+
+.section-writing {
+    background: linear-gradient(180deg, var(--offwhite) 0%, var(--pale-blue) 100%);
+    color: var(--ink);
+}
+
 @media (max-width: 900px) {
     .section-block .section-inner {
         grid-template-columns: 1fr;
@@ -595,20 +619,19 @@ html.cred-fade:not(.cred-open) .cred-toggle {
     top: 0.75rem;
 }
 
-/* Closing band CTA */
-.closing-band {
-    padding: clamp(2rem, 5vw, 4rem) 1rem;
-    text-align: center;
-    background: #ffffff;
+/* Contact bands */
+.contact-band {
+    grid-column: 1 / -1;
+    margin-top: clamp(1rem, 3vw, 2rem);
+    padding: clamp(1.5rem, 4vw, 3rem);
+    background: transparent;
     color: var(--ink);
 }
-.closing-band h2 {
+.contact-band h2 {
     margin: 0 0 0.5rem;
     color: var(--heading-color);
 }
-
-/* Closing band layout: portrait left, contact details right */
-.closing-band__inner {
+.contact-band__inner {
     max-width: 1100px;
     margin: 0 auto;
     display: grid;
@@ -617,13 +640,13 @@ html.cred-fade:not(.cred-open) .cred-toggle {
     align-items: center;
     text-align: left;
 }
-.closing-band__media {
+.contact-band__identity {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.35rem;
 }
-.closing-band__media img {
+.contact-band__portrait {
     display: block;
     width: clamp(110px, 12vw, 170px);
     max-width: 100%;
@@ -631,32 +654,47 @@ html.cred-fade:not(.cred-open) .cred-toggle {
     border-radius: 14px;
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
 }
-.closing-band__name { font-weight: 400; margin: 0.3rem 0 0; }
-/* One occupation per line */
-.job {
+.contact-band__logo {
+    display: block;
+    width: clamp(150px, 22vw, 260px);
+    max-width: 100%;
+    max-height: 190px;
+    height: auto;
+    object-fit: contain;
+}
+.contact-band__name {
+    font-weight: 600;
+    margin: 0.3rem 0 0;
+    text-align: center;
+}
+.contact-band__title,
+.contact-band__role {
     font-weight: 400;
     font-size: 0.95rem;
     line-height: 1.35;
-    margin: 0.1rem 0;
+    margin: 0;
     opacity: 0.9;
+    text-align: center;
 }
-.closing-band__content { align-self: start; }
-.closing-band__content > p { margin: 0.35rem 0 0.75rem; }
-.closing-band__address {
+.contact-band__details { align-self: start; }
+.contact-band__details > p { margin: 0.35rem 0 0.75rem; }
+.contact-band__details h3 { margin: 1.25rem 0 0.5rem; }
+.contact-band__address {
     font-style: normal;
     line-height: 1.6;
     margin: 0 0 1rem;
     opacity: 0.95;
 }
-.closing-band__content .cta-row { justify-content: flex-start; }
+.contact-band__address p { margin: 0; }
+.contact-band__details .cta-row { justify-content: flex-start; }
 .btn[aria-disabled="true"] {
     opacity: 0.55;
     cursor: default;
     pointer-events: none;
 }
 @media (max-width: 900px) {
-    .closing-band__inner { grid-template-columns: 1fr; text-align: center; }
-    .closing-band__content .cta-row { justify-content: center; }
+    .contact-band__inner { grid-template-columns: 1fr; text-align: center; }
+    .contact-band__details .cta-row { justify-content: center; }
 }
 .cta-row {
     display: flex;
@@ -697,7 +735,7 @@ html.cred-fade:not(.cred-open) .cred-toggle {
 .readmore-btn:hover,
 .readmore-btn:focus { background: var(--cta-hover); color: #e6e6e6; box-shadow: 0 6px 16px rgba(0,0,0,0.18); transform: translateY(1px); }
 
-.closing-band .link {
+.contact-band .link {
     color: inherit;
     text-decoration: underline;
 }
@@ -839,18 +877,6 @@ a[data-omlink]:hover, a[data-omlink]:focus { outline: none; }
     .site-footer .cols { grid-template-columns: 1fr; }
 }
 
-/* Full-screen sections in landscape: match hero height */
-@media (orientation: landscape) {
-    .section-about.section-block,
-    .section-consulting.section-block,
-    .section-opensci.section-block {
-        min-height: 100vh;   /* fallback */
-        min-height: 100svh;  /* modern stable viewport unit */
-        display: grid;
-        align-items: center; /* vertically center inner grid */
-    }
-}
-
 /* Show scroll indicator in content sections only in landscape */
 /* Section-level scroll indicators removed; keep only hero indicator */
 
@@ -974,16 +1000,16 @@ html.nav-scheme-light {
 }
 /* Back to top */
 /* Optional dark scheme variant for CTAs */
-.closing-band[data-scheme="dark"] {
+.contact-band[data-scheme="dark"] {
     background: var(--midnight-soft);
     color: var(--textLight);
 }
-.closing-band[data-scheme="dark"] .btn {
+.contact-band[data-scheme="dark"] .btn {
     background: #f6f8fb;
     color: #1f2a44;
 }
-.closing-band[data-scheme="dark"] .btn:hover,
-.closing-band[data-scheme="dark"] .btn:focus {
+.contact-band[data-scheme="dark"] .btn:hover,
+.contact-band[data-scheme="dark"] .btn:focus {
     background: #e8eef9;
 }
 
