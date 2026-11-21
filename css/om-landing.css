@@ -679,6 +679,7 @@ html.cred-fade:not(.cred-open) .cred-toggle {
 .contact-band__details { align-self: start; }
 .contact-band__details > p { margin: 0.35rem 0 0.75rem; }
 .contact-band__details h3 { margin: 1.25rem 0 0.5rem; }
+.contact-band__details .social-row { justify-content: flex-start; }
 .contact-band__address {
     font-style: normal;
     line-height: 1.6;
