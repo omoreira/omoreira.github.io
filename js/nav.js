@@ -54,6 +54,11 @@ document.addEventListener('DOMContentLoaded', function () {
         closeMenu();
       }
     });
+
+    document.addEventListener('click', function (e) {
+      var clickedToggle = toggles.some(function (toggle) { return toggle.contains(e.target); });
+      if (!menu.hidden && !menu.contains(e.target) && !clickedToggle) closeMenu();
+    });
   }
 
   function openCred() {
