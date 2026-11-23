@@ -1157,8 +1157,8 @@ html.nav-scheme-light .site-footer {
     padding-bottom: calc(clamp(2rem, 5vw, 4rem) + var(--scroll-footer-height));
 }
 
-@media (max-width: 900px) {
-    :root { --scroll-footer-height: 132px; }
+@media (max-width: 960px) {
+    :root { --scroll-footer-height: 144px; }
     .scroll-footer-bar {
         display: grid;
         grid-template-columns: 42px minmax(0, 1fr);

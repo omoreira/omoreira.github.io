@@ -9,11 +9,9 @@ document.addEventListener('DOMContentLoaded', function () {
   var lastFocus = null;
   var credToggle = document.querySelector('.cred-toggle');
   var credPanel = document.getElementById('cred-panel');
-  var closingBand = document.getElementById('closing-band');
   var credClose = credPanel ? credPanel.querySelector('.cred-panel__close') : null;
   var hasMenu = toggles.length > 0 && menu;
   var heroVisible = true;
-  var closingVisible = false;
 
   function openMenu() {
     if (!hasMenu) return;
@@ -121,43 +119,29 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Set initial nav scheme (assume dark over hero)
-  root.classList.remove('nav-scheme-light');
+  // Use scroll position for a consistent post-hero bar on browsers with or without IntersectionObserver.
+  function updateScrollChrome() {
+    var heroBottom = header ? header.getBoundingClientRect().bottom : 0;
+    heroVisible = !!header && heroBottom > (window.innerHeight * 0.25);
+    root.classList.toggle('nav-scheme-light', !heroVisible);
+    refreshCredFade();
+    autoCloseCredIfFaded();
+  }
 
-  // Toggle nav color scheme based on whether hero header is in view
-  if (header && 'IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        heroVisible = entry.isIntersecting && entry.intersectionRatio > 0.25;
-        if (heroVisible) root.classList.remove('nav-scheme-light');
-        else root.classList.add('nav-scheme-light');
-        refreshCredFade();
-        autoCloseCredIfFaded();
-      });
-    }, { threshold: [0, 0.25, 0.5, 0.75, 1] });
-    io.observe(header);
-
-    if (closingBand) {
-      var closingIO = new IntersectionObserver(function(entries){
-        entries.forEach(function(entry){
-          closingVisible = entry.isIntersecting && entry.intersectionRatio > 0.1;
-          refreshCredFade();
-          autoCloseCredIfFaded();
-        });
-      }, { threshold: [0, 0.1, 0.25, 0.5] });
-      closingIO.observe(closingBand);
-    }
-  } else {
-    // Fallback: switch to light scheme after first scroll past viewport height
-    window.addEventListener('scroll', function(){
-      var y = window.scrollY || window.pageYOffset;
-      heroVisible = y <= (window.innerHeight * 0.5);
-      closingVisible = closingBand ? (y + window.innerHeight) >= (document.documentElement.scrollHeight - (closingBand.clientHeight * 0.5)) : false;
-      if (!heroVisible) root.classList.add('nav-scheme-light'); else root.classList.remove('nav-scheme-light');
-      refreshCredFade();
-      autoCloseCredIfFaded();
+  var scrollChromeQueued = false;
+  var requestFrame = window.requestAnimationFrame || function (callback) { return window.setTimeout(callback, 16); };
+  function queueScrollChromeUpdate() {
+    if (scrollChromeQueued) return;
+    scrollChromeQueued = true;
+    requestFrame(function () {
+      scrollChromeQueued = false;
+      updateScrollChrome();
     });
   }
+
+  updateScrollChrome();
+  window.addEventListener('scroll', queueScrollChromeUpdate, false);
+  window.addEventListener('resize', queueScrollChromeUpdate);
 
   // Blur-up header: mark header as loaded after window load to fade overlay
   window.addEventListener('load', function(){
