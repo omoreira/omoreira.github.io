@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  var toggle = document.querySelector('.nav-toggle');
+  var toggles = Array.prototype.slice.call(document.querySelectorAll('.nav-toggle'));
   var menu = document.getElementById('site-menu');
   var root = document.documentElement;
   var header = document.getElementById('large-header') || document.getElementById('page-header');
@@ -11,36 +11,42 @@ document.addEventListener('DOMContentLoaded', function () {
   var credPanel = document.getElementById('cred-panel');
   var closingBand = document.getElementById('closing-band');
   var credClose = credPanel ? credPanel.querySelector('.cred-panel__close') : null;
-  var hasMenu = toggle && menu;
+  var hasMenu = toggles.length > 0 && menu;
   var heroVisible = true;
   var closingVisible = false;
 
   function openMenu() {
     if (!hasMenu) return;
     menu.hidden = false;
-    toggle.setAttribute('aria-expanded', 'true');
-    toggle.setAttribute('aria-label', 'Close menu');
+    toggles.forEach(function (toggle) {
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Close menu');
+    });
     root.classList.add('nav-open');
   }
 
   function closeMenu() {
     if (!hasMenu) return;
     menu.hidden = true;
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-label', 'Open menu');
+    toggles.forEach(function (toggle) {
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open menu');
+    });
     root.classList.remove('nav-open');
   }
 
   function toggleMenu() {
     if (!hasMenu) return;
-    var expanded = toggle.getAttribute('aria-expanded') === 'true';
+    var expanded = !menu.hidden;
     if (expanded) closeMenu(); else openMenu();
   }
 
   if (hasMenu) {
-    toggle.addEventListener('click', function (e) {
-      e.preventDefault();
-      toggleMenu();
+    toggles.forEach(function (toggle) {
+      toggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        toggleMenu();
+      });
     });
 
     menu.addEventListener('click', function (e) {
@@ -158,10 +164,20 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!href) return false;
     var m = href.match(/^\/([a-z0-9\-]+)$/i);
     if (m && document.getElementById('overlay-tpl-' + m[1])) return true;
+    if (/^\/(?:credits-website-design|credits-illustrations|ai-assistance)$/.test(href) && document.getElementById('overlay-tpl-credits')) return true;
+    if (/^\/(?:standards|conduct|privacy|legal)$/.test(href) && document.getElementById('overlay-tpl-credits')) return true;
     // Accept either spelling for compatibility
     return /^(\/ai-assistance|\/conduct|\/privacy|\/legal|\/(?:newletter|newsletter))$/.test(href);
   }
   function tpl(slug){
+    // Legacy credit URLs now open the combined credits overlay.
+    if (/^(?:credits-website-design|credits-illustrations|ai-assistance)$/.test(slug)) {
+      return document.getElementById('overlay-tpl-credits');
+    }
+    // Standards URLs now open the same combined credits and standards overlay.
+    if (/^(?:standards|conduct|privacy|legal)$/.test(slug)) {
+      return document.getElementById('overlay-tpl-credits');
+    }
     // Support alias: newsletter (correct spelling) maps to legacy template id 'newletter'
     return document.getElementById('overlay-tpl-' + slug) ||
            (slug === 'newsletter' ? document.getElementById('overlay-tpl-newletter') : null);
@@ -194,9 +210,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function openOverlay(slug, title){
     if (!overlay) return;
+    var isFullPageOverlay = /^(?:credits|credits-website-design|credits-illustrations|ai-assistance|standards|conduct|privacy|legal|contact|book-a-meeting)$/.test(slug);
     lastFocus = document.activeElement;
     document.documentElement.classList.add('overlay-open');
     document.body.classList.add('overlay-open');
+    overlay.classList.toggle('overlay--full-page', isFullPageOverlay);
+    overlay.setAttribute('aria-labelledby', isFullPageOverlay ? 'overlay-content-title' : 'overlay-title');
     overlay.removeAttribute('hidden');
     var t = document.getElementById('overlay-title');
     if (t) t.textContent = title || 'Information';
@@ -223,6 +242,8 @@ document.addEventListener('DOMContentLoaded', function () {
   function closeOverlay(){
     if (!overlay) return;
     overlay.setAttribute('hidden','');
+    overlay.classList.remove('overlay--full-page');
+    overlay.setAttribute('aria-labelledby', 'overlay-title');
     document.documentElement.classList.remove('overlay-open');
     document.body.classList.remove('overlay-open');
     if (lastFocus && lastFocus.focus) lastFocus.focus();
@@ -246,10 +267,10 @@ document.addEventListener('DOMContentLoaded', function () {
       var slug = href.replace(/^\//,'');
       var titles = {
         // Standards
-        'ai-assistance':'AI Assistance Disclosure',
-        'conduct':'Open Scientific Practice',
-        'privacy':'Privacy & Terms',
-        'legal':'Copyright & Fair Dealing',
+        'ai-assistance':'Credits',
+        'conduct':'Credits',
+        'privacy':'Credits',
+        'legal':'Credits',
         // Newsletter
         'newletter':'Subscribe to our Newsletter',
         'newsletter':'Subscribe to our Newsletter',
@@ -259,10 +280,15 @@ document.addEventListener('DOMContentLoaded', function () {
         'articles-writing':'Creative Writing',
         'articles-how-tos':'How‑Tos',
         // Credits
-        'credits-website-design':'Website Design',
-        'credits-illustrations':'Illustrations',
+        'credits':'Credits',
+        'credits-website-design':'Credits',
+        'credits-illustrations':'Credits',
+        'contact':'Contact',
+        'book-a-meeting':'Book a Meeting',
         'credits-animations':'Animations',
         'credits-om-credentials':'OM Credentials',
+        // Standards
+        'standards':'Credits',
         // Labs
         'labs-modularity':'Modularity',
         'labs-decentralization':'Decentralization',

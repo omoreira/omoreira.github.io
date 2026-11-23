@@ -17,16 +17,19 @@ For a simplified, forkable demo of this project, see the **[`main`](../../tree/m
 ## Overview
 
 A responsive, static website for **Olga Moreira**.  
-The landing page features an animated canvas background and a concise introduction, followed by themed sections that highlight *About*, *Research & Development*, *OM OpenSkies*, *Sam AI*, and *Creative Writing*.
+The landing page features an animated canvas background and sections about *About*, *AI Integration & Systems Analysis*, *Open Science Engagement*, *Astrophysics & Space Science Outreach*, and *Technical & Creative Writing*.
 
 ### Highlights
 - Animated hero header using canvas with interactive points and lines.  
 - Clear, readable hero typography (Montserrat) with subtle contrast shadows.  
 - Double-chevron scroll cue guiding users downward.  
-- Mobile “hamburger” navigation with adaptive light/dark color scheme.  
+- Hamburger navigation with an adaptive light/dark color scheme.
 - Two-column responsive section design, alternating left/right alignment.  
 - Unified heading color and consistent logo sizing throughout.  
 - Smooth scrolling and accessibility-aware responsive scaling.
+- A palette-matched horizontal action bar appears after scrolling past the hero, with navigation, contact, meeting, and credits links.
+- Full-page overlays provide the contact form, Zoom meeting scheduler link, and a table of contents for credits and site policies.
+- The footer includes a WES credential verification badge linking to the verification record.
 
 ---
 
@@ -35,7 +38,13 @@ The landing page features an animated canvas background and a concise introducti
 - **HTML / CSS / JS only** (no build step required)  
 - **CSS:** Normalize.css + custom theme variables (`css/om-landing.css`)  
 - **JS:** Canvas animation (`js/om-landing.js`), adaptive navigation (`js/nav.js`)  
-- **Assets:** `/img` for images/logos, `/fonts` for icon and font assets
+- **Assets:** `/img` for images and logos (including `img/WES.png`), `/fonts` for icon and font assets
+
+### Contact and verification
+
+- The contact overlay uses the Formspree form configured in `content/contact.html`.
+- The meeting overlay links to Olga Moreira's [Zoom Scheduler](https://scheduler.zoom.us/olga-moreira/om-synaptic-systems-info).
+- The WES badge links to the [credential verification record](https://badges.wes.org/Evidence?i=9db97a02-46a7-49be-877d-e9bd350b7115&type=ca).
 
 
 ## AI Assistance Disclosure
